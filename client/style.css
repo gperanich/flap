@@ -4,8 +4,18 @@
 .navbar .container-fluid {
   height: 5em;
 }
+.navbar .container-fluid .logo {
+  height: 4.5em;
+}
 .navbar .container-fluid .logo img {
   height: 2.5em;
+}
+.navbar .container-fluid .collapse .navbar-right {
+  padding-top: .7em;
+}
+.navbar .container-fluid .collapse .navbar-right li {
+  padding-right: 1em;
+  letter-spacing: 1px;
 }
 * {
   box-sizing: border-box;
