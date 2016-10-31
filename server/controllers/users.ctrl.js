@@ -2,7 +2,7 @@ var express = require('express');
 var procedures = require('../procedures/users.proc');
 var passport = require('../config/passport');
 var utils = require('../utils');
-var auth = require('../middleware/auth.mw');
+var auth = require('../middleware/auth.mw')
 
 var router = express.Router();
 

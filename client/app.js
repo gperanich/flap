@@ -1,4 +1,4 @@
-angular.module('DroneApp', ['ngRoute', 'ngResource', 'DroneApp.controllers'])
+angular.module('DroneApp', ['ngRoute', 'ngResource', 'DroneApp.controllers', 'DroneApp.directives'])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider

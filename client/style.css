@@ -1,0 +1,15 @@
+.navbar {
+  height: 5em;
+}
+.navbar .container-fluid {
+  height: 5em;
+}
+.navbar .container-fluid .logo img {
+  height: 2.5em;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  padding-top: 70px;
+}
