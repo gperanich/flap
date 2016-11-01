@@ -29,29 +29,27 @@ angular.module('DroneApp.controllers', [])
             });
         }
     }])
-    .controller('AccountController', ['$scope', function($scope) {
-            function vidFade() {
-                vid.classList.add("stopfade");
-            }
-
-            vid.addEventListener('ended', function () {
-                // only functional if "loop" is removed 
-                vid.pause();
-                // to capture IE10
-                vidFade();
+    .controller('AccountController', ['$scope', 'Buildings', 'UserService', function($scope, Buildings, UserService) {
+            var user = UserService.me().then(function(success) {
+                console.log(success.id);
+                user = success.id;
+                console.log(user);
             });
+            console.log(user);
 
-
-            pauseButton.addEventListener("click", function () {
-                vid.classList.toggle("stopfade");
-                if (vid.paused) {
-                    vid.play();
-                    pauseButton.innerHTML = "Pause";
-                } else {
-                    vid.pause();
-                    pauseButton.innerHTML = "Paused";
-                }
-            })
+            $scope.createBuilding = function() {
+                var buildingData = {
+                    userid: user,
+                    height: $scope.height,
+                    width: $scope.width,
+                    length: $scope.length
+                };
+                console.log(user);
+                var building = new Buildings(buildingData);
+                building.$save(function(success) {
+                    console.log(success);
+                });
+            }
 
 
     }])
@@ -59,9 +57,6 @@ angular.module('DroneApp.controllers', [])
 
     }])
     .controller('PastWorkController', ['$scope', function ($scope) {
-
-    }])
-    .controller('AccountController', ['$scope', function ($scope) {
 
     }])
     .controller('RegisterController', ['$scope', 'Users', '$location', function($scope, Users, $location) {
@@ -78,4 +73,26 @@ angular.module('DroneApp.controllers', [])
             });
         }
     }])
+    
+            // function vidFade() {
+            //     vid.classList.add("stopfade");
+            // }
 
+            // vid.addEventListener('ended', function () {
+            //     // only functional if "loop" is removed 
+            //     vid.pause();
+            //     // to capture IE10
+            //     vidFade();
+            // });
+
+
+            // pauseButton.addEventListener("click", function () {
+            //     vid.classList.toggle("stopfade");
+            //     if (vid.paused) {
+            //         vid.play();
+            //         pauseButton.innerHTML = "Pause";
+            //     } else {
+            //         vid.pause();
+            //         pauseButton.innerHTML = "Paused";
+            //     }
+            // });

@@ -13,3 +13,12 @@ angular.module('DroneApp.directives', [])
             }]
         };
     })
+    .directive('createRoute', function() {
+        return{
+            templateUrl: 'directives/createRoute.html',
+            restrict: 'E',
+            controller: ['$scope', function($scope) {
+
+            }]
+        }
+    })
