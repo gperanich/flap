@@ -3,8 +3,13 @@ angular.module('DroneApp.directives', [])
         return {
             templateUrl: 'directives/navbar.html',
             restrict: 'E',
-            controller: ['$scope', '$rootScope', function ($scope, $rootScope) {
-
+            controller: ['$scope', '$rootScope', 'UserService', '$location', function ($scope, $rootScope, UserService, $location) {
+                $scope.logout = function() {
+                    console.log('clicked logout');
+                    UserService.logout().then(function(success) {
+                        $location.url('/');
+                    });
+                }
             }]
         };
     })
