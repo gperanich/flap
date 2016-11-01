@@ -29,9 +29,23 @@ angular.module('DroneApp.controllers', [])
             });
         }
     }])
-    .controller('AccountController', ['$scope', 'Buildings', 'UserService', function($scope, Buildings, UserService) {
+    .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', function($scope, Buildings, UserService, Routes) {
+            $scope.hideRoutes = true;
+            $scope.hideDetails = true;
+            $scope.showDetails = function() {
+                console.log('clicked to see building details');
+                $scope.hideDetails = !$scope.hideDetails;
+            };
+            $scope.showRoutes = function() {
+                console.log('clicked to see routes');
+                $scope.hideRoutes = !$scope.hideRoutes;
+            };
+
             var user = UserService.me().then(function(success) {
                 user = success.id;
+                $scope.buildings = Buildings.filter({ userid: success.id });
+                $scope.routes = Routes.filter({ userid: success.id });
+                console.log($scope.routes);
             });
 
             $scope.createBuilding = function() {

@@ -26,6 +26,25 @@ router.route('/')
         })
     });
 
+router.route('/user/:userid')
+    .get(function(req, res) {
+        procedures.read(req.params.userid).then(function(routes) {
+            routes.forEach(function(route) {
+                try {
+                    var array = JSON.parse(route.commands);
+                    route.commands = array;
+                } catch (err) {
+                    console.log(err);
+                    route.commands = [];
+                }
+            }); 
+            res.send(routes);
+        }, function(err) {
+            console.log(err);
+            res.sendStatus(500);
+        });
+    });
+
 router.route('/:id')
     .get(function(req, res) {
         procedures.read(req.params.id).then(function(route) {
