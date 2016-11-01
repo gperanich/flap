@@ -1,4 +1,4 @@
-angular.module('DroneApp', ['ngRoute', 'ngResource', 'DroneApp.controllers', 'DroneApp.directives'])
+angular.module('DroneApp', ['ngRoute', 'ngResource', 'DroneApp.controllers', 'DroneApp.factories', 'DroneApp.services', 'DroneApp.directives'])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
@@ -16,11 +16,15 @@ angular.module('DroneApp', ['ngRoute', 'ngResource', 'DroneApp.controllers', 'Dr
     })
     .when('/login', {
         templateUrl: 'views/login.html',
-        controller: 'LogInController'
+        controller: 'LoginController'
     })
     .when('/account_home', {
         templateUrl: 'account.html',
         controller: 'AccountController'
+    })
+    .when('/register', {
+        templateUrl: 'views/register.html',
+        controller: 'RegisterController'
     })
     .otherwise({
         redirectTo: '/'
