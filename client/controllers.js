@@ -87,6 +87,7 @@ angular.module('DroneApp.controllers', [])
                 $location.url('/');
             });
         }
+
     }])
     
             // function vidFade() {
