@@ -4,14 +4,18 @@
 			<h3>Sign up!</h3>
 		</div>
 		<div class="userinfo">
-			<div class="username col-md-6">
+			<div class="username col-md-12">
 				<input type="text" ng-model="firstname" placeholder="First Name...">
 				<input type="text" ng-model="lastname" placeholder="Last Name...">
 			</div>
-			<div class="accountinfo col-md-">
-				<input type="email" ng-model="email" placeholder="Email...">
-				<input type="password" ng-model="password" placeholder="Password">
-				<input type="password" ng-model="confirmPassword" placeholder="Confirm Password">
+			<div class="accountinfo col-md-12">
+                <div class="email">
+				    <input type="email" ng-model="email" placeholder="Email...">
+                </div>
+                <div class="password">
+                    <input type="password" ng-model="password" placeholder="Password">
+				    <input type="password" ng-model="confirmPassword" placeholder="Confirm Password">
+                </div>
 			</div>
 			<div class="confirm">
 				<button ng-click="newUser()">Submit</button>
