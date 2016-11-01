@@ -56,6 +56,10 @@ angular.module('DroneApp.controllers', [])
     .controller('PastWorkController', ['$scope', function ($scope) {
 
     }])
+
+    .controller('ContactController', ['$scope', function($scope) {
+        
+    }])
     .controller('RegisterController', ['$scope', 'Users', '$location', function($scope, Users, $location) {
         $scope.newUser = function() {
             var userData = {
