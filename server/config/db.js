@@ -3,7 +3,7 @@ var pool = mysql.createPool({
    connectionlimit: 10,
    host: "mydatabaseserver.c4dudm0wenm8.us-west-2.rds.amazonaws.com",
    user: "gperanich",
-   password: "joseph2317",
+   password: "droneapp123",
    database: "DroneApp"
 });
 

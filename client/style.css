@@ -1,0 +1,161 @@
+.navbar img {
+  height: 2.9em;
+  margin-top: -3px;
+  margin-left: .5em;
+}
+.navbar img:hover {
+  height: 3em;
+}
+.navbar-fixed-top {
+  min-height: 80px;
+}
+.navbar-nav > li > a {
+  margin-right: 1.5em;
+  letter-spacing: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  line-height: 80px;
+}
+.navbar-nav > li > a:hover {
+  border-bottom: 4px solid dimgrey;
+  line-height: 76px;
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+  .navbar-nav > li > a {
+    line-height: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+.navbar-toggle {
+  margin: 2rem;
+}
+.welcome-container {
+  position: relative;
+  text-align: center;
+}
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade {
+  opacity: .5;
+}
+#vid {
+  font-weight: 100;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 2rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 170px 0 0 -140px;
+}
+#vid h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  letter-spacing: 5px;
+}
+#vid p {
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+#vid .howitworks {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.5);
+  padding: .5rem;
+  transition: .6s background;
+  font-size: 1.4em;
+  letter-spacing: 2px;
+  border: 1px solid white;
+  text-transform: uppercase;
+  border-radius: 5px;
+  margin: 7px;
+}
+#vid .howitworks:hover {
+  text-decoration: none;
+  color: white;
+  background: rgba(225, 225, 225, 0.5);
+  font-size: 1.45em;
+}
+#vid button {
+  display: block;
+  width: 80%;
+  padding: .4rem;
+  border: none;
+  margin: 1rem auto;
+  font-size: 1.3rem;
+  background: rgba(255, 255, 255, 0.23);
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: .3s background;
+}
+#vid button:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+.creator-container {
+  position: relative;
+}
+.creator-container .user-creator {
+  background-color: #5b5b5b;
+  text-align: center;
+  width: 35em;
+  height: 25em;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 2em;
+  margin: 145px 0 0 -240px;
+}
+.creator-container .user-creator .signup {
+  color: white;
+  letter-spacing: 1px;
+}
+.creator-container .user-creator .userinfo {
+  top: 50%;
+  left: 50%;
+}
+.creator-container .user-creator .userinfo .username {
+  margin: 1em;
+}
+.creator-container .user-creator .userinfo .username input {
+  margin: .5em;
+}
+.creator-container .user-creator .userinfo .accountinfo input {
+  margin: .5em;
+}
+.route-command {
+  float: left;
+}
+.route-amount {
+  float: left;
+  margin-left: 50px;
+}
+.route-buttons {
+  margin-top: 100px;
+  float: left;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  padding-top: 70px;
+  background-color: #bbbec1;
+}

@@ -1,0 +1,41 @@
+.navbar {
+
+    img{
+        height: 2.9em;
+        margin-top: -3px;
+        margin-left: .5em;
+
+        &:hover {
+            height: 3em;
+        }
+    }
+}
+
+.navbar-fixed-top {
+    min-height: 80px;
+}
+
+.navbar-nav > li > a {
+    margin-right: 1.5em;
+    letter-spacing: 1px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 80px;
+
+     &:hover {
+         border-bottom: 4px solid dimgrey;
+         line-height: 76px;
+         font-size: 14px;
+     }
+}
+
+@media (max-width: 767px) {
+    .navbar-nav > li > a {
+    line-height: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;}
+}
+
+.navbar-toggle {
+    margin: 2rem;
+}

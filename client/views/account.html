@@ -1,1 +1,28 @@
 <h1>This is the account home page</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>The list of the user's current buildings</h1>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Create a new building</h1>
+            <input type="text" ng-model="buildingName" placeholder="building name">
+            <input type="number" ng-model="height" placeholder="height">
+            <input type="number" ng-model="width" placeholder="width">
+            <input type="number" ng-model="length" placeholder="length">
+            <button ng-click="createBuilding()">Create Building</button>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Create a new route</h1>
+            <create-route></create-route>
+        </div>
+    </div>
+</div>
