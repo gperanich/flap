@@ -18,6 +18,8 @@
 }
 .navbar-nav > li > a:hover {
   border-bottom: 4px solid dimgrey;
+  line-height: 76px;
+  font-size: 14px;
 }
 @media (max-width: 767px) {
   .navbar-nav > li > a {
@@ -43,7 +45,6 @@ video {
   height: auto;
   z-index: -100;
   transform: translateX(-50%) translateY(-50%);
-  background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
   background-size: cover;
   transition: 1s opacity;
 }
@@ -108,9 +109,42 @@ video {
 #vid button:hover {
   background: rgba(0, 0, 0, 0.5);
 }
+.creator-container {
+  position: relative;
+}
+.creator-container .user-creator {
+  background-color: #5b5b5b;
+  text-align: center;
+  width: 35em;
+  height: 25em;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 2em;
+  margin: 145px 0 0 -240px;
+}
+.creator-container .user-creator .signup {
+  color: white;
+  letter-spacing: 1px;
+}
+.creator-container .user-creator .userinfo {
+  top: 50%;
+  left: 50%;
+}
+.creator-container .user-creator .userinfo .username {
+  margin: 1em;
+}
+.creator-container .user-creator .userinfo .username input {
+  margin: .5em;
+}
+.creator-container .user-creator .userinfo .accountinfo input {
+  margin: .5em;
+}
 * {
   box-sizing: border-box;
 }
 body {
   padding-top: 70px;
+  background-color: #bbbec1;
 }
