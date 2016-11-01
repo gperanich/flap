@@ -16,7 +16,9 @@ router.route('/')
         });
     })
     .post(function(req, res) {
-        procedures.create(req.body.routeid, req.body.command, req.body.amount).then(function(route) {
+        console.log(req.body);
+        procedures.create(req.body.userid, req.body.buildingid, req.body.commands).then(function(route) {
+            console.log(route);
             res.send(route);
         }, function(err) {
             console.log(err);

@@ -31,11 +31,8 @@ angular.module('DroneApp.controllers', [])
     }])
     .controller('AccountController', ['$scope', 'Buildings', 'UserService', function($scope, Buildings, UserService) {
             var user = UserService.me().then(function(success) {
-                console.log(success.id);
                 user = success.id;
-                console.log(user);
             });
-            console.log(user);
 
             $scope.createBuilding = function() {
                 var buildingData = {

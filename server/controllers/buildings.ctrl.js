@@ -25,6 +25,15 @@ router.route('/')
         });
     });
 
+router.route('/user/:userid')
+    .get(function(req, res) {
+        procedures.read(req.params.userid).then(function(building) {
+            res.send(building);
+        }, function(err) {
+            res.status(500).send(err);
+        });
+    });
+
 router.route('/:id')
     .get(function(req, res) {
         procedures.read(req.params.id).then(function(building) {

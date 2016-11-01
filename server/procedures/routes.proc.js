@@ -6,6 +6,6 @@ exports.all = function() {
 exports.read = function(id) {
     return db.row('GetRoute', [id]);
 }
-exports.create = function(routeid, command, amount) {
-    return db.row('NewRoute', [routeid, command, amount]);
+exports.create = function(userid, buildingid, commands) {
+    return db.row('NewRoute', [userid, buildingid, commands]);
 }
