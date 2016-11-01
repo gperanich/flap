@@ -1,7 +1,8 @@
 var express = require('express');
 var procedures = require('../procedures/users.proc');
-var passport = require('../config/passport');
+var passport = require('passport');
 var utils = require('../utils');
+var auth = require('../middleware/auth.mw')
 
 var router = express.Router();
 
@@ -12,10 +13,12 @@ router.post('/login', function(req, res, next) {
             res.sendStatus(500);
         }
         if (!user) {
+            console.log(info);
             res.status(401).send(info);
         }
         req.logIn(user, function(err) {
             if (err) {
+                console.log(err);
                 return res.sendStatus(500);
             } else {
                 return res.send(user);
@@ -30,7 +33,7 @@ router.get('logout', function(req, res) {
         res.sendStatus(204);
     })
 })
-router.all('*', auth.isLoggedIn);
+// router.all('*', auth.isLoggedIn);
 
 router.route('/')
     .get(function(req, res) {
@@ -52,7 +55,7 @@ router.route('/')
     });
 
 router.get('/me', function(req, res) {
-    res.send(user);
+    res.send(req.user);
 });
 
 router.route('/:id')
