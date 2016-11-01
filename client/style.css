@@ -3,6 +3,9 @@
   margin-top: -3px;
   margin-left: .5em;
 }
+.navbar img:hover {
+  height: 3em;
+}
 .navbar-fixed-top {
   min-height: 80px;
 }
@@ -12,6 +15,9 @@
   padding-top: 0px;
   padding-bottom: 0px;
   line-height: 80px;
+}
+.navbar-nav > li > a:hover {
+  border-bottom: 4px solid dimgrey;
 }
 @media (max-width: 767px) {
   .navbar-nav > li > a {
@@ -66,13 +72,25 @@ video {
   font-size: 19px;
   letter-spacing: 1px;
 }
-#vid div a {
-  margin-top: 3em;
-  font-size: 16px;
-  text-align: center;
-  border-radius: 5px;
-  text-transform: uppercase;
+#vid .howitworks {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.5);
+  padding: .5rem;
+  transition: .6s background;
+  font-size: 1.4em;
   letter-spacing: 2px;
+  border: 1px solid white;
+  text-transform: uppercase;
+  border-radius: 5px;
+  margin: 7px;
+}
+#vid .howitworks:hover {
+  text-decoration: none;
+  color: white;
+  background: rgba(225, 225, 225, 0.5);
+  font-size: 1.45em;
 }
 #vid button {
   display: block;
@@ -89,22 +107,6 @@ video {
 }
 #vid button:hover {
   background: rgba(0, 0, 0, 0.5);
-}
-.howitworks {
-  display: inline-block;
-  color: #fff;
-  text-decoration: none;
-  background: rgba(0, 0, 0, 0.5);
-  padding: .5rem;
-  transition: .6s background;
-  font-size: 1.4em;
-  letter-spacing: 1.5px;
-  border: 1px solid white;
-}
-.howitworks a:hover {
-  text-decoration: none;
-  color: white;
-  background: rgba(0, 0, 0, 0.9);
 }
 * {
   box-sizing: border-box;

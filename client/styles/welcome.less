@@ -45,17 +45,27 @@ video {
         letter-spacing: 1px;
     }
 
-    div {
+    .howitworks {
+        display: inline-block;
+        color: #fff;
+        text-decoration: none;
+        background:rgba(0,0,0,0.5);
+        padding: .5rem;
+        transition: .6s background; 
+        font-size: 1.4em;
+        letter-spacing: 2px;
+        border: 1px solid white;
+        text-transform: uppercase;
+        border-radius: 5px;
+        margin: 7px;
 
-        a {
-            margin-top: 3em;
-            font-size: 16px;
-            text-align: center;
-            border-radius: 5px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            &:hover{
+                text-decoration: none;
+                color: white;
+                background:rgba(225,225,225,0.5);
+                font-size: 1.45em;
+            }
         }
-    }
 }
 
 #vid button { 
@@ -75,24 +85,7 @@ video {
    background: rgba(0,0,0,0.5);
 }
 
-.howitworks {
-  display: inline-block;
-  color: #fff;
-  text-decoration: none;
-  background:rgba(0,0,0,0.5);
-  padding: .5rem;
-  transition: .6s background; 
-  font-size: 1.4em;
-  letter-spacing: 1.5px;
-  border: 1px solid white;
 
-
-    a:hover{
-        text-decoration: none;
-        color: white;
-        background:rgba(0,0,0,0.9);
-    }
-}
 
 // @media screen and (max-width: 500px) { 
 //   div{width:70%;} 
