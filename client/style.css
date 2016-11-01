@@ -141,6 +141,17 @@ video {
 .creator-container .user-creator .userinfo .accountinfo input {
   margin: .5em;
 }
+.route-command {
+  float: left;
+}
+.route-amount {
+  float: left;
+  margin-left: 50px;
+}
+.route-buttons {
+  margin-top: 100px;
+  float: left;
+}
 * {
   box-sizing: border-box;
 }
