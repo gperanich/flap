@@ -3,7 +3,6 @@ angular.module('DroneApp.controllers', [])
             console.log('Welcome!')
 
             var vid = document.getElementById("bgvid");
-            var pauseButton = document.querySelector("#polina button");
 
     }])
     .controller('LoginController', ['$scope', 'UserService', '$location', function($scope, UserService, $location) {

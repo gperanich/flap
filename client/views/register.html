@@ -1,25 +1,33 @@
 <div class="creator-container container">
 	<div class="user-creator row">
+		<div class="tabs">
+			<div class="tab1 col-md-6">Login
+			</div>
+			<div class="tab2 col-md-6">Sign up</div>
+		</div>
 		<div class="signup">
 			<h3>Sign up!</h3>
 		</div>
 		<div class="userinfo">
 			<div class="username col-md-12">
-				<input type="text" ng-model="firstname" placeholder="First Name...">
-				<input type="text" ng-model="lastname" placeholder="Last Name...">
+				<input type="text" ng-model="firstname" placeholder="First Name">
+				<input type="text" ng-model="lastname" placeholder="Last Name">
 			</div>
 			<div class="accountinfo col-md-12">
-                <div class="email">
-				    <input type="email" ng-model="email" placeholder="Email...">
-                </div>
-                <div class="password">
-                    <input type="password" ng-model="password" placeholder="Password">
-				    <input type="password" ng-model="confirmPassword" placeholder="Confirm Password">
-                </div>
+				<div class="email">
+					<input type="email" ng-model="email" placeholder="Email">
+				</div>
+				<div class="password">
+					<input type="password" ng-model="password" placeholder="Password">
+					<input type="password" ng-model="confirmPassword" placeholder="Confirm">
+				</div>
 			</div>
 			<div class="confirm">
-				<button ng-click="newUser()">Submit</button>
+				<button ng-click="newUser()">Let's do it.</button>
 			</div>
+			<a href="/login">
+				<h6>Oh, I already have an account</h6>
+			</a>
 		</div>
 	</div>
 </div>
