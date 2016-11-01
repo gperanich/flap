@@ -132,13 +132,19 @@ video {
   top: 50%;
   left: 50%;
 }
+.creator-container .user-creator .userinfo input {
+  border-radius: 5px;
+}
 .creator-container .user-creator .userinfo .username {
   margin: 1em;
 }
 .creator-container .user-creator .userinfo .username input {
   margin: .5em;
 }
-.creator-container .user-creator .userinfo .accountinfo input {
+.creator-container .user-creator .userinfo .accountinfo .password {
+  margin: 1em;
+}
+.creator-container .user-creator .userinfo .accountinfo .password input {
   margin: .5em;
 }
 .route-command {
