@@ -1,10 +1,11 @@
 {
   "name": "flap",
   "version": "1.0.0",
-  "description": "drone control domination",
-  "main": "app-server/index.js",
+  "description": "",
+  "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodemon -e js,less --exec \"source .variables && lessc client/styles/main.less client/style.css && node server/index.js\"",
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,13 @@
   "dependencies": {
     "aws-iot-device-sdk": "^1.0.13",
     "aws-sdk": "^2.6.12"
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-mysql-session": "^1.2.0",
+    "express-session": "^1.14.2",
+    "mysql": "^2.11.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }
