@@ -1,3 +1,8 @@
+.navbar {
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+}
 .navbar img {
   height: 2.9em;
   margin-top: -3px;
@@ -119,7 +124,7 @@ video {
 }
 .creator-container .user-creator {
   opacity: 0;
-  background-color: #5b5b5b;
+  background-color: #1b1b1c;
   text-align: center;
   width: 32em;
   height: 25em;
@@ -239,7 +244,11 @@ video {
 }
 .creator-container .user-creator-login {
   opacity: 0;
+<<<<<<< HEAD
   background-color: #5b5b5b;
+=======
+  background-color: #1b1b1c;
+>>>>>>> dev
   text-align: center;
   width: 32em;
   height: 25em;
@@ -339,6 +348,24 @@ video {
   font-size: 12px;
   color: lightblue;
 }
+<<<<<<< HEAD
+=======
+.contact-container {
+  position: relative;
+}
+.contact-container .contact-row {
+  text-align: center;
+  position: relative;
+}
+.contact-container .contact-row .contact-form-row .contact-form {
+  background-color: black;
+  height: 200px;
+}
+.contact-container .contact-row .map .map-box {
+  background-color: red;
+  height: 200px;
+}
+>>>>>>> dev
 * {
   box-sizing: border-box;
 }
