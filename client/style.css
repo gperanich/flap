@@ -36,6 +36,9 @@
   text-align: center;
 }
 video {
+  -webkit-filter: grayscale(100%);
+  /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -86,6 +89,7 @@ video {
   text-transform: uppercase;
   border-radius: 5px;
   margin: 7px;
+  padding: 3px 15px 3px 15px;
 }
 #vid .howitworks:hover {
   text-decoration: none;
@@ -105,6 +109,7 @@ video {
   border-radius: 3px;
   cursor: pointer;
   transition: .3s background;
+  padding: 3px 15px 3px 15px;
 }
 #vid button:hover {
   background: rgba(0, 0, 0, 0.5);
@@ -113,20 +118,54 @@ video {
   position: relative;
 }
 .creator-container .user-creator {
+  opacity: 0;
   background-color: #5b5b5b;
   text-align: center;
-  width: 35em;
+  width: 32em;
   height: 25em;
-  padding: 20px;
+  padding: 23px;
   position: absolute;
-  top: 50%;
   left: 50%;
   border-radius: 2em;
-  margin: 145px 0 0 -240px;
+  margin: 120px 0 0 -220px;
+  box-shadow: 2px 5px 1px 0 rgba(0, 0, 0, 0.7);
+  padding: 0px;
+  z-index: 1;
+}
+.creator-container .user-creator .tabs {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  height: 4em;
+}
+.creator-container .user-creator .tabs .tab1-register {
+  display: inline-block;
+  width: 50%;
+  height: 4em;
+  padding-top: 16px;
+  border-bottom-right-radius: 5px;
+  border-bottom: 2px solid white;
+  border-top-left-radius: 2em;
+  background-color: lightgray;
+  color: #5b5b5b;
+}
+.creator-container .user-creator .tabs .tab2-register {
+  display: inline-block;
+  width: 50%;
+  height: 48px;
+  padding-top: 16px;
+  border-bottom: none;
+  z-index: 9999;
+  float: right;
+  border-left: 1px solid white;
+  color: white;
 }
 .creator-container .user-creator .signup {
   color: white;
-  letter-spacing: 1px;
+  letter-spacing: 5px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
 }
 .creator-container .user-creator .userinfo {
   top: 50%;
@@ -135,17 +174,54 @@ video {
 .creator-container .user-creator .userinfo input {
   border-radius: 5px;
 }
+.creator-container .user-creator .userinfo input::-webkit-input-placeholder {
+  color: #5b5b5b;
+  padding-left: 3px;
+}
 .creator-container .user-creator .userinfo .username {
-  margin: 1em;
+  margin-bottom: 1em;
 }
 .creator-container .user-creator .userinfo .username input {
   margin: .5em;
+  width: 45%;
+}
+.creator-container .user-creator .userinfo .accountinfo .email input {
+  width: 95%;
 }
 .creator-container .user-creator .userinfo .accountinfo .password {
-  margin: 1em;
+  margin: 1em 0 1em 0;
+  padding: 0;
 }
 .creator-container .user-creator .userinfo .accountinfo .password input {
-  margin: .5em;
+  margin: 8px;
+  width: 45%;
+}
+.creator-container .user-creator .userinfo .confirm {
+  margin-top: 1.3em;
+}
+.creator-container .user-creator .userinfo .confirm button {
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  width: 9.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.creator-container .user-creator .userinfo .confirm button:hover {
+  background: rgba(0, 0, 0, 0.5);
+  transition: .4s background;
+}
+.creator-container .user-creator .userinfo a:hover {
+  text-decoration: none;
+}
+.creator-container .user-creator .userinfo h6 {
+  margin-top: 20px;
+  letter-spacing: 1px;
+  font-size: 12px;
+  color: lightblue;
+}
+.creator-container .user-creator .userinfo h6:hover {
+  text-decoration: none;
 }
 .route-command {
   float: left;
@@ -158,10 +234,118 @@ video {
   margin-top: 100px;
   float: left;
 }
+.creator-container {
+  position: relative;
+}
+.creator-container .user-creator-login {
+  opacity: 0;
+  background-color: #5b5b5b;
+  text-align: center;
+  width: 32em;
+  height: 25em;
+  padding: 23px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 2em;
+  margin: 120px 0 0 -220px;
+  box-shadow: 2px 5px 1px 0 rgba(0, 0, 0, 0.7);
+  padding: 0px;
+}
+.creator-container .user-creator-login .tabs-login {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  height: 4em;
+}
+.creator-container .user-creator-login .tabs-login .tab1 {
+  display: inline-block;
+  width: 50%;
+  float: left;
+  border-right: 1px solid white;
+  height: 48px;
+  padding-top: 16px;
+  border-bottom: none;
+  z-index: 9999;
+  color: white;
+}
+.creator-container .user-creator-login .tabs-login .tab2 {
+  display: inline-block;
+  width: 50%;
+  height: 4em;
+  padding-top: 16px;
+  border-bottom-left-radius: 5px;
+  border-bottom: 2px solid white;
+  border-top-right-radius: 2em;
+  background-color: lightgray;
+  color: #5b5b5b;
+}
+.creator-container .user-creator-login .signup-login {
+  color: white;
+  letter-spacing: 5px;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  text-transform: uppercase;
+}
+.creator-container .user-creator-login .userinfo {
+  top: 50%;
+  left: 50%;
+}
+.creator-container .user-creator-login .userinfo input {
+  border-radius: 5px;
+}
+.creator-container .user-creator-login .userinfo input::-webkit-input-placeholder {
+  color: #5b5b5b;
+  padding-left: 3px;
+}
+.creator-container .user-creator-login .userinfo .username {
+  margin-bottom: 1em;
+}
+.creator-container .user-creator-login .userinfo .username input {
+  margin: .5em;
+  width: 45%;
+}
+.creator-container .user-creator-login .userinfo .accountinfo .email input {
+  width: 95%;
+}
+.creator-container .user-creator-login .userinfo .accountinfo .password-login {
+  margin: 1em 0 1em 0;
+}
+.creator-container .user-creator-login .userinfo .accountinfo .password-login input {
+  margin: 8px;
+  width: 95%;
+}
+.creator-container .user-creator-login .userinfo .confirm {
+  margin-top: 2em;
+}
+.creator-container .user-creator-login .userinfo .confirm button {
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  width: 9.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.creator-container .user-creator-login .userinfo .confirm button:hover {
+  background: rgba(0, 0, 0, 0.5);
+  transition: .4s background;
+}
+.creator-container .user-creator-login .userinfo a:hover {
+  text-decoration: none;
+}
+.creator-container .user-creator-login .userinfo h6 {
+  margin-top: 20px;
+  letter-spacing: 1px;
+  font-size: 12px;
+  color: lightblue;
+}
 * {
   box-sizing: border-box;
 }
 body {
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   padding-top: 70px;
-  background-color: #bbbec1;
+  background-image: url('../images/drone3.png');
 }

@@ -12,5 +12,11 @@ angular.module('DroneApp.factories', [])
     });
 }])
 .factory('Routes', ['$resource', function($resource) {
-    return $resource('http://localhost:3000/api/routes/:id', { id:'@id' })
+    return $resource('http://localhost:3000/api/routes/:id', { id:'@id' }, {
+        filter: {
+            url: 'http://localhost:3000/api/routes/user/:userid',
+            method: 'GET',
+            isArray: true
+        }
+    });
 }])
