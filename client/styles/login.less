@@ -1,131 +1,135 @@
 .creator-container {
     position: relative;
+    height: 80vh;
 
     .user-creator-login {
         opacity: 0;
-        background-color: #1b1b1c;
-        text-align: center;
-        width: 32em;
-        height: 25em;
-        padding: 23px;
+        height: 20em;
         position: absolute;
         top: 50%;
-        left: 50%;
-        border-radius: 2em;
-        margin: 120px 0 0 -220px;
-        box-shadow: 2px 5px 1px 0 rgba(0.0, 0.0, 0.0, 0.7);
-        padding: 0px;
+        margin-top: -8em;
+        width: 100%;
 
-        .tabs-login {
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            height: 4em;
+        .login-form {
+            background-color: #1b1b1c;
+            max-width: 40em;
+            text-align: center;
+            border-radius: 2em;
+            margin: 0 auto;
+            padding-bottom: 15px;
+            box-shadow: 2px 5px 1px 0 rgba(0.0, 0.0, 0.0, 0.7);
 
-            .tab1 {
-                display: inline-block;
-                width: 50%;
-                float: left;
-                border-right: 1px solid white;
-                height: 48px;
-                padding-top: 16px;
-                border-bottom: none;
-                z-index: 9999;
+            .tabs-login {
                 color: white;
-            }
-            
-            .tab2 {
-                display: inline-block;
-                width: 50%;
+                text-transform: uppercase;
+                letter-spacing: 2px;
                 height: 4em;
-                padding-top: 16px;
-                border-bottom-left-radius: 5px;
-                border-bottom: 2px solid white;
-                border-top-right-radius: 2em;
-                background-color: lightgray;
-                color: #5b5b5b;
-            }
-        }
+                padding:0;
+                margin-bottom: 15px;
 
-        .signup-login {
-            color: white;
-            letter-spacing: 5px;
-            margin-top: 35px;
-            margin-bottom: 35px;
-            text-transform: uppercase
-        }
-
-        .userinfo {
-            top: 50%;
-            left: 50%;
-
-            input {
-                border-radius: 5px;
-
-                &::-webkit-input-placeholder { 
+                .tab1 {
+                    display: inline-block;
+                    width: 50%;
+                    padding-top: 16px;
+                    border-right: 1px solid white;
+                    height: 48px;
+                    padding-top: 16px;
+                    border-bottom: none;
+                    color: white;
+                    float: left;
+                }
+                
+                .tab2 {
+                    display: inline-block;
+                    width: 50%;
+                    height: 48px;
+                    padding-top: 16px;
+                    border-bottom-left-radius: 5px;
+                    border-bottom: 2px solid white;
+                    border-top-right-radius: 2em;
+                    background-color: lightgray;
                     color: #5b5b5b;
-                    padding-left: 3px;
                 }
             }
-            
-            .username {
-                margin-bottom: 1em;
+
+            .signup-login {
+                color: white;
+                letter-spacing: 5px;
+                margin-top: 35px;
+                margin-bottom: 35px;
+                text-transform: uppercase
+            }
+
+            .userinfo {
 
                 input {
-                    margin: .5em;
-                    width: 45%;
-                }
-            }
-
-            .accountinfo {
-
-                .email {
-                    
-                    input {
-                        width: 95%;
-                    }
-                }
-
-                .password-login{
-                    margin: 1em 0 1em 0;
-
-                    input {
-                        margin: 8px;
-                        width: 95%;
-                    }
-                }
-            }
-
-            .confirm {
-                margin-top: 2em;
-
-                button {
-                    border: 1px solid white;
                     border-radius: 5px;
-                    color: white;
-                    width: 9.5em;
-                    text-transform: uppercase;
-                    letter-spacing: 2px;
-                    
-                    &:hover {
-                        background:rgba(0,0,0,0.5);
-                        transition: .4s background; 
+
+                    &::-webkit-input-placeholder { 
+                        color: #5b5b5b;
+                        padding-left: 3px;
                     }
                 }
-            }
+                
+                .username {
+                    margin-bottom: .5em;
 
-            a {
-                &:hover {
-                    text-decoration: none;
+                    input {
+                        margin: .5em;
+                        width: 45%;
+                    }
                 }
-            }
 
-            h6 {
-                margin-top: 20px;
-                letter-spacing: 1px;
-                font-size: 12px;
-                color: lightblue;
+                .accountinfo {
 
+                    .email {
+                        
+                        input {
+                            width: 95%;
+                        }
+                    }
+
+                    .password-login{
+                        margin: .5em 0 1em 0;
+
+                        input {
+                            margin: 8px;
+                            width: 95%;
+                        }
+                    }
+                }
+
+                .confirm {
+                    margin-top: 2em;
+
+                    button {
+                        border: 1px solid white;
+                        border-radius: 5px;
+                        color: white;
+                        width: 9.5em;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        
+                        &:hover {
+                            background:rgba(0,0,0,0.5);
+                            transition: .4s background; 
+                        }
+                    }
+                }
+
+                a {
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+
+                h6 {
+                    margin-top: 20px;
+                    letter-spacing: 1px;
+                    font-size: 12px;
+                    color: lightblue;
+
+                }
             }
         }
     }
