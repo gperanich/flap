@@ -6,6 +6,6 @@ exports.all = function() {
 exports.read = function(id) {
     return db.rows('GetBuilding', [id]);
 }
-exports.create = function(userid, height, width, length) {
-    return db.row('NewBuilding', [userid, height, width, length]);
+exports.create = function(userid, name, height, width, length) {
+    return db.row('NewBuilding', [userid, name, height, width, length]);
 }

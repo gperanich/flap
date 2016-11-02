@@ -4,7 +4,7 @@
         <div class="col-md-12">
             <h1>The list of the user's current buildings</h1>
             <div class="building-list" ng-repeat="building in buildings">
-                <h4>{{ building.name }} <a href="#" ng-click="showDetails()">Details</a> <a href="#" ng-click="showRoutes()">Routes</a></h4>
+                <h4>{{ building.buildingName }} <a href="#" ng-click="showDetails($index)">Details</a> <a href="#" ng-click="showRoutes($index)">Routes</a></h4>
                 <div class="building-details" ng-hide="hideDetails">
                     <p>Height: {{ building.height }}</p>
                     <p>Width: {{ building.width }}</p>

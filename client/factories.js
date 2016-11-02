@@ -17,6 +17,11 @@ angular.module('DroneApp.factories', [])
             url: 'http://localhost:3000/api/routes/user/:userid',
             method: 'GET',
             isArray: true
+        },
+        building: {
+            url: 'http://localhost:3000/api/routes/building/:buildingid',
+            method: 'GET',
+            isArray: true
         }
     });
 }])
