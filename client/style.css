@@ -121,29 +121,34 @@ video {
 }
 .creator-container {
   position: relative;
+  height: 80vh;
 }
 .creator-container .user-creator {
   opacity: 0;
-  background-color: #1b1b1c;
-  text-align: center;
-  width: 32em;
-  height: 25em;
-  padding: 23px;
+  height: 20em;
   position: absolute;
-  left: 50%;
-  border-radius: 2em;
-  margin: 120px 0 0 -220px;
-  box-shadow: 2px 5px 1px 0 rgba(0, 0, 0, 0.7);
-  padding: 0px;
-  z-index: 1;
+  top: 50%;
+  margin-top: -10em;
+  width: 100%;
 }
-.creator-container .user-creator .tabs {
+.creator-container .user-creator .register-form {
+  margin: 0 auto;
+  max-width: 40em;
+  text-align: center;
+  padding-bottom: 15px;
+  background-color: #1b1b1c;
+  border-radius: 2em;
+  box-shadow: 2px 5px 1px 0 rgba(0, 0, 0, 0.7);
+}
+.creator-container .user-creator .register-form .tabs {
   color: white;
   text-transform: uppercase;
   letter-spacing: 2px;
   height: 4em;
+  padding: 0;
+  margin-bottom: 15px;
 }
-.creator-container .user-creator .tabs .tab1-register {
+.creator-container .user-creator .register-form .tabs .tab1-register {
   display: inline-block;
   width: 50%;
   height: 4em;
@@ -154,7 +159,7 @@ video {
   background-color: lightgray;
   color: #5b5b5b;
 }
-.creator-container .user-creator .tabs .tab2-register {
+.creator-container .user-creator .register-form .tabs .tab2-register {
   display: inline-block;
   width: 50%;
   height: 48px;
@@ -165,46 +170,65 @@ video {
   border-left: 1px solid white;
   color: white;
 }
-.creator-container .user-creator .signup {
+.creator-container .user-creator .register-form .signup {
   color: white;
   letter-spacing: 5px;
   margin-top: 20px;
   margin-bottom: 15px;
   text-transform: uppercase;
 }
-.creator-container .user-creator .userinfo {
-  top: 50%;
-  left: 50%;
+.creator-container .user-creator .register-form .userinfo {
+  float: none;
 }
-.creator-container .user-creator .userinfo input {
+.creator-container .user-creator .register-form .userinfo input {
   border-radius: 5px;
 }
-.creator-container .user-creator .userinfo input::-webkit-input-placeholder {
+.creator-container .user-creator .register-form .userinfo input::-webkit-input-placeholder {
   color: #5b5b5b;
   padding-left: 3px;
 }
-.creator-container .user-creator .userinfo .username {
-  margin-bottom: 1em;
+.creator-container .user-creator .register-form .userinfo .username {
+  margin-bottom: .5em;
 }
-.creator-container .user-creator .userinfo .username input {
+.creator-container .user-creator .register-form .userinfo .username input {
   margin: .5em;
   width: 45%;
 }
-.creator-container .user-creator .userinfo .accountinfo .email input {
-  width: 95%;
+@media (max-width: 470px) {
+  .creator-container .user-creator .register-form .userinfo .username input {
+    width: 100%;
+  }
 }
-.creator-container .user-creator .userinfo .accountinfo .password {
-  margin: 1em 0 1em 0;
+.creator-container .user-creator .register-form .userinfo .accountinfo .email {
   padding: 0;
 }
-.creator-container .user-creator .userinfo .accountinfo .password input {
+.creator-container .user-creator .register-form .userinfo .accountinfo .email input {
+  margin-left: 8px;
+  margin-right: 8px;
+  width: 100%;
+}
+@media (max-width: 420px) {
+  .creator-container .user-creator .register-form .userinfo .accountinfo .email input {
+    width: 100%;
+  }
+}
+.creator-container .user-creator .register-form .userinfo .accountinfo .password {
+  margin: .5em 0 1em 0;
+  padding: 0;
+}
+.creator-container .user-creator .register-form .userinfo .accountinfo .password input {
   margin: 8px;
   width: 45%;
 }
-.creator-container .user-creator .userinfo .confirm {
+@media (max-width: 420px) {
+  .creator-container .user-creator .register-form .userinfo .accountinfo .password input {
+    width: 100%;
+  }
+}
+.creator-container .user-creator .register-form .userinfo .confirm {
   margin-top: 1.3em;
 }
-.creator-container .user-creator .userinfo .confirm button {
+.creator-container .user-creator .register-form .userinfo .confirm button {
   border: 1px solid white;
   border-radius: 5px;
   color: white;
@@ -212,20 +236,20 @@ video {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-.creator-container .user-creator .userinfo .confirm button:hover {
+.creator-container .user-creator .register-form .userinfo .confirm button:hover {
   background: rgba(0, 0, 0, 0.5);
   transition: .4s background;
 }
-.creator-container .user-creator .userinfo a:hover {
+.creator-container .user-creator .register-form .userinfo a:hover {
   text-decoration: none;
 }
-.creator-container .user-creator .userinfo h6 {
+.creator-container .user-creator .register-form .userinfo h6 {
   margin-top: 20px;
   letter-spacing: 1px;
   font-size: 12px;
   color: lightblue;
 }
-.creator-container .user-creator .userinfo h6:hover {
+.creator-container .user-creator .register-form .userinfo h6:hover {
   text-decoration: none;
 }
 .route-command {
@@ -241,43 +265,47 @@ video {
 }
 .creator-container {
   position: relative;
+  height: 80vh;
 }
 .creator-container .user-creator-login {
   opacity: 0;
-  background-color: #1b1b1c;
-  text-align: center;
-  width: 32em;
-  height: 25em;
-  padding: 23px;
+  height: 20em;
   position: absolute;
   top: 50%;
-  left: 50%;
-  border-radius: 2em;
-  margin: 120px 0 0 -220px;
-  box-shadow: 2px 5px 1px 0 rgba(0, 0, 0, 0.7);
-  padding: 0px;
+  margin-top: -8em;
+  width: 100%;
 }
-.creator-container .user-creator-login .tabs-login {
+.creator-container .user-creator-login .login-form {
+  background-color: #1b1b1c;
+  max-width: 40em;
+  text-align: center;
+  border-radius: 2em;
+  margin: 0 auto;
+  padding-bottom: 15px;
+  box-shadow: 2px 5px 1px 0 rgba(0, 0, 0, 0.7);
+}
+.creator-container .user-creator-login .login-form .tabs-login {
   color: white;
   text-transform: uppercase;
   letter-spacing: 2px;
   height: 4em;
+  padding: 0;
+  margin-bottom: 15px;
 }
-.creator-container .user-creator-login .tabs-login .tab1 {
+.creator-container .user-creator-login .login-form .tabs-login .tab1 {
   display: inline-block;
   width: 50%;
-  float: left;
   border-right: 1px solid white;
   height: 48px;
   padding-top: 16px;
   border-bottom: none;
-  z-index: 9999;
   color: white;
+  float: left;
 }
-.creator-container .user-creator-login .tabs-login .tab2 {
+.creator-container .user-creator-login .login-form .tabs-login .tab2 {
   display: inline-block;
   width: 50%;
-  height: 4em;
+  height: 48px;
   padding-top: 16px;
   border-bottom-left-radius: 5px;
   border-bottom: 2px solid white;
@@ -285,45 +313,41 @@ video {
   background-color: lightgray;
   color: #5b5b5b;
 }
-.creator-container .user-creator-login .signup-login {
+.creator-container .user-creator-login .login-form .signup-login {
   color: white;
   letter-spacing: 5px;
   margin-top: 35px;
   margin-bottom: 35px;
   text-transform: uppercase;
 }
-.creator-container .user-creator-login .userinfo {
-  top: 50%;
-  left: 50%;
-}
-.creator-container .user-creator-login .userinfo input {
+.creator-container .user-creator-login .login-form .userinfo input {
   border-radius: 5px;
 }
-.creator-container .user-creator-login .userinfo input::-webkit-input-placeholder {
+.creator-container .user-creator-login .login-form .userinfo input::-webkit-input-placeholder {
   color: #5b5b5b;
   padding-left: 3px;
 }
-.creator-container .user-creator-login .userinfo .username {
-  margin-bottom: 1em;
+.creator-container .user-creator-login .login-form .userinfo .username {
+  margin-bottom: .5em;
 }
-.creator-container .user-creator-login .userinfo .username input {
+.creator-container .user-creator-login .login-form .userinfo .username input {
   margin: .5em;
   width: 45%;
 }
-.creator-container .user-creator-login .userinfo .accountinfo .email input {
+.creator-container .user-creator-login .login-form .userinfo .accountinfo .email input {
   width: 95%;
 }
-.creator-container .user-creator-login .userinfo .accountinfo .password-login {
-  margin: 1em 0 1em 0;
+.creator-container .user-creator-login .login-form .userinfo .accountinfo .password-login {
+  margin: .5em 0 1em 0;
 }
-.creator-container .user-creator-login .userinfo .accountinfo .password-login input {
+.creator-container .user-creator-login .login-form .userinfo .accountinfo .password-login input {
   margin: 8px;
   width: 95%;
 }
-.creator-container .user-creator-login .userinfo .confirm {
+.creator-container .user-creator-login .login-form .userinfo .confirm {
   margin-top: 2em;
 }
-.creator-container .user-creator-login .userinfo .confirm button {
+.creator-container .user-creator-login .login-form .userinfo .confirm button {
   border: 1px solid white;
   border-radius: 5px;
   color: white;
@@ -331,14 +355,14 @@ video {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-.creator-container .user-creator-login .userinfo .confirm button:hover {
+.creator-container .user-creator-login .login-form .userinfo .confirm button:hover {
   background: rgba(0, 0, 0, 0.5);
   transition: .4s background;
 }
-.creator-container .user-creator-login .userinfo a:hover {
+.creator-container .user-creator-login .login-form .userinfo a:hover {
   text-decoration: none;
 }
-.creator-container .user-creator-login .userinfo h6 {
+.creator-container .user-creator-login .login-form .userinfo h6 {
   margin-top: 20px;
   letter-spacing: 1px;
   font-size: 12px;
@@ -371,6 +395,11 @@ video {
   -webkit-box-shadow: 0 8px 6px -6px #999;
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
+}
+@media (max-width: 1000px) {
+  .contact-container .contact-row .contact-form-row .contact-form {
+    margin-bottom: 2em;
+  }
 }
 .contact-container .contact-row .contact-form-row .contact-form input {
   width: 80%;
