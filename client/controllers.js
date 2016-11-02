@@ -1,33 +1,38 @@
 angular.module('DroneApp.controllers', [])
     .controller('WelcomeController', ['$scope', function ($scope) {
-            console.log('Welcome!')
+        console.log('Welcome!')
 
-            var vid = document.getElementById("bgvid");
-            var pauseButton = document.querySelector("#polina button");
+        var vid = document.getElementById("bgvid");
 
     }])
-    .controller('LoginController', ['$scope', 'UserService', '$location', function($scope, UserService, $location) {
-        console.log('login page loaded');
-        UserService.me().then(function(success) {
+    .controller('LoginController', ['$scope', 'UserService', '$location', function ($scope, UserService, $location) {
+        UserService.me().then(function (success) {
             redirect();
         });
         function redirect() {
             var dest = $location.search().p;
             if (!dest) {
-                dest='/';
+                dest = '/';
             }
             $location.path(dest).search('p', null).replace();
         }
-        $scope.login = function() {
+        $scope.login = function () {
             console.log('clicked login');
             UserService.login($scope.email, $scope.password)
-            .then(function(success) {
-                console.log('logged in!');
-                redirect();
-            }, function(err) {
-                console.log(err);
-            });
+                .then(function (success) {
+                    console.log('logged in!');
+                    redirect();
+                }, function (err) {
+                    console.log(err);
+                });
         }
+
+        $(document).ready(function () {
+           $(".user-creator-login").delay(75).animate({ opacity: 1 }, 200)
+
+
+        })
+
     }])
     .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', function($scope, Buildings, UserService, Routes) {
             $scope.hideRoutes = true;
@@ -73,11 +78,11 @@ angular.module('DroneApp.controllers', [])
 
     }])
 
-    .controller('ContactController', ['$scope', function($scope) {
-        
+    .controller('ContactController', ['$scope', function ($scope) {
+
     }])
-    .controller('RegisterController', ['$scope', 'Users', '$location', function($scope, Users, $location) {
-        $scope.newUser = function() {
+    .controller('RegisterController', ['$scope', 'Users', '$location', function ($scope, Users, $location) {
+        $scope.newUser = function () {
             var userData = {
                 firstname: $scope.firstname,
                 lastname: $scope.lastname,
@@ -85,13 +90,17 @@ angular.module('DroneApp.controllers', [])
                 password: $scope.password
             };
             var user = new Users(userData);
-            user.$save(function(success) {
+            user.$save(function (success) {
                 $location.url('/');
             });
         }
+        
+        $(document).ready(function () {
+           $(".user-creator").delay(75).animate({ opacity: 1 }, 200)
+        })
 
     }])
-    
+
             // function vidFade() {
             //     vid.classList.add("stopfade");
             // }
