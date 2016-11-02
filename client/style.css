@@ -130,6 +130,7 @@ video {
   top: 50%;
   margin-top: -10em;
   width: 100%;
+  min-height: 40em;
 }
 .creator-container .user-creator .register-form {
   margin: 0 auto;
@@ -151,7 +152,7 @@ video {
 .creator-container .user-creator .register-form .tabs .tab1-register {
   display: inline-block;
   width: 50%;
-  height: 4em;
+  height: 48px;
   padding-top: 16px;
   border-bottom-right-radius: 5px;
   border-bottom: 2px solid white;
@@ -194,7 +195,7 @@ video {
   margin: .5em;
   width: 45%;
 }
-@media (max-width: 470px) {
+@media (max-width: 420px) {
   .creator-container .user-creator .register-form .userinfo .username input {
     width: 100%;
   }
@@ -205,7 +206,7 @@ video {
 .creator-container .user-creator .register-form .userinfo .accountinfo .email input {
   margin-left: 8px;
   margin-right: 8px;
-  width: 100%;
+  width: 95%;
 }
 @media (max-width: 420px) {
   .creator-container .user-creator .register-form .userinfo .accountinfo .email input {
@@ -240,16 +241,28 @@ video {
   background: rgba(0, 0, 0, 0.5);
   transition: .4s background;
 }
-.creator-container .user-creator .register-form .userinfo a:hover {
-  text-decoration: none;
+.creator-container .user-creator .register-form .userinfo a .confirm {
+  margin-top: 1.3em;
 }
-.creator-container .user-creator .register-form .userinfo h6 {
+.creator-container .user-creator .register-form .userinfo a .confirm button {
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  width: 9.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.creator-container .user-creator .register-form .userinfo a .confirm button:hover {
+  background: rgba(0, 0, 0, 0.5);
+  transition: .4s background;
+}
+.creator-container .user-creator .register-form .userinfo a h6 {
   margin-top: 20px;
   letter-spacing: 1px;
   font-size: 12px;
   color: lightblue;
 }
-.creator-container .user-creator .register-form .userinfo h6:hover {
+.creator-container .user-creator .register-form .userinfo a h6:hover {
   text-decoration: none;
 }
 .route-command {
@@ -280,8 +293,9 @@ video {
   height: 20em;
   position: absolute;
   top: 50%;
-  margin-top: -8em;
+  margin-top: -10em;
   width: 100%;
+  min-height: 40em;
 }
 .creator-container .user-creator-login .login-form {
   background-color: #1b1b1c;
