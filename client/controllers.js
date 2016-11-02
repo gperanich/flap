@@ -34,38 +34,40 @@ angular.module('DroneApp.controllers', [])
         })
 
     }])
-    .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', function ($scope, Buildings, UserService, Routes) {
-        $scope.hideRoutes = true;
-        $scope.hideDetails = true;
-        $scope.showDetails = function () {
-            console.log('clicked to see building details');
-            $scope.hideDetails = !$scope.hideDetails;
-        };
-        $scope.showRoutes = function () {
-            console.log('clicked to see routes');
-            $scope.hideRoutes = !$scope.hideRoutes;
-        };
-
-        var user = UserService.me().then(function (success) {
-            user = success.id;
-            $scope.buildings = Buildings.filter({ userid: success.id });
-            $scope.routes = Routes.filter({ userid: success.id });
-            console.log($scope.routes);
-        });
-
-        $scope.createBuilding = function () {
-            var buildingData = {
-                userid: user,
-                height: $scope.height,
-                width: $scope.width,
-                length: $scope.length
+    .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', function($scope, Buildings, UserService, Routes) {
+            $scope.hideRoutes = true;
+            $scope.hideDetails = true;
+            $scope.showDetails = function(index) {
+                console.log('clicked to see building details');
+                $scope.hideDetails = !$scope.hideDetails;
             };
-            console.log(user);
-            var building = new Buildings(buildingData);
-            building.$save(function (success) {
-                console.log(success);
+            $scope.showRoutes = function(index) {
+                console.log('clicked to see routes');
+                $scope.hideRoutes = !$scope.hideRoutes;
+            };
+
+            var user = UserService.me().then(function(success) {
+                user = success.id;
+                $scope.buildings = Buildings.filter({ userid: success.id });
+                console.log($scope.buildings);
+                // $scope.routes = Routes.building({ buildingid: success.id });
+                // console.log($scope.routes);
             });
-        }
+
+            $scope.createBuilding = function() {
+                var buildingData = {
+                    userid: user,
+                    name: $scope.buildingName,
+                    height: $scope.height,
+                    width: $scope.width,
+                    length: $scope.length
+                };
+                console.log(user);
+                var building = new Buildings(buildingData);
+                building.$save(function(success) {
+                    console.log(success);
+                });
+            }
 
 
     }])

@@ -22,7 +22,6 @@ angular.module('DroneApp.directives', [])
                     user = success.id;
                     $scope.buildings = Buildings.filter({ userid: success.id });
                 });
-                console.log($scope.buildings);
 
                 $scope.routeCommands = [];
 
@@ -51,7 +50,6 @@ angular.module('DroneApp.directives', [])
                 $scope.clearRoute = function() {
                     console.log('clicked claer route');
                     $scope.routeCommands = [];
-                    $scope.routeAmounts = [];
                 }
             }]
         }
