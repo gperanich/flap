@@ -130,6 +130,7 @@ video {
   top: 50%;
   margin-top: -10em;
   width: 100%;
+  min-height: 40em;
 }
 .creator-container .user-creator .register-form {
   margin: 0 auto;
@@ -151,7 +152,7 @@ video {
 .creator-container .user-creator .register-form .tabs .tab1-register {
   display: inline-block;
   width: 50%;
-  height: 4em;
+  height: 48px;
   padding-top: 16px;
   border-bottom-right-radius: 5px;
   border-bottom: 2px solid white;
@@ -170,86 +171,65 @@ video {
   border-left: 1px solid white;
   color: white;
 }
-.creator-container .user-creator .register-form .username {
-  margin-bottom: 1em;
-}
-.creator-container .user-creator .register-form .username .signup {
+.creator-container .user-creator .register-form .signup {
   color: white;
   letter-spacing: 5px;
   margin-top: 20px;
   margin-bottom: 15px;
   text-transform: uppercase;
 }
-.creator-container .user-creator .register-form .username .userinfo {
+.creator-container .user-creator .register-form .userinfo {
   float: none;
 }
-.creator-container .user-creator .register-form .username .userinfo input {
+.creator-container .user-creator .register-form .userinfo input {
   border-radius: 5px;
 }
-.creator-container .user-creator .register-form .username .userinfo input::-webkit-input-placeholder {
+.creator-container .user-creator .register-form .userinfo input::-webkit-input-placeholder {
   color: #5b5b5b;
   padding-left: 3px;
 }
-.creator-container .user-creator .register-form .username .userinfo .username {
+.creator-container .user-creator .register-form .userinfo .username {
   margin-bottom: .5em;
 }
-.creator-container .user-creator .register-form .username .userinfo .username input {
+.creator-container .user-creator .register-form .userinfo .username input {
   margin: .5em;
   width: 45%;
 }
-.creator-container .user-creator .register-form .username .confirm {
-  margin-top: 1.3em;
-}
-.creator-container .user-creator .register-form .username .confirm button {
-  border: 1px solid white;
-  border-radius: 5px;
-  color: white;
-  width: 9.5em;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-.creator-container .user-creator .register-form .username .confirm button:hover {
-  background: rgba(0, 0, 0, 0.5);
-  transition: .4s background;
-}
-@media (max-width: 470px) {
-  .creator-container .user-creator .register-form .username {
+@media (max-width: 420px) {
+  .creator-container .user-creator .register-form .userinfo .username input {
     width: 100%;
   }
 }
-.creator-container .user-creator .accountinfo .email {
+.creator-container .user-creator .register-form .userinfo .accountinfo .email {
   padding: 0;
 }
-.creator-container .user-creator .accountinfo .email input {
+.creator-container .user-creator .register-form .userinfo .accountinfo .email input {
   margin-left: 8px;
   margin-right: 8px;
-  width: 100%;
+  width: 95%;
 }
 @media (max-width: 420px) {
-  .creator-container .user-creator .accountinfo .email input {
+  .creator-container .user-creator .register-form .userinfo .accountinfo .email input {
     width: 100%;
   }
 }
-.creator-container .user-creator .accountinfo .password {
+.creator-container .user-creator .register-form .userinfo .accountinfo .password {
   margin: .5em 0 1em 0;
   padding: 0;
 }
-.creator-container .user-creator .accountinfo .password input {
+.creator-container .user-creator .register-form .userinfo .accountinfo .password input {
   margin: 8px;
   width: 45%;
 }
 @media (max-width: 420px) {
-  .creator-container .user-creator .accountinfo .password input {
+  .creator-container .user-creator .register-form .userinfo .accountinfo .password input {
     width: 100%;
   }
 }
-.creator-container .user-creator a:hover {
-  text-decoration: none;
-}
-.creator-container .user-creator a:hover .confirm {
+.creator-container .user-creator .register-form .userinfo .confirm {
   margin-top: 1.3em;
 }
-.creator-container .user-creator a:hover .confirm button {
+.creator-container .user-creator .register-form .userinfo .confirm button {
   border: 1px solid white;
   border-radius: 5px;
   color: white;
@@ -257,20 +237,32 @@ video {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-.creator-container .user-creator a:hover .confirm button:hover {
+.creator-container .user-creator .register-form .userinfo .confirm button:hover {
   background: rgba(0, 0, 0, 0.5);
   transition: .4s background;
 }
-.creator-container .user-creator a:hover a:hover {
-  text-decoration: none;
+.creator-container .user-creator .register-form .userinfo a .confirm {
+  margin-top: 1.3em;
 }
-.creator-container .user-creator a:hover h6 {
+.creator-container .user-creator .register-form .userinfo a .confirm button {
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  width: 9.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.creator-container .user-creator .register-form .userinfo a .confirm button:hover {
+  background: rgba(0, 0, 0, 0.5);
+  transition: .4s background;
+}
+.creator-container .user-creator .register-form .userinfo a h6 {
   margin-top: 20px;
   letter-spacing: 1px;
   font-size: 12px;
   color: lightblue;
 }
-.creator-container .user-creator a:hover h6:hover {
+.creator-container .user-creator .register-form .userinfo a h6:hover {
   text-decoration: none;
 }
 .route-command {
@@ -293,8 +285,9 @@ video {
   height: 20em;
   position: absolute;
   top: 50%;
-  margin-top: -8em;
+  margin-top: -10em;
   width: 100%;
+  min-height: 40em;
 }
 .creator-container .user-creator-login .login-form {
   background-color: #1b1b1c;
