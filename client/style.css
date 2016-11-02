@@ -447,6 +447,17 @@ video {
   /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
 }
+.account-body {
+  background: rgba(0, 0, 0, 0.5);
+}
+h1 {
+  color: white;
+}
+.shape-div {
+  height: 300px;
+  width: 300px;
+  background-color: white;
+}
 * {
   box-sizing: border-box;
 }
