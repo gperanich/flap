@@ -45,6 +45,25 @@ router.route('/user/:userid')
         });
     });
 
+router.route('/building/:buildingid')
+    .get(function(req, res) {
+        procedures.read(req.params.buildingid).then(function(routes) {
+            routes.forEach(function(route) {
+                try {
+                    var array = JSON.parse(route.commands);
+                    route.commands = array;
+                } catch (err) {
+                    console.log(err);
+                    route.commands = [];
+                }
+            }); 
+            res.send(routes);        
+        }, function(err) {
+            console.log(err);
+            res.status(500).send(err);
+        })
+    });
+
 router.route('/:id')
     .get(function(req, res) {
         procedures.read(req.params.id).then(function(route) {
