@@ -372,6 +372,11 @@ video {
   position: relative;
   min-height: 80vh;
 }
+@media (max-width: 990px) {
+  .contact-container {
+    max-width: 50em;
+  }
+}
 .contact-container .contact-row {
   opacity: 0;
   position: absolute;
@@ -380,7 +385,7 @@ video {
   margin-top: -10em;
   width: 100%;
 }
-.contact-container .contact-row .contact-form-row h3 {
+.contact-container .contact-row .contact-form-row .cu {
   margin: 23px;
   color: white;
   text-transform: uppercase;
@@ -457,6 +462,52 @@ h1 {
   height: 300px;
   width: 300px;
   background-color: white;
+}
+.jumbotron {
+  padding-top: 6em;
+  padding-bottom: 6em;
+  margin-bottom: 1em;
+}
+.pic1 {
+  text-align: center;
+  height: 20em;
+  background-color: red;
+  position: relative;
+  padding-right: 3em;
+}
+.pic1 .text1 {
+  padding-top: 4em;
+  padding-bottom: 5em;
+  height: 14em;
+  width: 22em;
+  float: right;
+  background-color: #1b1b1b;
+  top: 50%;
+  margin-top: 3em;
+  border: 2px solid white;
+  border-radius: 2em;
+}
+.pic1 .text1 h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+.pic2 {
+  text-align: center;
+  height: 20em;
+  background-color: green;
+  position: relative;
+  padding-left: 3em;
+}
+.pic2 .text2 {
+  padding-top: 4em;
+  padding-bottom: 5em;
+  height: 14em;
+  width: 22em;
+  background-color: #1b1b1b;
+  top: 50%;
+  margin-top: 3em;
+  border: 2px solid white;
+  border-radius: 2em;
 }
 * {
   box-sizing: border-box;
