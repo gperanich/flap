@@ -1,12 +1,12 @@
 angular.module('DroneApp.controllers', [])
     .controller('WelcomeController', ['$scope', function ($scope) {
-        console.log('Welcome!')
+        console.log('Welcome!');
 
         var vid = document.getElementById("bgvid");
 
     }])
-    .controller('LoginController', ['$scope', 'UserService', '$location', function ($scope, UserService, $location) {
-        UserService.me().then(function (success) {
+    .controller('LoginController', ['$scope', '$rootScope', 'UserService', '$location', function ($scope, $rootScope, UserService, $location, customNavbar) {
+        UserService.me().then(function(success) {
             redirect();
         });
         function redirect() {
@@ -21,8 +21,8 @@ angular.module('DroneApp.controllers', [])
             UserService.login($scope.email, $scope.password)
                 .then(function (success) {
                     console.log('logged in!');
-                    $scope.showLogin = false;
-                    $scope.hideLogout = false;
+                    $rootScope.showLogin = false;
+                    $rootScope.hideLogout = false;
                     redirect();
                 }, function (err) {
                     console.log(err);

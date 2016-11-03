@@ -4,18 +4,20 @@ angular.module('DroneApp.directives', [])
             templateUrl: 'directives/navbar.html',
             restrict: 'E',
             controller: ['$scope', '$rootScope', 'UserService', '$location', function ($scope, $rootScope, UserService, $location) {
-                $scope.showLogin = true;
-                $scope.hideLogout = true;
+                $rootScope.showLogin = true;
+                $rootScope.hideLogout = true;
                 var user = UserService.me().then(function(success) {
                     if (success) {
-                        $scope.hideLogout = !$scope.hideLogout;
-                        $scope.showLogin = !$scope.showLogin;
+                        $rootScope.showLogin = false;
+                        $rootScope.hideLogout = false;
                     }
                 });
 
                 $scope.logout = function () {
                     console.log('clicked logout');
                     UserService.logout().then(function (success) {
+                        $rootScope.hideLogout = true;
+                        $rootScope.showLogin = true;
                         $location.url('/');
                     });
                 }
