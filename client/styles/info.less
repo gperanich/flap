@@ -1,15 +1,12 @@
-// .howitworks {
-//     h1 {
-//         text-align: center;
-//         margin: 30px auto 0;
-//         color: #1b1b1b;
-//         width: 10em;
-//     }
-// }
 
+.info-page {
+    background: rgba(0,0,0,0.3);
+}
 .pics {
+    margin-bottom: 20em;
+
     .pic-row {
-        margin-top: 4em;
+        margin-top: 7em;
 
         .pic-container {
                 @media (max-width: 990px) {
@@ -64,22 +61,74 @@
 }
 
 .explanation {
-    margin-top: 5em;
+    margin-top: 6em;
 
-    .software-section {
-        padding-top: 10em;
-        height: 30em;
-        background-color: #777875;
+    .software-container {
+        width: 100%;
+        -webkit-box-shadow: 0 8px 6px -6px #999;
+        -moz-box-shadow: 0 8px 6px -6px #999;
+        box-shadow: 0 8px 6px -6px #999;
+
+        .software-section {
+            padding-top: 6.5em;
+            padding-bottom: 6.5em;
+            background-color: white;
+
+            .text-container {
+                // background-color: white;
+                // height: 20em;
+                // padding-top: 3em;
+
+                .about-container {
+
+                    .square {
+                        width: 100%;
+                        text-align: center;
+
+                        .glyph-container {
+                            .glyphicon {
+                                font-size: 2em;
+                                padding: 0.5em 0.5em;
+                                color: lightblue;
+                                margin-right: 20px;
+                            }
+                        }
+                        .text-container {
+                            h4 {
+                                text-align: center;
+                                color: black;
+                                font-size: 1em;
+                                text-transform: uppercase;
+                            }
+                            p {
+                                text-align: center;
+                                color: #1b1b1b;
+                                font-size: 1em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    .hardware-section {
-        margin-top: 3em;
-        height: 30em;
-        background-color: #777875;
-        padding-top: 10em;
-    }
+    .hardware-container {
+        width: 100%;
 
+        .hardware-section {
+            margin-top: 3em;
+            height: 30em;
+            background-color: #777875;
+            padding-top: 10em;
+
+            .hardware-text {
+                background-color: blue;
+                height: 18em;
+            }
+        }
+    }
 }
+
 
 
 
@@ -106,31 +155,7 @@
 //                 text-align: center;
 //             }
 //         }
-//         .about-container {
-//             margin-top: -0.75em;
-//             .square {
-//                 width: 100%;
-//                 .glyph-container {
-//                     .glyphicon {
-//                         font-size: 2em;
-//                         padding: 0.5em 0.5em;
-//                         color: red;
-//                     }
-//                 }
-//                 .text-container {
-//                     h4 {
-//                         text-align: left;
-//                         color: green;
-//                         font-size: 1.2em;
-//                     }
-//                     p {
-//                         text-align: left;
-//                         color: slategrey;
-//                         height: 5em;
-//                         font-size: 1em;
-//                     }
-//                 }
-//             }
+// -------
 //             @media screen and (max-width: 900px) {
 //                 .square {
 //                     margin-bottom: 3em;
