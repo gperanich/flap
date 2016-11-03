@@ -18,8 +18,12 @@ angular.module('DroneApp', ['ngRoute', 'ngResource', 'DroneApp.controllers', 'Dr
         templateUrl: 'views/login.html',
         controller: 'LoginController'
     })
+    .when('/contact', {
+        templateUrl: 'views/contact.html',
+        controller: 'ContactController'
+    })
     .when('/account_home', {
-        templateUrl: 'account.html',
+        templateUrl: 'views/account.html',
         controller: 'AccountController'
     })
     .when('/register', {

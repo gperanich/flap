@@ -24,8 +24,7 @@ router.post('/login', function(req, res, next) {
                 return res.send(user);
             }
         });
-    });
-    (req, res, next);
+    })(req, res, next);
 });
 router.get('logout', function(req, res) {
     req.session.destroy(function() {
@@ -33,7 +32,6 @@ router.get('logout', function(req, res) {
         res.sendStatus(204);
     })
 })
-// router.all('*', auth.isLoggedIn);
 
 router.route('/')
     .get(function(req, res) {
@@ -53,6 +51,8 @@ router.route('/')
             res.status(500).send(err);
         });
     });
+
+router.all('*', auth.isLoggedIn);
 
 router.get('/me', function(req, res) {
     res.send(req.user);
