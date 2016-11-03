@@ -3,6 +3,9 @@
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
 }
+.navbar .container-fluid {
+  transition: 0.2s all linear;
+}
 .navbar img {
   height: 2.9em;
   margin-top: -3px;
@@ -10,6 +13,13 @@
 }
 .navbar img:hover {
   height: 3em;
+}
+.change-color {
+  background-color: #1b1b1b;
+  -webkit-box-shadow: 0px 0px 4px 0px #dddddd;
+  -moz-box-shadow: 0px 0px 4px 0px #dddddd;
+  box-shadow: 0px 0px 4px 0px #dddddd;
+  color: white;
 }
 .navbar-fixed-top {
   min-height: 80px;
@@ -485,10 +495,11 @@ h1 {
   width: 300px;
   background-color: white;
 }
+.jumbotron {
+  margin-bottom: 0;
+}
 .pic-row {
-  width: 100%;
-  margin-top: 6em;
-  height: 30em;
+  margin-top: 4em;
 }
 .pic-row .pic-container .square1 {
   width: 98%;
@@ -516,9 +527,10 @@ h1 {
 .pic-row .pic-container .text1 h1 {
   text-align: center;
   color: white;
-  padding-top: 3em;
-  padding-bottom: 3em;
+  padding-top: 3.5em;
+  padding-bottom: 3.5em;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 .pic-row .pic-container .square2 {
   width: 98%;
@@ -529,11 +541,15 @@ h1 {
   border-radius: .5em;
   cursor: pointer;
 }
-.software-section {
+.explanation {
+  margin-top: 5em;
+}
+.explanation .software-section {
   height: 30em;
   background-color: red;
 }
-.hardware-section {
+.explanation .hardware-section {
+  margin-top: 3em;
   height: 30em;
   background-color: blue;
 }

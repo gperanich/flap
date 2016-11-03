@@ -112,9 +112,11 @@ angular.module('DroneApp.controllers', [])
         $scope.software = function () {
             console.log('working');
             let destination = document.getElementById('software');
-            let distance = destination.offsetTop - document.body.scrollTop;
+            let distance = destination.offsetTop - (document.body.scrollTop - 220);
+            console.log(distance);
             // document.body.scrollTop = destination.offsetTop;
             let increment = distance / 25;
+            console.log(increment);
             let prevValue;
             let t = setInterval(() => {
                 prevValue = document.body.scrollTop;
