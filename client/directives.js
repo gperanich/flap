@@ -59,9 +59,17 @@ angular.module('DroneApp.directives', [])
                 $scope.submitRoute = function() {
                     console.log('clicked submit route');
                     var commandString = JSON.stringify($scope.routeCommands);
+                    var selectedBuilding;
+                    try {
+                        selectedBuilding = JSON.parse($scope.selectedBuilding);
+                    } catch (err) {
+                        console.log(err);
+                        selectedBuilding = {};
+                    }
+
                     var routeData = {
                         userid: user,
-                        buildingid: $scope.selectedBuilding,
+                        buildingid: selectedBuilding.id,
                         commands: commandString
                     }
                     var route = new Routes(routeData);
@@ -77,6 +85,13 @@ angular.module('DroneApp.directives', [])
 
                 $scope.changeBuilding = function() {
                     console.log($scope.selectedBuilding);
+                    var selectedBuilding;
+                    try {
+                        selectedBuilding = JSON.parse($scope.selectedBuilding);
+                    } catch (err) {
+                        console.log(err);
+                        selectedBuilding = {};
+                    }
                     $(document).ready(function() {
                         console.log('in the jquery handler');
                         $('.routebuilding-shape').remove();
@@ -109,7 +124,7 @@ angular.module('DroneApp.directives', [])
                             Rectangle.prototype.constructor = Rectangle;
                             function createRectangle() {
                                 console.log('drawing building');
-                                new Rectangle($scope.selectedBuilding.width, $scope.selectedBuilding.length);
+                                new Rectangle(selectedBuilding.width, selectedBuilding.length);
                             }
                             createRectangle();
                         }

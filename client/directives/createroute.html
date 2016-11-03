@@ -1,7 +1,7 @@
 <div class="input-route">
     <select name="buildings" id="#" ng-model="selectedBuilding" ng-change="changeBuilding()">
         <option value="">Select Building</option>
-        <option value="{{ building.id }}" ng-repeat="building in buildings">{{ building.buildingName }}</option>
+        <option value="{{building}}" ng-repeat="building in buildings">{{ building.buildingName }}</option>
     </select>
     <select name="commands" id="" ng-model="selectedCommand">
         <option value="">Select Command</option>
