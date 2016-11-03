@@ -53,14 +53,8 @@ var desiredSettings = {
 */
 var routeArry = [
     {
-        cmd: 'stopRecording'
-    },
-    {
         cmd: 'up',
         amt: 10
-    },
-    {
-        cmd: 'startRecording'
     },
     {
         cmd: 'down',
@@ -72,9 +66,6 @@ var routeArry = [
     },
     {
         cmd: 'stop'
-    },
-    {
-        cmd: 'stopRecording'
     },
     {
         cmd: 'counterClockwise',
@@ -222,8 +213,7 @@ function settingsLoop(aDrone) {
     if (readyCount === propertyCount) {
         droneState.isSet = true;
         clearInterval(settingsIntervalId);
-        console.log('drone state:', droneState);
-        // aDrone.takeOff();
+        aDrone.takeOff();
     } else {
         console.log('update:', currentSettings);
         droneState.isSet = false;
@@ -239,10 +229,6 @@ function settingsLoop(aDrone) {
 
 drone.connect(function() {
     console.log('connected');
-    drone.MediaStreaming.videoEnable(1);
-    setTimeout(function() {
-        drone.MediaStreaming.videoEnable(1);
-    }, 5000);
     setTimeout(function() {
         drone.land();
         console.log('CONNECT TIMEOUT FORCED LAND');
@@ -272,7 +258,6 @@ drone
     })
     .on('ready', function() {
         console.log('ready to fly');
-        drone.MediaStreaming.videoEnable(1);
         settingsIntervalId = setInterval(function() {
             settingsLoop(drone);
         }, 1000);
@@ -292,7 +277,7 @@ drone
         droneState.isLanded = false;
         if (cmdIndex === 0) {
             console.log('starting queue');
-            // runQueue(flightPath, this);
+            runQueue(flightPath, this);
             cmdIndex++;
         }
     })
