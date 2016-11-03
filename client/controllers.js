@@ -32,22 +32,6 @@ angular.module('DroneApp.controllers', [])
         })
 
     }])
-// <<<<<<< HEAD
-//     .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', function ($scope, Buildings, UserService, Routes) {
-//         $scope.showDetails = function (building) {
-//             console.log('clicked to see building details');
-//             building.hideDetails = !building.hideDetails;
-//             $(document).ready(function () {
-//                 console.log('in the jquery handler');
-//                 $('.building-shape').remove();
-//                 var createShape = function () {
-//                     console.log('creating shape');
-//                     var canvas = $('.shape-div');
-//                     var Shape = function (width, height) {
-//                         this.width = width;
-//                         this.height = height;
-// =======
-
     .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', function($scope, Buildings, UserService, Routes) {
             $scope.showDetails = function(building) {
                 console.log('clicked to see building details');
@@ -62,33 +46,6 @@ angular.module('DroneApp.controllers', [])
                             this.width = width;
                             this.height = height;
                         }
-//                         Shape.prototype.draw = function() {
-//                             this.div = $('<div></div>');
-//                             this.div.addClass('building-shape');
-//                             this.div.css({
-//                                 position: "relative",
-//                                 background: "rgba(255,0,0,0.5)",
-//                                 width: (this.width * 10) + "px",
-//                                 height: (this.height * 10) + "px",
-//                                 top: "50px",
-//                                 left: "50px"
-//                             });
-//                             canvas.append(this.div);
-//                         }
-//                         var Rectangle = function(width, height) {
-//                             Shape.call(this, width, height);
-//                             this.cssClass = 'new-rectangle';
-//                             this.draw();
-//                         }
-//                         Rectangle.prototype = Object.create(Shape.prototype);
-//                         Rectangle.prototype.constructor = Rectangle;
-//                         function createRectangle() {
-//                             console.log('drawing building');
-//                             new Rectangle(building.width, building.length);
-//                         }
-//                         createRectangle();
-// >>>>>>> master
-//                     }
                     Shape.prototype.draw = function () {
                         this.div = $('<div></div>');
                         this.div.addClass('building-shape');
@@ -183,62 +140,3 @@ angular.module('DroneApp.controllers', [])
 
     }])
 
-            // function vidFade() {
-            //     vid.classList.add("stopfade");
-            // }
-
-            // vid.addEventListener('ended', function () {
-            //     // only functional if "loop" is removed 
-            //     vid.pause();
-            //     // to capture IE10
-            //     vidFade();
-            // });
-
-
-            // pauseButton.addEventListener("click", function () {
-            //     vid.classList.toggle("stopfade");
-            //     if (vid.paused) {
-            //         vid.play();
-            //         pauseButton.innerHTML = "Pause";
-            //     } else {
-            //         vid.pause();
-            //         pauseButton.innerHTML = "Paused";
-            //     }
-            // });
-
-// var createShape = function() {
-//                 console.log('creating shape');
-//                 var canvas = $('#shape-div');
-//                 var Shape = function(width, height) {
-//                     this.width = width;
-//                     this.height = height;
-//                 }
-//                 Shape.prototype.draw = function() {
-//                     this.div = $('<div></div>');
-//                     this.div.attr({
-//                         background: "rgba(0,0,0,0.5)",
-//                         width: this.width + "px",
-//                         height: this.height + "px",
-//                         top: "50px",
-//                         left: "50px"
-//                     });
-//                     // this.div.style.background = rgba(0,0,0,0.5);
-//                     // this.div.style.width = this.width + 'px';
-//                     // this.div.style.height = this.height + 'px';
-//                     // this.div.style.top = 50 + 'px';
-//                     // this.div.style.left = 50 + 'px';
-//                     canvas.append(this.div);
-//                 }
-//                 var Rectangle = function(width, height) {
-//                     Shape.call(this, width, height);
-//                     this.cssClass = 'new-rectangle';
-//                     this.draw();
-//                 }
-//                 Rectangle.prototype = Object.create(Shape.prototype);
-//                 Rectangle.prototype.constructor = Rectangle;
-//                 function createRectangle() {
-//                     console.log('drawing building');
-//                     new Rectangle(building.width, building.length);
-//                 }
-//                 createRectangle();
-// }
