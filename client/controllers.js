@@ -137,7 +137,7 @@ angular.module('DroneApp.controllers', [])
                             // });
 
 
-                            var geometry = new THREE.BoxGeometry( this.width, this.height, this.length );
+                            var geometry = new THREE.BoxGeometry( building.width/10, building.height/10, building.length/10 );
                             var material = new THREE.MeshBasicMaterial( { color: 0x778899 } );
                             var cube = new THREE.Mesh( geometry, material );
                             var eGeometry = new THREE.EdgesGeometry( cube.geometry );
