@@ -1,12 +1,19 @@
-
 .info-page {
     background: rgba(0,0,0,0.3);
 }
 .pics {
     margin-bottom: 20em;
 
+        @media (max-width: 990px) {
+            margin-bottom: 3em;
+        } 
+
     .pic-row {
         margin-top: 7em;
+
+        @media (max-width: 990px) {
+            margin-top: 3em;
+        } 
 
         .pic-container {
                 @media (max-width: 990px) {
@@ -62,6 +69,11 @@
 
 .explanation {
     margin-top: 6em;
+    
+    @media (max-width: 990px) {
+        margin-bottom: 0;
+        margin-top: 0;
+    } 
 
     .software-container {
         width: 100%;
@@ -69,10 +81,20 @@
         -moz-box-shadow: 0 8px 6px -6px #999;
         box-shadow: 0 8px 6px -6px #999;
 
+        @media (max-width: 990px) {
+            width: 75%;
+            border-radius: 2em;
+        } 
+
         .software-section {
             padding-top: 6.5em;
             padding-bottom: 6.5em;
             background-color: white;
+
+                @media (max-width: 990px) {
+                    min-height: 35em;
+                    border-radius: 2em;
+                } 
 
             .text-container {
                 // background-color: white;

@@ -366,6 +366,10 @@ video {
   margin: .5em;
   width: 45%;
 }
+.creator-container .user-creator-login .login-form .userinfo .accountinfo {
+  width: 70%;
+  margin: 0 auto;
+}
 .creator-container .user-creator-login .login-form .userinfo .accountinfo .email input {
   width: 95%;
 }
@@ -380,7 +384,6 @@ video {
   margin-top: 2em;
 }
 .creator-container .user-creator-login .login-form .userinfo .confirm button {
-  border: 1px solid white;
   border-radius: 5px;
   color: white;
   width: 9.5em;
@@ -496,8 +499,18 @@ h1 {
 .pics {
   margin-bottom: 20em;
 }
+@media (max-width: 990px) {
+  .pics {
+    margin-bottom: 3em;
+  }
+}
 .pics .pic-row {
   margin-top: 7em;
+}
+@media (max-width: 990px) {
+  .pics .pic-row {
+    margin-top: 3em;
+  }
 }
 @media (max-width: 990px) {
   .pics .pic-row .pic-container {
@@ -546,16 +559,34 @@ h1 {
 .explanation {
   margin-top: 6em;
 }
+@media (max-width: 990px) {
+  .explanation {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
 .explanation .software-container {
   width: 100%;
   -webkit-box-shadow: 0 8px 6px -6px #999;
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
 }
+@media (max-width: 990px) {
+  .explanation .software-container {
+    width: 75%;
+    border-radius: 2em;
+  }
+}
 .explanation .software-container .software-section {
   padding-top: 6.5em;
   padding-bottom: 6.5em;
   background-color: white;
+}
+@media (max-width: 990px) {
+  .explanation .software-container .software-section {
+    min-height: 35em;
+    border-radius: 2em;
+  }
 }
 .explanation .software-container .software-section .text-container .about-container .square {
   width: 100%;
