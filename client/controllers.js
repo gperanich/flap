@@ -193,19 +193,19 @@ angular.module('DroneApp.controllers', [])
     }])
     .controller('InfoController', ['$scope', function ($scope) {
 
-        // $(".pic-container").mouseenter(function () {
-        //     var $text1 = $(this).children('.text1');
-        //     $text1.stop();
-        //     // $text1.slideDown(500);
-        //     $text1.fadeIn();
-        // });
+        $(".pic-container").mouseenter(function () {
+            var $text1 = $(this).children('.text1');
+            $text1.stop();
+            // $text1.slideDown(500);
+            $text1.fadeIn(600);
+        });
 
-        // $(".pic-container").mouseleave(function () {
-        //     var $text1 = $(this).children('.text1');
-        //     $text1.stop();
-        //     // $text1.slideUp(500);
-        //     $text1.fadeOut();
-        // });
+        $(".pic-container").mouseleave(function () {
+            var $text1 = $(this).children('.text1');
+            $text1.stop();
+            // $text1.slideUp(500);
+            $text1.fadeOut(600);
+        });
 
         $scope.software = function () {
             let destination = document.getElementById('software');
