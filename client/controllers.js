@@ -33,48 +33,144 @@ angular.module('DroneApp.controllers', [])
 
     }])
     .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', function ($scope, Buildings, UserService, Routes) {
-        $scope.showDetails = function (building) {
+        $scope.showDetails = function (building, index) {
             console.log('clicked to see building details');
+            console.log(building);
             building.hideDetails = !building.hideDetails;
-            $(document).ready(function () {
-                console.log('in the jquery handler');
-                $('.building-shape').remove();
-                var createShape = function () {
-                    console.log('creating shape');
-                    var canvas = $('.shape-div');
-                    var Shape = function (width, height) {
-                        this.width = width;
-                        this.height = height;
-                    }
-                    Shape.prototype.draw = function () {
-                        this.div = $('<div></div>');
-                        this.div.addClass('building-shape');
-                        this.div.css({
-                            position: "relative",
-                            background: "rgba(255,0,0,0.5)",
-                            width: (this.width * 10) + "px",
-                            height: (this.height * 10) + "px",
-                            top: "50px",
-                            left: "50px"
-                        });
-                        canvas.append(this.div);
-                    }
-                    var Rectangle = function (width, height) {
-                        Shape.call(this, width, height);
-                        this.cssClass = 'new-rectangle';
-                        this.draw();
-                    }
-                    Rectangle.prototype = Object.create(Shape.prototype);
-                    Rectangle.prototype.constructor = Rectangle;
-                    function createRectangle() {
-                        console.log('drawing building');
-                        new Rectangle(building.width, building.length);
-                    }
-                    createRectangle();
-                }
+            // $(document).ready(function () {
+                // console.log('in the jquery handler');
+                // $('.building-shape').remove();
+                // var createShape = function () {
+                //     console.log('creating shape');
+                //     var canvas = $('.shape-div');
+                //     var Shape = function (width, height) {
+                //         this.width = width;
+                //         this.height = height;
+                //     }
+                //     Shape.prototype.draw = function () {
+                //         this.div = $('<div></div>');
+                //         this.div.addClass('building-shape');
+                //         this.div.css({
+                //             position: "relative",
+                //             background: "rgba(255,0,0,0.5)",
+                //             width: (this.width * 10) + "px",
+                //             height: (this.height * 10) + "px",
+                //             top: "50px",
+                //             left: "50px"
+                //         });
+                //         canvas.append(this.div);
+                //     }
+                //     var Rectangle = function (width, height) {
+                //         Shape.call(this, width, height);
+                //         this.cssClass = 'new-rectangle';
+                //         this.draw();
+                //     }
+                //     Rectangle.prototype = Object.create(Shape.prototype);
+                //     Rectangle.prototype.constructor = Rectangle;
+                //     function createRectangle() {
+                //         console.log('drawing building');
+                //         new Rectangle(building.width, building.length);
+                //     }
+                //     createRectangle();
+                // }
 
-                createShape();
-            })
+                // createShape();
+                // })
+
+                $(document).ready(function() {
+
+                    // var scene = new THREE.Scene();
+                    // var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+                    // var renderer = new THREE.WebGLRenderer();
+                    // renderer.setSize( window.innerWidth/3, window.innerHeight/3 );
+                    // var container = $('.shape-div');
+                    // container.empty();
+                    // // if (container.hasChildNodes()) {
+                    // //     container.removeChild(container.childNodes[0]);
+                    // // }
+                    // container.append($( renderer.domElement ).addClass('threed'));
+
+
+                    // var geometry = new THREE.BoxGeometry( 1, 3, 1 );
+                    // var material = new THREE.MeshBasicMaterial( { color: 0x778899 } );
+                    // var cube = new THREE.Mesh( geometry, material );
+                    // var eGeometry = new THREE.EdgesGeometry( cube.geometry );
+                    // var eMaterial = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 1 });
+                    // var edges = new THREE.LineSegments( eGeometry, eMaterial );
+                    // cube.add(edges);
+                    // //var box = new THREE.BoxHelper( cube, 0xffffff );
+                    // scene.add( cube );
+
+                    // camera.position.z = 5;
+
+                    // function render() {
+                    //     requestAnimationFrame( render );
+                    //     cube.rotation.x = 0;
+                    //     cube.rotation.y += 0.01;
+                    //     cube.rotation.z = 0;
+                    //     renderer.render( scene, camera );
+                    // }
+                    // render();
+                    $('#shape-' + index).empty();
+                    var createShape = function() {
+                        console.log('creating 3d object');
+                        var canvas = $('#shape-' + index);
+                        var Shape = function(width, height, depth) {
+                            this.width = width;
+                            this.height = height;
+                            this.depth = depth;
+                        }
+                        Shape.prototype.draw = function() {
+                            var scene = new THREE.Scene();
+                            scene.background = new THREE.Color( 0xffffff );
+                            var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+                            var renderer = new THREE.WebGLRenderer();
+                            renderer.setSize( window.innerWidth/3, window.innerHeight/3 );
+                            var container = $('#shape-' + index);
+                            console.log(container);
+                            container.empty();
+                            container.append($( renderer.domElement ).addClass('threed'));
+                            // $.each(container, function(building) {
+                            //     container.append($( renderer.domElement ).addClass('threed'));
+                            // });
+
+
+                            var geometry = new THREE.BoxGeometry( this.width, this.height, this.length );
+                            var material = new THREE.MeshBasicMaterial( { color: 0x778899 } );
+                            var cube = new THREE.Mesh( geometry, material );
+                            var eGeometry = new THREE.EdgesGeometry( cube.geometry );
+                            var eMaterial = new THREE.LineBasicMaterial({ color: 0x000000, linewidth: 1 });
+                            var edges = new THREE.LineSegments( eGeometry, eMaterial );
+                            cube.add(edges);
+                            scene.add( cube );
+
+                            camera.position.z = 5;
+
+                            function render() {
+                                requestAnimationFrame( render );
+                                cube.rotation.x = 0;
+                                cube.rotation.y += 0.01;
+                                cube.rotation.z = 0;
+                                renderer.render( scene, camera );
+                            }
+                            render();
+                        }
+                        var Rectangle = function(width, height, depth) {
+                            Shape.call(this, width, height, depth);
+                            this.draw();
+                        }
+                        Rectangle.prototype = Object.create(Shape.prototype);
+                        Rectangle.prototype.constructor = Rectangle;
+                        function createRectangle() {
+                            new Rectangle(building.width/10, building.height/10, building.length/10);
+                        }
+                        createRectangle();
+                    }
+                    createShape();
+                })		
+
         };
         $scope.showRoutes = function (building) {
             console.log('clicked to see routes');
