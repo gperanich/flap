@@ -13,7 +13,7 @@ angular.module('DroneApp.directives', [])
 
                 $(window).scroll(function () {
                     var scrollPos = $(window).scrollTop(),
-                        navbar = $('.container-fluid');
+                        navbar = $('.nav-fluid');
 
                     if (scrollPos > 20) {
                         navbar.addClass('change-color');
