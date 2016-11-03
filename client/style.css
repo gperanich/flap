@@ -490,46 +490,45 @@ h1 {
   padding-bottom: 6em;
   margin-bottom: 1em;
 }
-.pic1 {
-  text-align: center;
+.pic-row {
+  width: 100%;
+}
+.pic-row .pic-container .square1 {
+  width: 98%;
+  background-image: url('/images/download.png');
   height: 20em;
-  background-color: red;
-  position: relative;
-  padding-right: 3em;
+  background-size: cover;
+  background-position: center;
+  border-radius: .5em;
+  cursor: pointer;
 }
-.pic1 .text1 {
-  padding-top: 4em;
-  padding-bottom: 5em;
-  height: 14em;
-  width: 22em;
-  float: right;
-  background-color: #1b1b1b;
-  top: 50%;
-  margin-top: 3em;
-  border: 2px solid white;
-  border-radius: 2em;
+.pic-row .pic-container .text1 {
+  width: 98%;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  border-radius: .5em;
+  cursor: pointer;
 }
-.pic1 .text1 h1 {
+.pic-row .pic-container .text1 h1 {
   text-align: center;
+  color: white;
+  padding-top: 3.5em;
+  padding-bottom: 3.5em;
   text-transform: uppercase;
 }
-.pic2 {
-  text-align: center;
+.pic-row .pic-container .square2 {
+  width: 98%;
+  background-image: url('/images/bebop.jpg');
   height: 20em;
-  background-color: green;
-  position: relative;
-  padding-left: 3em;
-}
-.pic2 .text2 {
-  padding-top: 4em;
-  padding-bottom: 5em;
-  height: 14em;
-  width: 22em;
-  background-color: #1b1b1b;
-  top: 50%;
-  margin-top: 3em;
-  border: 2px solid white;
-  border-radius: 2em;
+  background-size: cover;
+  background-position: center;
+  border-radius: .5em;
+  cursor: pointer;
 }
 * {
   box-sizing: border-box;

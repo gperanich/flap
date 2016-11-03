@@ -4,65 +4,58 @@
     margin-bottom: 1em;
 }
 
-.pic1 {
-    text-align: center;
-    height: 20em;
-    background-color: red;
-    position: relative;
-    padding-right: 3em;
+.pic-row {
+    width: 100%;
 
-    .text1 {
-        padding-top: 4em;
-        padding-bottom: 5em;
-        height: 14em;
-        width: 22em;
-        float: right;
-        background-color: #1b1b1b;
-        top: 50%;
-        margin-top: 3em;
-        border: 2px solid white;
-        border-radius: 2em;
+    .pic-container {
 
-        h1 {
-            text-align: center;
-            text-transform: uppercase
+        .square1 {
+                width: 98%;
+                background-image: url('/images/download.png');
+                height: 20em;
+                background-size: cover;
+                background-position: center;
+                border-radius: .5em;
+                cursor: pointer;
+        }
+        
+        .text1 {
+            width: 98%;
+            background-color: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            border-radius: .5em;
+            cursor: pointer;
+
+            h1 {
+                text-align: center;
+                color: white;
+                padding-top: 3.5em;
+                padding-bottom: 3.5em;
+                text-transform: uppercase
+            }
+        }
+
+        .square2 {
+                width: 98%;
+                background-image: url('/images/bebop.jpg');
+                height: 20em;
+                background-size: cover;
+                background-position: center;
+                border-radius: .5em;
+                cursor: pointer;
         }
     }
-
-    // .square1 {
-    //     width: 98%;
-    //     background-color: rgba(255, 201, 25, 0.9);
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     right: 0;
-    //     bottom: 0;
-    //     display: none;
-    //     border-radius: .5em;
-    //     cursor: pointer;
-
-    // }
 }
 
-.pic2 {
-    text-align: center;
-    height: 20em;
-    background-color: green;
-    position: relative;
-    padding-left: 3em;
 
-    .text2 {
-        padding-top: 4em;
-        padding-bottom: 5em;
-        height: 14em;
-        width: 22em;
-        background-color: #1b1b1b;
-        top: 50%;
-        margin-top: 3em;
-        border: 2px solid white;
-        border-radius: 2em;
-    }
-}
+
+// glyph sitch//
+
 
 // .about-container {
 //     padding: 0em 1em;
