@@ -97,20 +97,21 @@ angular.module('DroneApp.controllers', [])
     }])
     .controller('InfoController', ['$scope', function ($scope) {
 
-        $(".pic-container").mouseenter(function () {
-            var $text1 = $(this).children('.text1');
-            $text1.stop();
-            $text1.slideDown(500);
-        });
+        // $(".pic-container").mouseenter(function () {
+        //     var $text1 = $(this).children('.text1');
+        //     $text1.stop();
+        //     // $text1.slideDown(500);
+        //     $text1.fadeIn();
+        // });
 
-        $(".pic-container").mouseleave(function () {
-            var $text1 = $(this).children('.text1');
-            $text1.stop();
-            $text1.slideUp(500);
-        });
+        // $(".pic-container").mouseleave(function () {
+        //     var $text1 = $(this).children('.text1');
+        //     $text1.stop();
+        //     // $text1.slideUp(500);
+        //     $text1.fadeOut();
+        // });
 
         $scope.software = function () {
-            console.log('working');
             let destination = document.getElementById('software');
             let distance = destination.offsetTop - (document.body.scrollTop - 220);
             console.log(distance);

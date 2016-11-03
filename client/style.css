@@ -513,14 +513,12 @@ h1 {
   filter: grayscale(100%);
 }
 .pic-row .pic-container .text1 {
-  width: 98%;
+  width: 93%;
   background-color: rgba(0, 0, 0, 0.9);
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 13;
   bottom: 0;
-  display: none;
   border-radius: .5em;
   cursor: pointer;
 }
