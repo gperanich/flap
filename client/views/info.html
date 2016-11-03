@@ -1,20 +1,14 @@
-<div class="jumbotron">
-	<div class="container">
-		<h1>This is how it works!</h1>
-	</div>
-</div>
-
 <div class="pics row">
 	<div class="pic-row col-md-12">
 		<div class="pic-container col-md-6">
-			<div class="square1"></div>
-			<div class="text1">
+			<div class="square1" ng-click="software()"></div>
+			<div class="text1" ng-click="software()">
 				<h1>Software</h1>
 			</div>
 		</div>
 		<div class="pic-container col-md-6">
-			<div class="square2"></div>
-			<div class="text1">
+			<div class="square2" ng-click="hardware()"></div>
+			<div class="text1" ng-click="hardware()">
 				<h1>Hardware</h1>
 			</div>
 		</div>
@@ -22,6 +16,14 @@
 </div>
 </div>
 
+
+<div class="software-section" id="software">
+    <h1>this is the software section</h1>
+</div>
+
+<div class="hardware-section" id="hardware">
+    <h1>this is the hardware section</h1>
+</div>
 
 <!--glyphicon situation-->
 <!--<div class="about-container row">

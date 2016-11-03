@@ -109,6 +109,38 @@ angular.module('DroneApp.controllers', [])
             $text1.slideUp(500);
         });
 
+        $scope.software = function () {
+            console.log('working');
+            let destination = document.getElementById('software');
+            let distance = destination.offsetTop - document.body.scrollTop;
+            // document.body.scrollTop = destination.offsetTop;
+            let increment = distance / 25;
+            let prevValue;
+            let t = setInterval(() => {
+                prevValue = document.body.scrollTop;
+                document.body.scrollTop += increment;
+                if (document.body.scrollTop === prevValue || document.body.scrollTop >= destination.offsetTop) {
+                    clearTimeout(t);
+                }
+            }, 25);
+        }
+
+        $scope.hardware = function () {
+            console.log('working');
+            let destination = document.getElementById('hardware');
+            let distance = destination.offsetTop - document.body.scrollTop;
+            // document.body.scrollTop = destination.offsetTop;
+            let increment = distance / 25;
+            let prevValue;
+            let t = setInterval(() => {
+                prevValue = document.body.scrollTop;
+                document.body.scrollTop += increment;
+                if (document.body.scrollTop === prevValue || document.body.scrollTop >= destination.offsetTop) {
+                    clearTimeout(t);
+                }
+            }, 25);
+        }
+
     }])
     .controller('PastWorkController', ['$scope', function ($scope) {
 

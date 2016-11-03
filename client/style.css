@@ -485,22 +485,21 @@ h1 {
   width: 300px;
   background-color: white;
 }
-.jumbotron {
-  padding-top: 6em;
-  padding-bottom: 6em;
-  margin-bottom: 1em;
-}
 .pic-row {
   width: 100%;
+  margin-top: 6em;
+  height: 30em;
 }
 .pic-row .pic-container .square1 {
   width: 98%;
-  background-image: url('/images/download.png');
-  height: 20em;
+  background-image: url('/images/binary.jpg');
+  height: 26em;
   background-size: cover;
   background-position: center;
   border-radius: .5em;
   cursor: pointer;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 .pic-row .pic-container .text1 {
   width: 98%;
@@ -517,18 +516,26 @@ h1 {
 .pic-row .pic-container .text1 h1 {
   text-align: center;
   color: white;
-  padding-top: 3.5em;
-  padding-bottom: 3.5em;
+  padding-top: 3em;
+  padding-bottom: 3em;
   text-transform: uppercase;
 }
 .pic-row .pic-container .square2 {
   width: 98%;
-  background-image: url('/images/bebop.jpg');
-  height: 20em;
+  background-image: url('/images/blackandwhitedrone.jpg');
+  height: 26em;
   background-size: cover;
   background-position: center;
   border-radius: .5em;
   cursor: pointer;
+}
+.software-section {
+  height: 30em;
+  background-color: red;
+}
+.hardware-section {
+  height: 30em;
+  background-color: blue;
 }
 * {
   box-sizing: border-box;
