@@ -28,7 +28,11 @@ angular.module('DroneApp.directives', [])
         return {
             templateUrl: 'directives/createbuilding.html',
             restrict: 'E',
-            controller: ['$scope', 'Buildings', function ($scope, Buildings) {
+            controller: ['$scope', 'Buildings', 'UserService', function ($scope, Buildings, UserService) {
+                var user = UserService.me().then(function (success) {
+                    user = success.id;
+                    $scope.buildings = Buildings.filter({ userid: success.id });
+                });
                 $scope.createBuilding = function () {
                     var buildingData = {
                         userid: user,
