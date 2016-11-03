@@ -29,6 +29,7 @@ angular.module('DroneApp.services', [])
             method: 'GET',
             url: '/api/users/logout'
         }).then(function(success) {
+            console.log('logging out');
             user = undefined;
         });
     }

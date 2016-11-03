@@ -21,6 +21,8 @@ angular.module('DroneApp.controllers', [])
             UserService.login($scope.email, $scope.password)
                 .then(function (success) {
                     console.log('logged in!');
+                    $scope.showLogin = false;
+                    $scope.hideLogout = false;
                     redirect();
                 }, function (err) {
                     console.log(err);
