@@ -32,20 +32,20 @@ angular.module('DroneApp.controllers', [])
         })
 
     }])
-    .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', function($scope, Buildings, UserService, Routes) {
-            $scope.showDetails = function(building) {
-                console.log('clicked to see building details');
-                building.hideDetails = !building.hideDetails;
-                $(document).ready(function() {
-                    console.log('in the jquery handler');
-                    $('.building-shape').remove();
-                    var createShape = function() {
-                        console.log('creating shape');
-                        var canvas = $('.shape-div');
-                        var Shape = function(width, height) {
-                            this.width = width;
-                            this.height = height;
-                        }
+    .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', function ($scope, Buildings, UserService, Routes) {
+        $scope.showDetails = function (building) {
+            console.log('clicked to see building details');
+            building.hideDetails = !building.hideDetails;
+            $(document).ready(function () {
+                console.log('in the jquery handler');
+                $('.building-shape').remove();
+                var createShape = function () {
+                    console.log('creating shape');
+                    var canvas = $('.shape-div');
+                    var Shape = function (width, height) {
+                        this.width = width;
+                        this.height = height;
+                    }
                     Shape.prototype.draw = function () {
                         this.div = $('<div></div>');
                         this.div.addClass('building-shape');
@@ -97,17 +97,53 @@ angular.module('DroneApp.controllers', [])
     }])
     .controller('InfoController', ['$scope', function ($scope) {
 
-        // $(".pic1").mouseenter(function () {
-        //     console.log('text');
-        //     var $text = $(this).children('.text1');
-        //     $text.stop();
-        //     $text.slideDown(500);
+        // $(".pic-container").mouseenter(function () {
+        //     var $text1 = $(this).children('.text1');
+        //     $text1.stop();
+        //     // $text1.slideDown(500);
+        //     $text1.fadeIn();
         // });
-        // $(".pic1").mouseleave(function () {
-        //     var $text = $(this).children('.text1');
-        //     $text.stop();
-        //     $text.slideUp(500);
+
+        // $(".pic-container").mouseleave(function () {
+        //     var $text1 = $(this).children('.text1');
+        //     $text1.stop();
+        //     // $text1.slideUp(500);
+        //     $text1.fadeOut();
         // });
+
+        $scope.software = function () {
+            let destination = document.getElementById('software');
+            let distance = destination.offsetTop - (document.body.scrollTop - 220);
+            console.log(distance);
+            // document.body.scrollTop = destination.offsetTop;
+            let increment = distance / 25;
+            console.log(increment);
+            let prevValue;
+            let t = setInterval(() => {
+                prevValue = document.body.scrollTop;
+                document.body.scrollTop += increment;
+                if (document.body.scrollTop === prevValue || document.body.scrollTop >= destination.offsetTop) {
+                    clearTimeout(t);
+                }
+            }, 25);
+        }
+
+        $scope.hardware = function () {
+            console.log('working');
+            let destination = document.getElementById('hardware');
+            let distance = destination.offsetTop - document.body.scrollTop;
+            // document.body.scrollTop = destination.offsetTop;
+            let increment = distance / 25;
+            let prevValue;
+            let t = setInterval(() => {
+                prevValue = document.body.scrollTop;
+                document.body.scrollTop += increment;
+                if (document.body.scrollTop === prevValue || document.body.scrollTop >= destination.offsetTop) {
+                    clearTimeout(t);
+                }
+            }, 25);
+        }
+
     }])
     .controller('PastWorkController', ['$scope', function ($scope) {
 

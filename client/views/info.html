@@ -1,34 +1,47 @@
-<div class="jumbotron">
-	<div class="container">
-		<h1>This is how it works!</h1>
-	</div>
-</div>
+<!--<div class="jumbotron">-->
+  <div class="container">
+    <h1>this is how it works</h1>
+  </div>
+<!--</div>-->
 
-<div class="pics">
-	<div class="pic-row">
-		<div class="pic1 col-md-6">
-            <div class="square1"></div>
-			<div class="text1">
+<div class="pics row">
+	<div class="pic-row col-md-12">
+		<div class="pic-container col-md-6">
+			<div class="square1" ng-click="software()"></div>
+			<div class="text1" ng-click="software()">
 				<h1>Software</h1>
 			</div>
-   
 		</div>
-		<div class="pic2 col-md-6">
-			<div class="text2">
+		<div class="pic-container col-md-6">
+			<div class="square2" ng-click="hardware()"></div>
+			<div class="text1" ng-click="hardware()">
 				<h1>Hardware</h1>
 			</div>
 		</div>
 	</div>
 </div>
-<!--
-<div class="square-container col-dsk-4">
-	<div class="square1">
-	</div>
-	<div class="yellow-square" plat-tap="about()">
-		<h2>About Us</h2>
-	</div>
-</div>-->
 
+<div class="explanation">
+	<div class="software-container container">
+		<div class="software-row row">
+			<div class="software-section col-md-12" id="software">
+				<h1>this is the software section</h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="hardware-container container">
+		<div class="hardware-row row">
+			<div class="hardware-section col-md-12" id="hardware">
+				<h1>this is the hardware section</h1>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<!--glyphicon situation-->
 <!--<div class="about-container row">
     <div class="about-row col-md-12">
         <h3>About Hover</h3>
