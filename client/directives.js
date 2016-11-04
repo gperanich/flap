@@ -80,6 +80,35 @@ angular.module('DroneApp.directives', [])
                         command: $scope.selectedCommand,
                         amount: $scope.inputAmount
                     });
+                    $(document).ready(function() {
+                        if ($scope.selectedCommand === 'Right') {
+                            console.log('adding border');
+                            $('.buildingroutediv').css({
+                                padding: "-100px",
+                                borderTop: "15px groove black"
+                            });
+                        } else if ($scope.selectedCommand === 'Left') {
+                            console.log('adding border');
+                            $('.buildingroutediv').css({
+                                padding: "-100px",
+                                borderBottom: "15px groove black"
+                            });
+                        } else if ($scope.selectedCommand === 'Forward') {
+                            console.log('adding border');
+                            $('.buildingroutediv').css({
+                                padding: "-100px",
+                                borderLeft: "15px groove black"
+                            });
+                        } else if ($scope.selectedCommand === 'Backward') {
+                            console.log('adding border');
+                            $('.buildingroutediv').css({
+                                padding: "-100px",
+                                borderRight: "15px groove black"
+                            });
+                        } else {
+                            console.log('failed to add border');
+                        }
+                    });
                 }
 
                 $scope.submitRoute = function () {
@@ -133,12 +162,17 @@ angular.module('DroneApp.directives', [])
                                 this.div.addClass('routebuilding-shape');
                                 this.div.css({
                                     position: "relative",
+                                    textAlign: "center",
+                                    lineHeight: (this.height*10) + "px",
+                                    verticalAlign: "middle",
                                     background: "rgba(255,0,0,0.5)",
                                     width: (this.width * 10) + "px",
                                     height: (this.height * 10) + "px",
-                                    top: "50px",
-                                    left: "50px"
+                                    top: "50%",
+                                    left: "50%",
+                                    transform: "translate(-50%, -50%)"
                                 });
+                                this.div.text(selectedBuilding.buildingName);
                                 canvas.append(this.div);
                             }
                             var Rectangle = function (width, height) {

@@ -291,6 +291,7 @@ video {
   width: 300px;
   background-color: white;
   float: right;
+  margin-top: 50px;
   margin-bottom: 200px;
   margin-right: 200px;
 }
