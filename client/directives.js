@@ -4,9 +4,20 @@ angular.module('DroneApp.directives', [])
             templateUrl: 'directives/navbar.html',
             restrict: 'E',
             controller: ['$scope', '$rootScope', 'UserService', '$location', function ($scope, $rootScope, UserService, $location) {
+                $rootScope.showLogin = true;
+                $rootScope.hideLogout = true;
+                var user = UserService.me().then(function(success) {
+                    if (success) {
+                        $rootScope.showLogin = false;
+                        $rootScope.hideLogout = false;
+                    }
+                });
+
                 $scope.logout = function () {
                     console.log('clicked logout');
                     UserService.logout().then(function (success) {
+                        $rootScope.hideLogout = true;
+                        $rootScope.showLogin = true;
                         $location.url('/');
                     });
                 }
@@ -28,7 +39,11 @@ angular.module('DroneApp.directives', [])
         return {
             templateUrl: 'directives/createbuilding.html',
             restrict: 'E',
-            controller: ['$scope', 'Buildings', function ($scope, Buildings) {
+            controller: ['$scope', 'Buildings', 'UserService', function ($scope, Buildings, UserService) {
+                var user = UserService.me().then(function (success) {
+                    user = success.id;
+                    $scope.buildings = Buildings.filter({ userid: success.id });
+                });
                 $scope.createBuilding = function () {
                     var buildingData = {
                         userid: user,
@@ -64,6 +79,35 @@ angular.module('DroneApp.directives', [])
                     $scope.routeCommands.push({
                         command: $scope.selectedCommand,
                         amount: $scope.inputAmount
+                    });
+                    $(document).ready(function() {
+                        if ($scope.selectedCommand === 'Right') {
+                            console.log('adding border');
+                            $('.buildingroutediv').css({
+                                padding: "-100px",
+                                borderTop: "15px groove black"
+                            });
+                        } else if ($scope.selectedCommand === 'Left') {
+                            console.log('adding border');
+                            $('.buildingroutediv').css({
+                                padding: "-100px",
+                                borderBottom: "15px groove black"
+                            });
+                        } else if ($scope.selectedCommand === 'Forward') {
+                            console.log('adding border');
+                            $('.buildingroutediv').css({
+                                padding: "-100px",
+                                borderLeft: "15px groove black"
+                            });
+                        } else if ($scope.selectedCommand === 'Backward') {
+                            console.log('adding border');
+                            $('.buildingroutediv').css({
+                                padding: "-100px",
+                                borderRight: "15px groove black"
+                            });
+                        } else {
+                            console.log('failed to add border');
+                        }
                     });
                 }
 
@@ -118,12 +162,17 @@ angular.module('DroneApp.directives', [])
                                 this.div.addClass('routebuilding-shape');
                                 this.div.css({
                                     position: "relative",
+                                    textAlign: "center",
+                                    lineHeight: (this.height*10) + "px",
+                                    verticalAlign: "middle",
                                     background: "rgba(255,0,0,0.5)",
                                     width: (this.width * 10) + "px",
                                     height: (this.height * 10) + "px",
-                                    top: "50px",
-                                    left: "50px"
+                                    top: "50%",
+                                    left: "50%",
+                                    transform: "translate(-50%, -50%)"
                                 });
+                                this.div.text(selectedBuilding.buildingName);
                                 canvas.append(this.div);
                             }
                             var Rectangle = function (width, height) {

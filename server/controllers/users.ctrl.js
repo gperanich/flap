@@ -26,7 +26,8 @@ router.post('/login', function(req, res, next) {
         });
     })(req, res, next);
 });
-router.get('logout', function(req, res) {
+router.get('/logout', function(req, res) {
+    console.log('logging out');
     req.session.destroy(function() {
         req.logOut();
         res.sendStatus(204);
