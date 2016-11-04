@@ -56,7 +56,7 @@ angular.module('DroneApp.controllers', [])
 
                             var renderer = new THREE.WebGLRenderer({ alpha: true });
                             renderer.setSize( window.innerWidth/3, window.innerHeight/3 );
-                            renderer.setClearColor(0xffffff, 0.5);
+                            renderer.setClearColor(0xffffff, 0);
                             var container = $('#shape-' + index);
                             console.log(container);
                             container.empty();
@@ -66,7 +66,7 @@ angular.module('DroneApp.controllers', [])
                             var material = new THREE.MeshBasicMaterial( { color: 0x778899 } );
                             var cube = new THREE.Mesh( geometry, material );
                             var eGeometry = new THREE.EdgesGeometry( cube.geometry );
-                            var eMaterial = new THREE.LineBasicMaterial({ color: 0x000000, linewidth: 1 });
+                            var eMaterial = new THREE.LineBasicMaterial({ color: 0x000000, linewidth: 1.5 });
                             var edges = new THREE.LineSegments( eGeometry, eMaterial );
                             cube.add(edges);
                             scene.add( cube );
