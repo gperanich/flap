@@ -133,6 +133,10 @@ angular.module('DroneApp.controllers', [])
             $text1.fadeOut(600);
         });
 
+        $(document).ready(function () {
+            $(".info-page").delay(75).animate({ opacity: 1 }, 200)
+        })
+
         $scope.software = function () {
             let destination = document.getElementById('software');
             let distance = destination.offsetTop - (document.body.scrollTop - 220);
