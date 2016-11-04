@@ -51,10 +51,11 @@ angular.module('DroneApp.controllers', [])
                         }
                         Shape.prototype.draw = function() {
                             var scene = new THREE.Scene();
-                            scene.background = new THREE.Color( 0xffffff );
+                            // scene.background = new THREE.Color( 0xffffff );
                             var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-                            var renderer = new THREE.WebGLRenderer();
+                            var renderer = new THREE.WebGLRenderer({ alpha: true });
+                            renderer.setClearColor(0xffffff, 0.5);
                             renderer.setSize( window.innerWidth/3, window.innerHeight/3 );
                             var container = $('#shape-' + index);
                             console.log(container);
