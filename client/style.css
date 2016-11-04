@@ -131,7 +131,7 @@ video {
 }
 .creator-container {
   position: relative;
-  height: 80vh;
+  height: 95vh;
 }
 .creator-container .user-creator {
   opacity: 0;
@@ -147,7 +147,7 @@ video {
   max-width: 40em;
   text-align: center;
   padding-bottom: 15px;
-  background-color: #1b1b1c;
+  background-color: #353535;
   border-radius: 2em;
   box-shadow: 2px 5px 1px 0 rgba(0, 0, 0, 0.7);
 }
@@ -296,7 +296,7 @@ video {
 }
 .creator-container {
   position: relative;
-  height: 80vh;
+  height: 95vh;
 }
 .creator-container .user-creator-login {
   opacity: 0;
@@ -308,7 +308,7 @@ video {
   min-height: 40em;
 }
 .creator-container .user-creator-login .login-form {
-  background-color: #1b1b1c;
+  background-color: #353535;
   max-width: 40em;
   text-align: center;
   border-radius: 2em;
@@ -367,7 +367,6 @@ video {
   width: 45%;
 }
 .creator-container .user-creator-login .login-form .userinfo .accountinfo {
-  width: 70%;
   margin: 0 auto;
 }
 .creator-container .user-creator-login .login-form .userinfo .accountinfo .email input {
@@ -494,7 +493,7 @@ h1 {
   color: white;
 }
 .info-page {
-  background: rgba(250, 250, 250, 0.75);
+  background-color: white;
 }
 .pics {
   margin-bottom: 20em;
@@ -520,7 +519,7 @@ h1 {
 .pics .pic-row .pic-container .square1 {
   width: 98%;
   background-image: url('/images/binary.jpg');
-  height: 26em;
+  height: 36em;
   background-size: cover;
   background-position: center;
   border-radius: .5em;
@@ -561,7 +560,7 @@ h1 {
 .pics .pic-row .pic-container .square2 {
   width: 98%;
   background-image: url('/images/blackandwhitedrone.jpg');
-  height: 26em;
+  height: 36em;
   background-size: cover;
   background-position: center;
   border-radius: .5em;
@@ -673,10 +672,16 @@ h1 {
 * {
   box-sizing: border-box;
 }
-body {
+.site-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
   padding-top: 70px;
   background-image: url('../images/drone3.png');
+}
+body {
+  background-color: #f2f2f2;
 }
