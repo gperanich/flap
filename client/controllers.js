@@ -55,6 +55,7 @@ angular.module('DroneApp.controllers', [])
                             var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
                             var renderer = new THREE.WebGLRenderer({ alpha: true });
+                            renderer.setClearColor(0xffffff, 0.5);
                             renderer.setSize( window.innerWidth/3, window.innerHeight/3 );
                             renderer.setClearColor(0xffffff, 0);
                             var container = $('#shape-' + index);
