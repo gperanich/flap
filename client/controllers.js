@@ -57,6 +57,7 @@ angular.module('DroneApp.controllers', [])
                             var renderer = new THREE.WebGLRenderer({ alpha: true });
                             renderer.setClearColor(0xffffff, 0.5);
                             renderer.setSize( window.innerWidth/3, window.innerHeight/3 );
+                            renderer.setClearColor(0xffffff, 0.5);
                             var container = $('#shape-' + index);
                             console.log(container);
                             container.empty();
