@@ -494,6 +494,7 @@ h1 {
 }
 .info-page {
   background-color: rgba(255, 255, 255, 0.8);
+  opacity: 0;
 }
 .pics {
   margin-bottom: 19em;
