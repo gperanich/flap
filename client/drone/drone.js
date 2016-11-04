@@ -1,13 +1,10 @@
 var bebop = require('node-bebop'),
     temporal = require('temporal'),
-    cv = require('opencv'),
     fs = require('fs');
 
-var output = fs.createWriteStream('./video.h264'),
-    drone = bebop.createClient({ip:'192.168.42.1'}),
-    video = drone.getVideoStream();
+var droneHost = '192.168.42.1';
 
-video.pipe(output);
+var drone = bebop.createClient({ip:droneHost});
 
 var PilotingSettings = drone.PilotingSettings,
     SpeedSettings = drone.SpeedSettings;
@@ -37,7 +34,8 @@ var currentSettings = {
     maxTilt: 0,
     maxDistance: 0,
     maxVerticalSpeed: 0,
-    maxRotationSpeed: 0
+    maxRotationSpeed: 0,
+    videoEnable: 0
 };
 
 var desiredSettings = {
@@ -45,7 +43,8 @@ var desiredSettings = {
     maxTilt: 15,
     maxDistance: 2000,
     maxVerticalSpeed: 6,
-    maxRotationSpeed: 100
+    maxRotationSpeed: 100,
+    videoEnable: 1
 };
 
 /*
@@ -293,9 +292,6 @@ drone
     })
     .on('emergency', function() {
         console.log('emergency');
-    })
-    .on('video', function(frame) {
-        console.log('video frame');
     })
     .on('VideoEnableChanged', function(status) {
         console.log('video enable changed - status:', status);
