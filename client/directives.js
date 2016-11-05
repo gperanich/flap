@@ -94,7 +94,7 @@ angular.module('DroneApp.directives', [])
                     $scope.mapVertices.push(markerPosition);
                     console.log($scope.mapVertices);
                     $scope.coordinate = $scope.mapVertices;
-                    alert( markerPosition );
+                    alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() );
                 });
                 $scope.coordinate = $scope.mapVertices;
                 // google.maps.event.addListener(marker, "click", function (event) {
