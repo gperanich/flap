@@ -693,6 +693,10 @@ h1 {
     width: 90%;
   }
 }
+#map {
+  height: 300px;
+  width: 70%;
+}
 * {
   box-sizing: border-box;
 }

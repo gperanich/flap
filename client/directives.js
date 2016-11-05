@@ -67,6 +67,40 @@ angular.module('DroneApp.directives', [])
             templateUrl: 'directives/createroute.html',
             restrict: 'E',
             controller: ['$scope', 'Buildings', 'UserService', 'Routes', function ($scope, Buildings, UserService, Routes) {
+                var map;
+                $scope.mapVertices = [];
+                function initMap() {
+                    map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: 33.511695, lng: -86.812542},
+                    zoom: 18
+                    });
+                }
+                initMap();
+                $("#myModal").on("shown.bs.modal", function () {
+                    google.maps.event.trigger(map, "resize");
+                    // map.setCenter(latlng);
+                });     
+
+                // google.maps.event.addListener(map, 'click', function(event) {
+                //     marker = new google.maps.Marker({position: event.latLng, map: map});
+                //     console.log(marker);
+                // });
+                google.maps.event.addListener(map, 'dblclick', function( event ){
+                    var markerPosition = {
+                        latitude: event.latLng.lat(), 
+                        longitude: event.latLng.lng()
+                    };
+                    marker = new google.maps.Marker({position: event.latLng, map: map});
+                    $scope.mapVertices.push(markerPosition);
+                    console.log($scope.mapVertices);
+                    $scope.coordinate = $scope.mapVertices;
+                    alert( markerPosition );
+                });
+                $scope.coordinate = $scope.mapVertices;
+                // google.maps.event.addListener(marker, "click", function (event) {
+                //     alert(this.position);
+                // });
+                
                 var user = UserService.me().then(function (success) {
                     user = success.id;
                     $scope.buildings = Buildings.filter({ userid: success.id });
@@ -195,4 +229,29 @@ angular.module('DroneApp.directives', [])
                 }
             }]
         }
+    })
+    .directive('googleMap', function() {
+        return {
+            templateUrl: '/directives/map.html',
+            restrict: 'E',
+            controller: ['$scope', function($scope) {
+                var map;
+                function initMap() {
+                    map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: 33.511695, lng: -86.812542},
+                    zoom: 18
+                    });
+                }
+                initMap();
+
+                google.maps.event.addListener(map, 'click', function(event) {
+                    marker = new google.maps.Marker({position: event.latLng, map: map});
+                });
+                google.maps.event.addListener(map, 'dblclick', function( event ){
+                    alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() );
+                    $scope.lat = "Latitude: " + event.latLng.lat();
+                    $scope.long = "longitude: " + event.latLng.lng();
+                });
+            }]
+        };
     })
