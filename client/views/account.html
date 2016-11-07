@@ -6,7 +6,7 @@
 				<h1> Current Buildings:</h1>
 				<div class="building-names">
 					<div class="building-list col-md-4 col-sm-6 col-xs-12" ng-repeat="building in buildings">
-						<h4>{{ building.buildingName }} </h4>
+						<h4 class="buildingz">{{ building.buildingName }} </h4>
                             <div class="detail-view">
                                 <a class="detailz" href="#" ng-click="showDetails(building, $index)">Details</a> 
                                 <a class="routez" href="#" ng-click="showRoutes(building)">Routes</a>
@@ -16,15 +16,23 @@
 								<div id="shape-{{$index}}" class="shape-div"></div>
 							</div>
 							<div class="caption">
-								<p>Height: {{ building.height }}</p>
-								<p>Width: {{ building.width }}</p>
-								<p>Length: {{ building.length }}</p>
+								<h4>Height: </h4> <p> {{ building.height }}</p>
+								<h4>Width: </h4> <p>{{ building.width }}</p> 
+								<h4>Length: </h4> <p>{{ building.length }}</p>
 							</div>
 						</div>
+
 						<div class="routes-div" ng-hide="building.hideRoutes" ng-init="building.hideRoutes = true">
 							<div class="singleroute-div" ng-repeat="route in building.routes track by $index">
-								<h5>Route ID: {{ route.id }}</h5>
-								<p ng-repeat="step in route.commands track by $index">{{ step.command }}: {{ step.amount }}</p>
+								<div class="route-id">
+                                    <h3>Route ID: {{ route.id }}</h3>
+                                </div>
+                                <div class="commands col-md-12">
+								    <div ng-repeat="step in route.commands track by $index">
+                                        <h4>{{ step.command }} : </h4>  
+                                        <p> {{step.amount }}</p>
+                                    </div>
+                                </div>
 							</div>
 						</div>
 					</div>

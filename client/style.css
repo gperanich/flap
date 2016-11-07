@@ -515,7 +515,7 @@ video {
     width: 98%;
   }
 }
-.account-body .buildings-container .building-list h4 {
+.account-body .buildings-container .building-list .buildingz {
   color: white;
   padding-right: 1em;
   display: inline-block;
@@ -526,11 +526,49 @@ video {
 .account-body .buildings-container .building-list .detail-view .detailz {
   margin-right: 1em;
 }
-.account-body .buildings-container .building-list .thumb-photo {
+.account-body .buildings-container .building-list .building-details .thumb-photo {
   background-color: black;
 }
-.account-body .buildings-container .building-list .thumb-photo canvas {
+.account-body .buildings-container .building-list .building-details .thumb-photo canvas {
   margin-left: -6em;
+}
+.account-body .buildings-container .building-list .building-details .caption {
+  width: 65%;
+  margin: 0 auto;
+}
+.account-body .buildings-container .building-list .building-details .caption h4 {
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0;
+}
+.account-body .buildings-container .building-list .building-details .caption p {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.7em;
+  padding-left: 15px;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
+.account-body .buildings-container .building-list .singleroute-div {
+  background-color: yellow;
+}
+.account-body .buildings-container .building-list .singleroute-div .route-id {
+  text-align: center;
+}
+.account-body .buildings-container .building-list .singleroute-div .route-id h3 {
+  margin-bottom: 0;
+}
+.account-body .buildings-container .building-list .singleroute-div .commands {
+  background-color: brown;
+}
+.account-body .buildings-container .building-list .singleroute-div .commands h4 {
+  display: inline-block;
+  letter-spacing: 1px;
+}
+.account-body .buildings-container .building-list .singleroute-div .commands p {
+  display: inline-block;
+  font-size: 18px;
+  margin-bottom: 0;
 }
 .create-container {
   background-color: purple;
