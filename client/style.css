@@ -489,8 +489,73 @@ video {
 .account-body {
   background: rgba(0, 0, 0, 0.5);
 }
-h1 {
-  color: white;
+.account-body .buildings-container {
+  background-color: red;
+}
+.account-body .buildings-container h1 {
+  text-align: center;
+}
+.account-body .buildings-container .building-list {
+  background-color: blue;
+  min-height: 15em;
+  width: 30%;
+  margin: 0 1em 2em 1em;
+  border-radius: 2em;
+}
+@media (max-width: 1200px) {
+  .account-body .buildings-container .building-list {
+    width: 47%;
+  }
+}
+@media (max-width: 991px) {
+  .account-body .buildings-container .building-list {
+    width: 98%;
+  }
+}
+.account-body .buildings-container .building-list .thumb-photo {
+  background-color: black;
+}
+.create-container {
+  background-color: purple;
+  padding-top: 1em;
+}
+.create-container .building-btn {
+  background-color: blue;
+}
+@media (max-width: 770px) {
+  .create-container .building-btn {
+    text-align: center;
+  }
+}
+.create-container .building-btn .create-building button {
+  text-transform: uppercase;
+  float: right;
+  letter-spacing: 2px;
+}
+@media (max-width: 770px) {
+  .create-container .building-btn .create-building button {
+    float: none;
+    text-align: center;
+  }
+}
+.create-container .two {
+  background-color: green;
+}
+@media (max-width: 770px) {
+  .create-container .two {
+    text-align: center;
+  }
+}
+.create-container .two .create-route button {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+@media (max-width: 770px) {
+  .create-container .two .create-route button {
+    float: none;
+    text-align: center;
+    margin-top: 10px;
+  }
 }
 .info-page {
   background-color: rgba(255, 255, 255, 0.8);

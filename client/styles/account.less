@@ -1,11 +1,86 @@
 .account-body {
     background:rgba(0,0,0,0.5);
-}
-h1 {
-    color: white;
+
+    .buildings-container {
+        background-color: red;
+
+        h1 {
+            text-align: center;
+        }
+
+        .building-list {
+            background-color: blue;
+            min-height: 15em;
+            width: 30%;
+            margin: 0 1em 2em 1em;
+            border-radius: 2em;
+
+                @media (max-width: 1200px) {
+                    width: 47%;
+                }   
+
+                @media (max-width: 991px) {
+                    width: 98%;
+                }                   
+
+            .thumb-photo {
+                background-color: black;
+            }
+        }
+    }
 }
 // .shape-div {
 //     height: 300px;
 //     width: 300px;
 //     background-color: white;
 // }
+
+.create-container {
+    background-color: purple;
+    padding-top: 1em;
+
+
+    .building-btn {
+        background-color: blue;
+
+        @media (max-width: 770px) {
+            // float: none;
+            text-align: center;
+        }         
+
+        .create-building {
+
+            button {
+                text-transform: uppercase;
+                float: right;
+                letter-spacing: 2px;
+
+                @media (max-width: 770px) {
+                    float: none;
+                    text-align: center;
+                } 
+            }
+        }
+    }
+
+    .two {
+        background-color: green;
+        
+            @media (max-width: 770px) {
+                // float: none;
+                text-align: center;
+            }  
+        .create-route {
+
+            button {
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                    @media (max-width: 770px) {
+                        float: none;
+                        text-align: center;
+                        margin-top: 10px;
+                    } 
+            }
+        }
+    }
+}
