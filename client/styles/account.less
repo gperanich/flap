@@ -6,14 +6,17 @@
 
         h1 {
             text-align: center;
+            margin: 1em;
         }
 
         .building-list {
             background-color: blue;
-            min-height: 15em;
+            min-height: 5em;
             width: 30%;
             margin: 0 1em 2em 1em;
             border-radius: 2em;
+            padding-top: 1em;
+            text-align: center;
 
                 @media (max-width: 1200px) {
                     width: 47%;
@@ -22,9 +25,27 @@
                 @media (max-width: 991px) {
                     width: 98%;
                 }                   
+            
+            h4 {
+                color: white;
+                padding-right: 1em;
+                display: inline-block;
+            }
+
+            .detail-view {
+                display: inline-block;
+
+                .detailz {
+                    margin-right: 1em;
+                }
+            }
 
             .thumb-photo {
                 background-color: black;
+
+                canvas {
+                    margin-left: -6em;
+                }
             }
         }
     }
@@ -65,7 +86,7 @@
 
     .two {
         background-color: green;
-        
+
             @media (max-width: 770px) {
                 // float: none;
                 text-align: center;

@@ -6,10 +6,14 @@
 				<h1> Current Buildings:</h1>
 				<div class="building-names">
 					<div class="building-list col-md-4 col-sm-6 col-xs-12" ng-repeat="building in buildings">
-						<h4>{{ building.buildingName }} <a href="#" ng-click="showDetails(building, $index)">Details</a> <a href="#" ng-click="showRoutes(building)">Routes</a></h4>
+						<h4>{{ building.buildingName }} </h4>
+                            <div class="detail-view">
+                                <a class="detailz" href="#" ng-click="showDetails(building, $index)">Details</a> 
+                                <a class="routez" href="#" ng-click="showRoutes(building)">Routes</a>
+                            </div>
 						<div class="building-details thumbnail" ng-hide="building.hideDetails" ng-init="building.hideDetails = true">
 							<div class="thumb-photo">
-								<div ng-style="{'background-image':'url({{ $index }})'}"id="shape-{{$index}}" class="shape-div"></div>
+								<div id="shape-{{$index}}" class="shape-div"></div>
 							</div>
 							<div class="caption">
 								<p>Height: {{ building.height }}</p>

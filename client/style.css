@@ -494,13 +494,16 @@ video {
 }
 .account-body .buildings-container h1 {
   text-align: center;
+  margin: 1em;
 }
 .account-body .buildings-container .building-list {
   background-color: blue;
-  min-height: 15em;
+  min-height: 5em;
   width: 30%;
   margin: 0 1em 2em 1em;
   border-radius: 2em;
+  padding-top: 1em;
+  text-align: center;
 }
 @media (max-width: 1200px) {
   .account-body .buildings-container .building-list {
@@ -512,8 +515,22 @@ video {
     width: 98%;
   }
 }
+.account-body .buildings-container .building-list h4 {
+  color: white;
+  padding-right: 1em;
+  display: inline-block;
+}
+.account-body .buildings-container .building-list .detail-view {
+  display: inline-block;
+}
+.account-body .buildings-container .building-list .detail-view .detailz {
+  margin-right: 1em;
+}
 .account-body .buildings-container .building-list .thumb-photo {
   background-color: black;
+}
+.account-body .buildings-container .building-list .thumb-photo canvas {
+  margin-left: -6em;
 }
 .create-container {
   background-color: purple;
