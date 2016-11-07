@@ -2,15 +2,17 @@
     background:rgba(0,0,0,0.5);
 
     .buildings-container {
-        background-color: red;
+        color: white;
 
         h1 {
             text-align: center;
             margin: 1em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .building-list {
-            background-color: blue;
+            background-color: white;
             min-height: 5em;
             width: 30%;
             margin: 0 1em 2em 1em;
@@ -26,8 +28,8 @@
                     width: 98%;
                 }                   
             
-            h4 {
-                color: white;
+            .buildingz {
+                color: #1b1b1b;
                 padding-right: 1em;
                 display: inline-block;
             }
@@ -40,11 +42,67 @@
                 }
             }
 
-            .thumb-photo {
-                background-color: black;
+            .building-details {
+                
+                .thumb-photo {
+                    background-color: black;
 
-                canvas {
-                    margin-left: -6em;
+                    canvas {
+                        margin-left: -6em;
+                    }
+                }
+
+                .caption {
+                    width: 65%;
+                    margin: 0 auto;
+
+                    h4 {
+                        text-transform: uppercase;
+                        display: inline-block;
+                        margin-bottom: 0;
+                    }
+
+                    p {
+                        display: inline-block;
+                        font-weight: bold;
+                        font-size: 1.7em;
+                        padding-left: 15px;
+                        letter-spacing: 1px;
+                        margin-bottom: 0;
+                    }
+                }
+
+                .singleroute-div {
+                    // background-color: yellow;
+                    width: 65%;
+                    margin: 0 auto;
+                    text-align: center;
+
+                    h3 {
+                        color: lightblue;
+                        letter-spacing: 2px;
+                        
+                    }
+                    
+                    .commands {
+                        // background-color: brown;
+                        color: black;
+
+                        h4 {
+                            text-transform: uppercase;
+                            display: inline-block;
+                            margin-bottom: 0;
+                        }
+
+                        p {
+                            display: inline-block;
+                            font-weight: bold;
+                            font-size: 1.7em;
+                            padding-left: 15px;
+                            letter-spacing: 1px;
+                            margin-bottom: 0;
+                        }
+                    }
                 }
             }
         }

@@ -490,14 +490,16 @@ video {
   background: rgba(0, 0, 0, 0.5);
 }
 .account-body .buildings-container {
-  background-color: red;
+  color: white;
 }
 .account-body .buildings-container h1 {
   text-align: center;
   margin: 1em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 .account-body .buildings-container .building-list {
-  background-color: blue;
+  background-color: white;
   min-height: 5em;
   width: 30%;
   margin: 0 1em 2em 1em;
@@ -515,8 +517,8 @@ video {
     width: 98%;
   }
 }
-.account-body .buildings-container .building-list h4 {
-  color: white;
+.account-body .buildings-container .building-list .buildingz {
+  color: #1b1b1b;
   padding-right: 1em;
   display: inline-block;
 }
@@ -526,11 +528,53 @@ video {
 .account-body .buildings-container .building-list .detail-view .detailz {
   margin-right: 1em;
 }
-.account-body .buildings-container .building-list .thumb-photo {
+.account-body .buildings-container .building-list .building-details .thumb-photo {
   background-color: black;
 }
-.account-body .buildings-container .building-list .thumb-photo canvas {
+.account-body .buildings-container .building-list .building-details .thumb-photo canvas {
   margin-left: -6em;
+}
+.account-body .buildings-container .building-list .building-details .caption {
+  width: 65%;
+  margin: 0 auto;
+}
+.account-body .buildings-container .building-list .building-details .caption h4 {
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0;
+}
+.account-body .buildings-container .building-list .building-details .caption p {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.7em;
+  padding-left: 15px;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
+.account-body .buildings-container .building-list .building-details .singleroute-div {
+  width: 65%;
+  margin: 0 auto;
+  text-align: center;
+}
+.account-body .buildings-container .building-list .building-details .singleroute-div h3 {
+  color: lightblue;
+  letter-spacing: 2px;
+}
+.account-body .buildings-container .building-list .building-details .singleroute-div .commands {
+  color: black;
+}
+.account-body .buildings-container .building-list .building-details .singleroute-div .commands h4 {
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0;
+}
+.account-body .buildings-container .building-list .building-details .singleroute-div .commands p {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.7em;
+  padding-left: 15px;
+  letter-spacing: 1px;
+  margin-bottom: 0;
 }
 .create-container {
   background-color: purple;
