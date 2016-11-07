@@ -490,14 +490,16 @@ video {
   background: rgba(0, 0, 0, 0.5);
 }
 .account-body .buildings-container {
-  background-color: red;
+  color: white;
 }
 .account-body .buildings-container h1 {
   text-align: center;
   margin: 1em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 .account-body .buildings-container .building-list {
-  background-color: blue;
+  background-color: white;
   min-height: 5em;
   width: 30%;
   margin: 0 1em 2em 1em;
@@ -516,7 +518,7 @@ video {
   }
 }
 .account-body .buildings-container .building-list .buildingz {
-  color: white;
+  color: #1b1b1b;
   padding-right: 1em;
   display: inline-block;
 }
@@ -549,25 +551,29 @@ video {
   letter-spacing: 1px;
   margin-bottom: 0;
 }
-.account-body .buildings-container .building-list .singleroute-div {
-  background-color: yellow;
-}
-.account-body .buildings-container .building-list .singleroute-div .route-id {
+.account-body .buildings-container .building-list .building-details .singleroute-div {
+  width: 65%;
+  margin: 0 auto;
   text-align: center;
 }
-.account-body .buildings-container .building-list .singleroute-div .route-id h3 {
+.account-body .buildings-container .building-list .building-details .singleroute-div h3 {
+  color: lightblue;
+  letter-spacing: 2px;
+}
+.account-body .buildings-container .building-list .building-details .singleroute-div .commands {
+  color: black;
+}
+.account-body .buildings-container .building-list .building-details .singleroute-div .commands h4 {
+  text-transform: uppercase;
+  display: inline-block;
   margin-bottom: 0;
 }
-.account-body .buildings-container .building-list .singleroute-div .commands {
-  background-color: brown;
-}
-.account-body .buildings-container .building-list .singleroute-div .commands h4 {
+.account-body .buildings-container .building-list .building-details .singleroute-div .commands p {
   display: inline-block;
+  font-weight: bold;
+  font-size: 1.7em;
+  padding-left: 15px;
   letter-spacing: 1px;
-}
-.account-body .buildings-container .building-list .singleroute-div .commands p {
-  display: inline-block;
-  font-size: 18px;
   margin-bottom: 0;
 }
 .create-container {
