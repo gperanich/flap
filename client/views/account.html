@@ -28,8 +28,7 @@
 										<h3>Route ID: {{ route.id }}</h3>
 									<div class="commands">
 										<div ng-repeat="step in route.commands track by $index">
-											<h4>{{ step.command }} : </h4>
-											<p> {{step.amount }}</p>
+											<p>Lat: {{step.latitude}}, Long: {{step.longitude }}</p>
 										</div>
 									</div>
 								</div>
