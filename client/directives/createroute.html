@@ -76,8 +76,8 @@
             <br>
             <br>
             <h4>Current Route</h4>
-            <p ng-repeat="vertices in mapVertices">{{vertices.latitude}}, {{vertices.longitude}}</p>
-            <p ng-model="coordinate">{{ coordinate }}</p>
+            <p ng-repeat="vertices in mapVertices">Lat: {{vertices.latitude}}, Long: {{vertices.longitude}}</p>
+            <!--<p ng-model="coordinate">{{ coordinate }}</p>-->
         </div>
         <!--<div class="current-route">
             <div class="route-command">
@@ -97,7 +97,8 @@
       </div>-->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" ng-click="clearRoute()">Clear Route</button>
+        <button type="button" class="btn btn-primary" ng-click="submitRoute()">Save changes</button>
       </div>
     </div>
   </div>

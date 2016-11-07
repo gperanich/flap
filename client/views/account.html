@@ -24,7 +24,8 @@
 						<div class="routes-div" ng-hide="building.hideRoutes" ng-init="building.hideRoutes = true">
 							<div class="singleroute-div" ng-repeat="route in building.routes track by $index">
 								<h5>Route ID: {{ route.id }}</h5>
-								<p ng-repeat="step in route.commands track by $index">{{ step.command }}: {{ step.amount }}</p>
+								<p>{{route.commands}}</p>
+								<p ng-repeat="step in route.commands track by $index">{{ step.commands }}</p>
 							</div>
 						</div>
 					</div>

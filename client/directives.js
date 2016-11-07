@@ -93,10 +93,10 @@ angular.module('DroneApp.directives', [])
                     marker = new google.maps.Marker({position: event.latLng, map: map});
                     $scope.mapVertices.push(markerPosition);
                     console.log($scope.mapVertices);
-                    $scope.coordinate = $scope.mapVertices;
+                    // $scope.coordinate = $scope.mapVertices;
                     alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() );
                 });
-                $scope.coordinate = $scope.mapVertices;
+                // $scope.coordinate = $scope.mapVertices;
                 // google.maps.event.addListener(marker, "click", function (event) {
                 //     alert(this.position);
                 // });
@@ -147,13 +147,15 @@ angular.module('DroneApp.directives', [])
 
                 $scope.submitRoute = function () {
                     console.log('clicked submit route');
-                    var commandString = JSON.stringify($scope.routeCommands);
+                    var commandString = JSON.stringify($scope.mapVertices);
                     var selectedBuilding;
                     try {
                         selectedBuilding = JSON.parse($scope.selectedBuilding);
+                        console.log(selectedBuilding);
                     } catch (err) {
                         console.log(err);
                         selectedBuilding = {};
+                        console.log(selectedBuilding);
                     }
 
                     var routeData = {
@@ -169,7 +171,8 @@ angular.module('DroneApp.directives', [])
 
                 $scope.clearRoute = function () {
                     console.log('clicked claer route');
-                    $scope.routeCommands = [];
+                    $scope.mapVertices = [];
+                    console.log($scope.mapVertices);
                 }
 
                 $scope.changeBuilding = function () {
