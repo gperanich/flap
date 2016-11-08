@@ -57,25 +57,18 @@
             </select>
             <select name="commands" id="" ng-model="selectedCommand">
                 <option value="">Select Command</option>
-                <option value="Forward">Forward</option>
-                <option value="Backward">Backward</option>
-                <option value="Up">Up</option>
-                <option value="Down">Down</option>
-                <option value="Left">Left</option>
-                <option value="Right">Right</option>
-                <option value="Clockwise">Clockwise</option>
-                <option value="CounterClockwise">Counter-Clockwise</option>
-                <option value="TakePicture">Take Picture</option>
-                <option value="StartRecord">Start Record</option>
-                <option value="StopRecord">Stop Record</option>
+                <option value="Height">Height 1</option>
+                <option value="Height">Height 2</option>
+                <option value="Height">Height 3</option>
             </select>
-            <input type="number" ng-model="inputAmount" placeholder="amount">
-            <button ng-click="addRoute()">Add</button>
+            <input type="number" ng-model="inputAmount" placeholder="height">
+            <button ng-click="addRouteHeight()">Add</button>
             <!--<div class="buildingroutediv"></div>-->
             <div id="map"></div>
             <br>
             <br>
             <h4>Current Route</h4>
+            <p ng-repeat="height in routeHeights">{{ height.height }} ft.</p>
             <p ng-repeat="vertices in mapVertices">Lat: {{vertices.latitude}}, Long: {{vertices.longitude}}</p>
             <!--<p ng-model="coordinate">{{ coordinate }}</p>-->
         </div>

@@ -100,8 +100,6 @@ angular.module('DroneApp.directives', [])
                     marker.addListener('click', function() {
                         infoWindow.open(map, marker);
                     });
-
-                    alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() );
                 });
                 
                 var user = UserService.me().then(function (success) {
@@ -109,18 +107,20 @@ angular.module('DroneApp.directives', [])
                     $scope.buildings = Buildings.filter({ userid: success.id });
                 });
 
-                $scope.routeCommands = [];
+                $scope.routeHeights = [];
 
-                $scope.addRoute = function () {
+                $scope.addRouteHeight = function () {
                     console.log('clicked add route');
-                    $scope.routeCommands.push({
-                        command: $scope.selectedCommand,
-                        amount: $scope.inputAmount
-                    });
+                    var rHeight = {
+                        height: $scope.inputAmount
+                    }
+                    $scope.routeHeights.push(rHeight);
+                    console.log($scope.routeHeights);
                 }
 
                 $scope.submitRoute = function () {
                     console.log('clicked submit route');
+                    var heightString = JSON.stringify($scope.routeHeights);
                     var commandString = JSON.stringify($scope.mapVertices);
                     var selectedBuilding;
                     try {
@@ -135,7 +135,8 @@ angular.module('DroneApp.directives', [])
                     var routeData = {
                         userid: user,
                         buildingid: selectedBuilding.id,
-                        commands: commandString
+                        commands: commandString,
+                        heights: heightString
                     }
                     var route = new Routes(routeData);
                     route.$save(function (success) {
@@ -150,9 +151,9 @@ angular.module('DroneApp.directives', [])
                 $scope.clearRoute = function () {
                     console.log('clicked clear route');
                     $scope.mapVertices = [];
+                    $scope.routeHeights = [];
                     clearMarkers();
                     markers = [];
-                    console.log($scope.mapVertices);
                 }
 
                 $scope.changeBuilding = function () {
