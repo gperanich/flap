@@ -19,6 +19,8 @@
   "homepage": "https://github.com/gperanich/flap#readme",
   "dependencies": {
     "aws-sdk": "^2.6.12",
+    "aws-iot-device-sdk": "^1.0.13",
+    "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",

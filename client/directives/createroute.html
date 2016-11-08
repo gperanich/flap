@@ -57,23 +57,22 @@
             </select>
             <select name="commands" id="" ng-model="selectedCommand">
                 <option value="">Select Command</option>
-                <option value="Forward">Forward</option>
-                <option value="Backward">Backward</option>
-                <option value="Up">Up</option>
-                <option value="Down">Down</option>
-                <option value="Left">Left</option>
-                <option value="Right">Right</option>
-                <option value="Clockwise">Clockwise</option>
-                <option value="CounterClockwise">Counter-Clockwise</option>
-                <option value="TakePicture">Take Picture</option>
-                <option value="StartRecord">Start Record</option>
-                <option value="StopRecord">Stop Record</option>
+                <option value="Height">Height 1</option>
+                <option value="Height">Height 2</option>
+                <option value="Height">Height 3</option>
             </select>
-            <input type="number" ng-model="inputAmount" placeholder="amount">
-            <button ng-click="addRoute()">Add</button>
-            <div class="buildingroutediv"></div>
+            <input type="number" ng-model="inputAmount" placeholder="height">
+            <button ng-click="addRouteHeight()">Add</button>
+            <!--<div class="buildingroutediv"></div>-->
+            <div id="map"></div>
+            <br>
+            <br>
+            <h4>Current Route</h4>
+            <p ng-repeat="height in routeHeights">{{ height.height }} ft.</p>
+            <p ng-repeat="vertices in mapVertices">Lat: {{vertices.latitude}}, Long: {{vertices.longitude}}</p>
+            <!--<p ng-model="coordinate">{{ coordinate }}</p>-->
         </div>
-        <div class="current-route">
+        <!--<div class="current-route">
             <div class="route-command">
                 <h3>Command</h3>
                 <p ng-repeat="command in routeCommands track by $index">{{ command.command }}</p>
@@ -82,7 +81,7 @@
                 <h3>Amount</h3>
                 <p ng-repeat="command in routeCommands track by $index">{{ command.amount }}</p>
             </div>
-        </div>
+        </div>-->
         <!--<div class="route-buttons">
             <button ng-click="submitRoute()">Submit</button>
             <button ng-click="clearRoute()">Clear Route</button>
@@ -91,7 +90,8 @@
       </div>-->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" ng-click="clearRoute()">Clear Route</button>
+        <button type="button" class="btn btn-primary" ng-click="submitRoute()">Save changes</button>
       </div>
     </div>
   </div>

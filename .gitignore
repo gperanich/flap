@@ -1,5 +1,4 @@
 node_modules
-<<<<<<< HEAD
 jspm_packages
 
 # Optional npm cache directory
@@ -11,4 +10,8 @@ jspm_packages
 # aws
 aws-certs
 .variables
-opencv-2.4.13
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

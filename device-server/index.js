@@ -14,6 +14,139 @@ const thingShadows = thingShadow({
     privateKey: '../aws-certs/afa4bee0c2-private.pem.key'
 });
 
+var bebop = require('node-bebop'),
+    temporal = require('temporal'),
+    droneHost = '192.168.42.1';
+var drone = bebop.createClient({ip:droneHost});
+var PilotingSettings = drone.PilotingSettings,
+    SpeedSettings = drone.SpeedSettings,
+    MediaStreaming = drone.MediaStreaming;
+
+var droneState = {
+    isSet: false,
+    isHovering: false,
+    isLanded: true
+};
+var cmdIndex = 0;
+
+var routeArry = [
+    {
+        cmd: 'up',
+        amt: 10
+    },
+    {
+        cmd: 'stop'
+    },
+    {
+        cmd: 'land'
+    }
+];
+
+var flightPath = buildFlightPath(routeArry, drone);
+
+function buildFlightPath(aRoute, aDrone) {
+    var flightQueue = [];
+        
+    aRoute.forEach(function (routeLeg) {
+        if (routeLeg.cmd === 'stop') {
+            var routeStop = cmdFactory(routeLeg, aDrone);
+            flightQueue.push(routeStop);
+        } else if (routeLeg.cmd === 'land') {
+            var routeLand = cmdFactory(routeLeg, aDrone);
+            flightQueue.push(routeLand);
+        } else if (routeLeg.cmd === 'takePicture') {
+            var routePicture = cmdFactory(routeLeg, aDrone);
+            flightQueue.push(routePicture);
+        } else if (routeLeg.cmd === 'startRecording') {
+            var routeRecording = cmdFactory(routeLeg, aDrone);
+            flightQueue.push(routeRecording);
+        } else if (routeLeg.cmd === 'stopRecording') {
+            var routeStopRecording = cmdFactory(routeLeg, aDrone);
+            flightQueue.push(routeStopRecording);
+        } else {
+            var theRoute = cmdFactory(routeLeg, aDrone);
+            flightQueue.push(theRoute.start, theRoute.stop);
+        }
+    });
+
+    return flightQueue;
+}
+
+function cmdFactory (aRoute, aDrone) {
+    
+    if (aRoute.cmd === 'land') {
+        var theRoute = {
+            delay: 2000,
+            task: function () {
+                aDrone.land();
+                console.log('LANDING');
+            }
+        };
+        return theRoute;
+    } else if (aRoute.cmd === 'stop') {
+        var theRoute = {
+            delay: 2000,
+            task: function () {
+                aDrone.stop();
+                console.log('STOPPING');
+            }
+        };
+        return theRoute;
+    } else if (aRoute.cmd ==='takePicture') {
+        var theRoute = {
+            delay: 2000,
+            task: function() {
+                aDrone.takePicture();
+                console.log('TAKING PICTURE');
+            }
+        };
+        return theRoute;
+    } else if (aRoute.cmd === 'startRecording') {
+        var theRoute = {
+            delay: 2000,
+            task: function() {
+                aDrone.startRecording();
+                console.log('START RECORDING');
+            }
+        };
+        return theRoute;
+    } else if (aRoute.cmd === 'stopRecording') {
+        var theRoute = {
+            delay: 2000,
+            task: function() {
+                aDrone.stopRecording();
+                console.log('STOP RECORDING');
+            }
+        };
+        return theRoute;
+    } else {
+        var theRoute = {
+            start: {
+                delay: 2000,
+                task: function () {
+                    aDrone[aRoute.cmd](aRoute.amt);
+                    console.log('RUNNING COMMAND:', aRoute.cmd);
+                }
+            },
+            stop: {
+                delay: 2000,
+                task: function () {
+                    aDrone[aRoute.cmd](0);
+                    console.log('STOPPING COMMAND:', aRoute.cmd);
+                }
+            }
+        };
+        return theRoute;
+    }
+}
+
+drone.connect(function() {
+    console.log('connected to host:', drone.ip);
+    // drone.land();
+    // drone.MediaStreaming.videoEnable(1);
+}.bind(drone));
+
+
 function generateState (cState) {
     var reported = {
         connect: false,
@@ -68,13 +201,17 @@ function executeOperation(oName, stateObject) {
     // if token null another operation is in progress
     if (clientToken === null) {
         console.log('execute operation failed, operation in progress');
-        if (currentTimeout !== null) {
-            currentTimeout = setTimeout(function() {
+        currentTimeout = setTimeout(function() {
+            if (stateObject.state.reported.land) {
+                console.log('PLEASE LAND');
                 executeOperation(oName, stateObject);
-            }, operationTimeout * 2);
-        }
+            }
+        }, operationTimeout * 2);
     } else {
         console.log('execute operation succeeded', clientToken);
+        if (stateObject.state.reported.land) {
+            console.log('THANK YOU VERY MUCH FOR LANDING');
+        }
         stack.push(clientToken);
     }
 }
@@ -92,12 +229,13 @@ function handleStatus (thingName, stat, clientToken, stateObject) {
     console.log('STATE OBJECT:', stateObject);
     if (expectedClientToken === clientToken) {
         console.log('stat', stat, 'status on', thingName, 'state:', JSON.stringify(stateObject));
-        var isConnected = stateObject.state.reported.connect;
-        var isTakeoff = stateObject.state.reported.takeoff;
-        var isLand = stateObject.state.reported.land;
-        if (isConnected && !isTakeoff && !isLand) {
-            var takeoffState = {state: {reported: generateState('takeoff')}};
-            executeOperation('update', takeoffState);
+        if (stateObject.state.reported.takeoff) {
+            console.log('TAKE OFFFFFFFF SUCCESS');
+            droneState.isLanded = false;
+        }
+        if (stateObject.state.reported.land) {
+            console.log('LAND SUCCESS');
+            droneState.isLanded = true;
         }
     } else {
         console.log('client token mismatch on', thingName);
@@ -106,9 +244,33 @@ function handleStatus (thingName, stat, clientToken, stateObject) {
 
 function handleDelta (thingName, stateObject) {
     console.log('delta on', thingName, ':', JSON.stringify(stateObject));
+    console.log('DELTA:', stateObject);
+    
+    if (stateObject.state.route) {
+        
+    }
+
+    if (stateObject.state.takeoff) {
+        drone.takeOff();
+        var takeoffState = {state: {reported: generateState('takeoff')}};
+        executeOperation('update', takeoffState);
+        droneState.isLanded = false;
+    }
+    
     if (stateObject.state.land) {
-        var landState = {state: {reported: generateState('land')}};
-        executeOperation('update', landState);
+        console.log('LAND BROSEPH');
+
+        var landId = setInterval(function() {
+            if (!droneState.isLanded) {
+                console.log('land attempt');
+                drone.land();
+                droneState.isLanded = true;
+            } else {
+                clearInterval(landId);
+                var landState = {state: {reported: generateState('land')}};
+                executeOperation('update', landState);
+            }
+        }.bind(drone), 1000);
     }
 }
 
@@ -173,3 +335,68 @@ thingShadows
     .on('message', function(topic, payload) {
         handleMessage(topic, payload);
     });
+
+drone
+    .on('ready', function() {
+        console.log('ready to fly');
+        // settingsIntervalId = setInterval(function() {
+        //     settingsLoop(drone);
+        // }, 1000);
+    })
+    .on('battery', function(level) {
+        console.log('battery level:', level);
+    })
+    .on('flying', function() {
+        console.log('flying');
+        droneState.isLanded = false;
+        if (droneState.isHovering) {
+            droneState.isHovering = false;
+        }
+    })
+    .on('hovering', function() {
+        console.log('hovering');
+        droneState.isLanded = false;
+        if (cmdIndex === 0) {
+            console.log('starting queue');
+            runQueue(flightPath, this);
+            cmdIndex++;
+        }
+    })
+    .on('landed', function() {
+        console.log('landed');
+    })
+    .on('landing', function() {
+        console.log('landing');
+        droneState.isLanded = true;
+    })
+    .on('takingOff', function() {
+        console.log('taking off');
+    })
+    .on('emergency', function() {
+        console.log('emergency');
+    })
+    .on('VideoEnableChanged', function(status) {
+        console.log('video enable changed - status:', status);
+        if (status.enabled !== 'enabled') {
+            // drone.MediaStreaming.videoEnable(1);
+        }
+    });
+
+function runQueue(theRoute, aDrone) {
+    var aQueue = temporal.queue(theRoute);
+    aQueue.on('end', function() {
+        console.log('flight plan complete');
+        landDrone(aDrone);
+    });
+}
+
+function landDrone(aDrone) {
+    var landId = setInterval(function() {
+        if (!droneState.isLanded) {
+            console.log('land attempt');
+            aDrone.land();
+        } else {
+            clearInterval(landId);
+        }
+    }, 1000);
+}

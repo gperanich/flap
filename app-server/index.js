@@ -60,6 +60,8 @@ function registerShadow () {
         }
         if (typeof err === 'undefined' && typeof failedTopics === 'undefined') {
             console.log('mobile thing registered');
+            var takeoffState = {state: {desired: generateState('takeoff')}};
+            executeOperation('update', takeoffState);
         }
     });
 }
@@ -95,12 +97,14 @@ function handleStatus (thingName, stat, clientToken, stateObject) {
 
 function handleDelta(thingName, stateObject) {
     console.log('delta on', thingName, ':', JSON.stringify(stateObject));
-    var isTakeoff = stateObject.state.takeoff;
-    if (isTakeoff) {
-        console.log('sending land request');
-        var landState = {state: {desired: generateState('land')}};
-        executeOperation('update', landState);
-    }
+    // var isTakeoff = stateObject.state.takeoff;
+    // if (isTakeoff) {
+    //     console.log('sending land request');
+    //     setTimeout(function() {
+    //         var landState = {state: {desired: generateState('land')}};
+    //         executeOperation('update', landState);
+    //     }, 5000);
+    // }
 }
 
 function handleTimeout(thingName, clientToken) {

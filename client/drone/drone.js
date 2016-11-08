@@ -7,7 +7,8 @@ var droneHost = '192.168.42.1';
 var drone = bebop.createClient({ip:droneHost});
 
 var PilotingSettings = drone.PilotingSettings,
-    SpeedSettings = drone.SpeedSettings;
+    SpeedSettings = drone.SpeedSettings,
+    MediaStreaming = drone.MediaStreaming;
 
 /*
 * initial settings
@@ -34,8 +35,7 @@ var currentSettings = {
     maxTilt: 0,
     maxDistance: 0,
     maxVerticalSpeed: 0,
-    maxRotationSpeed: 0,
-    videoEnable: 0
+    maxRotationSpeed: 0
 };
 
 var desiredSettings = {
@@ -43,8 +43,7 @@ var desiredSettings = {
     maxTilt: 15,
     maxDistance: 2000,
     maxVerticalSpeed: 6,
-    maxRotationSpeed: 100,
-    videoEnable: 1
+    maxRotationSpeed: 100
 };
 
 /*
@@ -200,8 +199,6 @@ function settingsLoop(aDrone) {
             console.log(setting);
             if (setting === 'maxVerticalSpeed' || setting === 'maxRotationSpeed') {
                 SpeedSettings.self = SpeedSettings[setting](desiredSettings[setting]);
-            } else if (setting === 'videoEnable') {
-                MediaStreaming[setting](desiredSettings[setting]);
             } else {
                 PilotingSettings.self = PilotingSettings[setting](desiredSettings[setting]);
             }  
@@ -227,12 +224,13 @@ function settingsLoop(aDrone) {
 */
 
 drone.connect(function() {
-    console.log('connected');
+    console.log('connected to host:', drone.ip);
+    drone.MediaStreaming.videoEnable(1);
     setTimeout(function() {
         drone.land();
         console.log('CONNECT TIMEOUT FORCED LAND');
     }, 60000);
-});
+}.bind(drone));
 
 drone
     .on('MaxAltitudeChanged', function(settingObj) {
@@ -295,6 +293,9 @@ drone
     })
     .on('VideoEnableChanged', function(status) {
         console.log('video enable changed - status:', status);
+        if (status.enabled !== 'enabled') {
+            drone.MediaStreaming.videoEnable(1);
+        }
     });
 
 function runQueue(theRoute, aDrone) {
