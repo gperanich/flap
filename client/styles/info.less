@@ -4,15 +4,14 @@ opacity: 0;
 
 }
 .pics {
-    margin-bottom: 19em;
+    margin-bottom: 5em;
 
         @media (max-width: 990px) {
             margin-bottom: 3em;
         } 
 
     .pic-row {
-        margin-top: 7em;
-        // background-color: #e2e2e2;
+        margin-top: 4em;
 
         @media (max-width: 990px) {
             margin-top: 3em;
@@ -80,13 +79,28 @@ opacity: 0;
 
                 } 
             }
+
+            .square3 {
+                width: 100%;
+                background-image: url('/images/usericon.jpg');
+                height: 24em;
+                background-size: cover;
+                background-position: center;
+                border-radius: .5em;
+                cursor: pointer;
+                border: 1px solid grey;
+
+                @media (max-width: 770px) {
+                    height: 19em;
+
+                } 
+            }
         }
     }
 }
 
 .explanation {
     margin-top: 6em;
-
     
     @media (max-width: 990px) {
         margin-bottom: 0;
@@ -98,36 +112,34 @@ opacity: 0;
         margin-bottom: 5em;
 
         @media (max-width: 990px) {
-            // width: 75%;
-            // border-radius: 2em;
+            margin-bottom: 2em;
         } 
 
         .software-section {
-            padding-top: 2.5em;
-            padding-bottom: 3.5em;
-            // background-color: white;
+            padding-top: 1.5em;
+            padding-bottom: 1.5em; 
             background-color: rgba(0, 0, 0, 0.65);
-            // background-color:rgba(19, 15, 15, 0.92);
-
-            margin-bottom: 13em;
 
                 @media (max-width: 990px) {
-                    min-height: 40em;
+                    min-height: 30em;
                     border-radius: 2em;
                     margin-bottom: 3em;
                 } 
 
             .text-container {
+                display: inline;
 
                 .about-container {
+                    text-align: center;
 
                     .square {
                         width: 100%;
-                        text-align: center;
 
                         .glyph-container {
+                            display: inline-block;
+
                             .glyphicon {
-                                font-size: 3em;
+                                font-size: 2.8em;
                                 padding: 0.5em 0.5em;
                                 color: lightblue;
                                 // margin-right: 20px;
@@ -140,13 +152,18 @@ opacity: 0;
                                 font-size: 2.5em;
                                 letter-spacing: 10px;
                                 text-transform: uppercase;
+                                display: inline-block;
                             }
                             p {
-                                text-align: center;
+                                text-align: left;
                                 color: white;
                                 letter-spacing: 1px;
                                 font-size: 15px;
-                                padding: 25px 25px 0 25px;
+                                padding: 5px 25px 0 37px;
+
+                                @media (max-width: 990px) {
+                                    text-align: center;
+                                } 
                             }
                         }
                     }
@@ -156,7 +173,7 @@ opacity: 0;
     }
 
     .hardwares {
-        padding-bottom: 2em;
+        // padding-bottom: 2em;
         background-color: rgba(0, 0, 0, 0.92);
         width: 100%;
 
@@ -179,7 +196,7 @@ opacity: 0;
                         margin-bottom: 3em;
                         margin-top: 3em;
                     }  
-
+                
                 .square1 {
                     width: 100%;
                     background-image: url('/images/bebop2_blanc.png');
@@ -192,7 +209,7 @@ opacity: 0;
                 
                     
                     @media (max-width: 750px) {
-                        max-width: 40em;
+                        max-width: 30em;
                         margin: 0 auto;
                     } 
                 }
