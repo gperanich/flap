@@ -9,9 +9,9 @@ const thingShadows = thingShadow({
     port: 8883,
     region: 'us-east-1',
     clientId: 'droneApp',
-    caCert: '../aws-certs/root-CA.crt',
-    clientCert: '../aws-certs/afa4bee0c2-certificate.pem.crt',
-    privateKey: '../aws-certs/afa4bee0c2-private.pem.key'
+    caCert: '../../aws-certs/root-CA.crt',
+    clientCert: '../../aws-certs/afa4bee0c2-certificate.pem.crt',
+    privateKey: '../../aws-certs/afa4bee0c2-private.pem.key'
 });
 
 var currentState = {
@@ -97,14 +97,14 @@ function handleStatus (thingName, stat, clientToken, stateObject) {
 
 function handleDelta(thingName, stateObject) {
     console.log('delta on', thingName, ':', JSON.stringify(stateObject));
-    // var isTakeoff = stateObject.state.takeoff;
-    // if (isTakeoff) {
-    //     console.log('sending land request');
-    //     setTimeout(function() {
-    //         var landState = {state: {desired: generateState('land')}};
-    //         executeOperation('update', landState);
-    //     }, 5000);
-    // }
+    var isTakeoff = stateObject.state.takeoff;
+    if (isTakeoff) {
+        console.log('sending land request');
+        setTimeout(function() {
+            var landState = {state: {desired: generateState('land')}};
+            executeOperation('update', landState);
+        }, 5000);
+    }
 }
 
 function handleTimeout(thingName, clientToken) {
