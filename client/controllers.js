@@ -6,7 +6,7 @@ angular.module('DroneApp.controllers', [])
 
     }])
     .controller('LoginController', ['$scope', '$rootScope', 'UserService', '$location', function ($scope, $rootScope, UserService, $location, customNavbar) {
-        UserService.me().then(function(success) {
+        UserService.me().then(function (success) {
             redirect();
         });
         function redirect() {
@@ -39,63 +39,63 @@ angular.module('DroneApp.controllers', [])
             console.log('clicked to see building details');
             console.log(building);
             building.hideDetails = !building.hideDetails;
-                $(document).ready(function() {
-                    $('#shape-' + index).empty();
-                    var createShape = function() {
-                        console.log('creating 3d object');
-                        var canvas = $('#shape-' + index);
-                        var Shape = function(width, height, depth) {
-                            this.width = width;
-                            this.height = height;
-                            this.depth = depth;
-                        }
-                        Shape.prototype.draw = function() {
-                            var scene = new THREE.Scene();
-                            // scene.background = new THREE.Color( 0xffffff );
-                            var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-
-                            var renderer = new THREE.WebGLRenderer({ alpha: true });
-                            renderer.setClearColor(0xffffff, 0.5);
-                            renderer.setSize( window.innerWidth/3, window.innerHeight/3 );
-                            renderer.setClearColor(0xffffff, 0);
-                            var container = $('#shape-' + index);
-                            console.log(container);
-                            container.empty();
-                            container.append($( renderer.domElement ).addClass('threed'));
-
-                            var geometry = new THREE.BoxGeometry( building.width/10, building.height/10, building.length/10 );
-                            var material = new THREE.MeshBasicMaterial( { color: 0x778899 } );
-                            var cube = new THREE.Mesh( geometry, material );
-                            var eGeometry = new THREE.EdgesGeometry( cube.geometry );
-                            var eMaterial = new THREE.LineBasicMaterial({ color: 0x000000, linewidth: 1.5 });
-                            var edges = new THREE.LineSegments( eGeometry, eMaterial );
-                            cube.add(edges);
-                            scene.add( cube );
-
-                            camera.position.z = 5;
-
-                            function render() {
-                                requestAnimationFrame( render );
-                                cube.rotation.x = 0;
-                                cube.rotation.y += 0.01;
-                                cube.rotation.z = 0;
-                                renderer.render( scene, camera );
-                            }
-                            render();
-                        }
-                        var Rectangle = function(width, height, depth) {
-                            Shape.call(this, width, height, depth);
-                            this.draw();
-                        }
-                        Rectangle.prototype = Object.create(Shape.prototype);
-                        Rectangle.prototype.constructor = Rectangle;
-                        function createRectangle() {
-                            new Rectangle(building.width/10, building.height/10, building.length/10);
-                        }
-                        createRectangle();
+            $(document).ready(function () {
+                $('#shape-' + index).empty();
+                var createShape = function () {
+                    console.log('creating 3d object');
+                    var canvas = $('#shape-' + index);
+                    var Shape = function (width, height, depth) {
+                        this.width = width;
+                        this.height = height;
+                        this.depth = depth;
                     }
-                    createShape();
-                })		
+                    Shape.prototype.draw = function () {
+                        var scene = new THREE.Scene();
+                        // scene.background = new THREE.Color( 0xffffff );
+                        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+                        var renderer = new THREE.WebGLRenderer({ alpha: true });
+                        renderer.setClearColor(0xffffff, 0.5);
+                        renderer.setSize(window.innerWidth / 3, window.innerHeight / 3);
+                        renderer.setClearColor(0xffffff, 0);
+                        var container = $('#shape-' + index);
+                        console.log(container);
+                        container.empty();
+                        container.append($(renderer.domElement).addClass('threed'));
+
+                        var geometry = new THREE.BoxGeometry(building.width / 10, building.height / 10, building.length / 10);
+                        var material = new THREE.MeshBasicMaterial({ color: 0x778899 });
+                        var cube = new THREE.Mesh(geometry, material);
+                        var eGeometry = new THREE.EdgesGeometry(cube.geometry);
+                        var eMaterial = new THREE.LineBasicMaterial({ color: 0x000000, linewidth: 1.5 });
+                        var edges = new THREE.LineSegments(eGeometry, eMaterial);
+                        cube.add(edges);
+                        scene.add(cube);
+
+                        camera.position.z = 5;
+
+                        function render() {
+                            requestAnimationFrame(render);
+                            cube.rotation.x = 0;
+                            cube.rotation.y += 0.01;
+                            cube.rotation.z = 0;
+                            renderer.render(scene, camera);
+                        }
+                        render();
+                    }
+                    var Rectangle = function (width, height, depth) {
+                        Shape.call(this, width, height, depth);
+                        this.draw();
+                    }
+                    Rectangle.prototype = Object.create(Shape.prototype);
+                    Rectangle.prototype.constructor = Rectangle;
+                    function createRectangle() {
+                        new Rectangle(building.width / 10, building.height / 10, building.length / 10);
+                    }
+                    createRectangle();
+                }
+                createShape();
+            })
 
         };
         $scope.showRoutes = function (building) {
@@ -122,53 +122,53 @@ angular.module('DroneApp.controllers', [])
         $(".pic-container").mouseenter(function () {
             var $text1 = $(this).children('.text1');
             $text1.stop();
-            // $text1.slideDown(500);
-            $text1.fadeIn(600);
+            $text1.slideDown(500);
+            // $text1.fadeIn(600);
         });
 
         $(".pic-container").mouseleave(function () {
             var $text1 = $(this).children('.text1');
             $text1.stop();
-            // $text1.slideUp(500);
-            $text1.fadeOut(600);
+            $text1.slideUp(500);
+            // $text1.fadeOut(600);
         });
 
         $(document).ready(function () {
             $(".info-page").delay(75).animate({ opacity: 1 }, 200)
         })
 
-        $scope.software = function () {
-            let destination = document.getElementById('software');
-            let distance = destination.offsetTop - (document.body.scrollTop - 220);
-            console.log(distance);
-            // document.body.scrollTop = destination.offsetTop;
-            let increment = distance / 25;
-            console.log(increment);
-            let prevValue;
-            let t = setInterval(() => {
-                prevValue = document.body.scrollTop;
-                document.body.scrollTop += increment;
-                if (document.body.scrollTop === prevValue || document.body.scrollTop >= destination.offsetTop) {
-                    clearTimeout(t);
-                }
-            }, 25);
-        }
+        // $scope.software = function () {
+        //     let destination = document.getElementById('software');
+        //     let distance = destination.offsetTop - (document.body.scrollTop - 220);
+        //     console.log(distance);
+        //     // document.body.scrollTop = destination.offsetTop;
+        //     let increment = distance / 25;
+        //     console.log(increment);
+        //     let prevValue;
+        //     let t = setInterval(() => {
+        //         prevValue = document.body.scrollTop;
+        //         document.body.scrollTop += increment;
+        //         if (document.body.scrollTop === prevValue || document.body.scrollTop >= destination.offsetTop) {
+        //             clearTimeout(t);
+        //         }
+        //     }, 25);
+        // }
 
-        $scope.hardware = function () {
-            console.log('working');
-            let destination = document.getElementById('hardware');
-            let distance = destination.offsetTop - document.body.scrollTop;
-            // document.body.scrollTop = destination.offsetTop;
-            let increment = distance / 25;
-            let prevValue;
-            let t = setInterval(() => {
-                prevValue = document.body.scrollTop;
-                document.body.scrollTop += increment;
-                if (document.body.scrollTop === prevValue || document.body.scrollTop >= destination.offsetTop) {
-                    clearTimeout(t);
-                }
-            }, 25);
-        }
+        // $scope.hardware = function () {
+        //     console.log('working');
+        //     let destination = document.getElementById('hardware');
+        //     let distance = destination.offsetTop - document.body.scrollTop;
+        //     // document.body.scrollTop = destination.offsetTop;
+        //     let increment = distance / 25;
+        //     let prevValue;
+        //     let t = setInterval(() => {
+        //         prevValue = document.body.scrollTop;
+        //         document.body.scrollTop += increment;
+        //         if (document.body.scrollTop === prevValue || document.body.scrollTop >= destination.offsetTop) {
+        //             clearTimeout(t);
+        //         }
+        //     }, 25);
+        // }
 
     }])
     .controller('PastWorkController', ['$scope', function ($scope) {

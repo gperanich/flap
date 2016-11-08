@@ -1,6 +1,21 @@
 .info-page {
 background-color: rgba(255, 255, 255, 0.8); 
 opacity: 0; 
+text-align: center;
+color: black;
+
+    h1 {
+        letter-spacing: 3px;
+        padding-top: 1.5em;
+        text-transform: uppercase;
+        margin-top: 0;
+    }
+
+    p {
+        color: white;
+        padding: 0 2em 0 2em;
+        text-align: center;
+    }
 
 }
 .pics {
@@ -25,7 +40,7 @@ opacity: 0;
             .square1 {
                 width: 100%;
                 background-image: url('/images/binary.jpg');
-                height: 24em;
+                height: 21em;
                 background-size: cover;
                 background-position: center;
                 border-radius: .5em;
@@ -33,13 +48,13 @@ opacity: 0;
                 -webkit-filter: grayscale(100%); 
                 filter: grayscale(100%);
 
-                @media (max-width: 770px) {
-                    height: 19em;
+                @media (max-width: 990px) {
+                    height: 15em;
                 } 
             }
             
             .text1 {
-                width: 95%;
+                width: 91%;
                 background-color:rgba(19, 15, 15, 0.92);
                 position: absolute;
                 top: 0;
@@ -52,30 +67,33 @@ opacity: 0;
                 h1 {
                     text-align: center;
                     color: white;
-                    padding-top: 3.5em;
-                    padding-bottom: 3.5em;
+                    padding-top: 1.5em;
                     text-transform: uppercase;
                     letter-spacing: 2px;
                 }  
 
-                @media (max-width: 770px) {
-                    height: 19em;
+                @media (max-width: 990px) {
+                    height: 15em;
                     margin: 0 auto;
+
+                    h1 {
+                        padding-top: .8em;
+                    }
                 } 
             }
 
             .square2 {
                     width: 100%;
                     background-image: url('/images/blackandwhitedrone.jpg');
-                    height: 24em;
+                    height: 21em;
                     background-size: cover;
                     background-position: center;
                     border-radius: .5em;
                     cursor: pointer;
                     border: 1px solid grey;
 
-                @media (max-width: 770px) {
-                    height: 19em;
+                @media (max-width: 990px) {
+                    height: 15em;
 
                 } 
             }
@@ -83,15 +101,15 @@ opacity: 0;
             .square3 {
                 width: 100%;
                 background-image: url('/images/usericon.jpg');
-                height: 24em;
+                height: 21em;
                 background-size: cover;
                 background-position: center;
                 border-radius: .5em;
                 cursor: pointer;
                 border: 1px solid grey;
 
-                @media (max-width: 770px) {
-                    height: 19em;
+                @media (max-width: 990px) {
+                    height: 15em;
 
                 } 
             }
@@ -149,7 +167,7 @@ opacity: 0;
                             h4 {
                                 text-align: center;
                                 color: white;
-                                font-size: 2.5em;
+                                font-size: 28px;
                                 letter-spacing: 10px;
                                 text-transform: uppercase;
                                 display: inline-block;
@@ -172,76 +190,76 @@ opacity: 0;
         }
     }
 
-    .hardwares {
-        // padding-bottom: 2em;
-        background-color: rgba(0, 0, 0, 0.92);
-        width: 100%;
+    // .hardwares {
+    //     // padding-bottom: 2em;
+    //     background-color: rgba(0, 0, 0, 0.92);
+    //     width: 100%;
 
-            @media (max-width: 990px) {
-                // min-height: 31em;
-            } 
+    //         @media (max-width: 990px) {
+    //             // min-height: 31em;
+    //         } 
 
-        .pic-row {
-            margin-top: 6em;
+    //     .pic-row {
+    //         margin-top: 6em;
 
-            @media (max-width: 990px) {
-                margin-top: 1em;
-            } 
-            @media (max-width: 680px) {
-                margin-top: 1em;
-            }
+    //         @media (max-width: 990px) {
+    //             margin-top: 1em;
+    //         } 
+    //         @media (max-width: 680px) {
+    //             margin-top: 1em;
+    //         }
 
-            .pic-container {
-                    @media (max-width: 990px) {
-                        margin-bottom: 3em;
-                        margin-top: 3em;
-                    }  
+    //         .pic-container {
+    //                 @media (max-width: 990px) {
+    //                     margin-bottom: 3em;
+    //                     margin-top: 3em;
+    //                 }  
                 
-                .square1 {
-                    width: 100%;
-                    background-image: url('/images/bebop2_blanc.png');
-                    height: 15em;
-                    background-size: cover;
-                    background-position: center;
-                    border-radius: 1em;
-                    -webkit-filter: grayscale(100%); 
-                    filter: grayscale(100%);
+    //             .square1 {
+    //                 width: 100%;
+    //                 background-image: url('/images/bebop2_blanc.png');
+    //                 height: 15em;
+    //                 background-size: cover;
+    //                 background-position: center;
+    //                 border-radius: 1em;
+    //                 -webkit-filter: grayscale(100%); 
+    //                 filter: grayscale(100%);
                 
                     
-                    @media (max-width: 750px) {
-                        max-width: 30em;
-                        margin: 0 auto;
-                    } 
-                }
+    //                 @media (max-width: 750px) {
+    //                     max-width: 30em;
+    //                     margin: 0 auto;
+    //                 } 
+    //             }
 
-                .square2 {
-                    // height: 16em;
-                    color: #1b1b1b;
-                    line-height: 28px;
-                    font-size: 17px;
-                    width: 85%;
-                    margin-left: 25px;
+    //             .square2 {
+    //                 // height: 16em;
+    //                 color: #1b1b1b;
+    //                 line-height: 28px;
+    //                 font-size: 17px;
+    //                 width: 85%;
+    //                 margin-left: 25px;
 
-                        @media (max-width: 700px) {
-                            margin-top: 2em;
-                            width: 98%;
-                        } 
+    //                     @media (max-width: 700px) {
+    //                         margin-top: 2em;
+    //                         width: 98%;
+    //                     } 
 
-                    p {
-                        color: white;
-                        letter-spacing: 1px;
+    //                 p {
+    //                     color: white;
+    //                     letter-spacing: 1px;
 
-                    }
+    //                 }
 
-                    @media (max-width: 990px) {
-                        // height: 8em;
-                        text-align: center;
-                    } 
-                    @media (max-width: 640px) {
-                        width: 90%;
-                    } 
-                }
-            }
-        }
-    }
+    //                 @media (max-width: 990px) {
+    //                     // height: 8em;
+    //                     text-align: center;
+    //                 } 
+    //                 @media (max-width: 640px) {
+    //                     width: 90%;
+    //                 } 
+    //             }
+    //         }
+    //     }
+    // }
 }
