@@ -77,6 +77,7 @@ angular.module('DroneApp.directives', [])
                     });
                 }
                 initMap();
+                map.setOptions({disableDoubleClickZoom: true });
                 $("#myModal").on("shown.bs.modal", function () {
                     google.maps.event.trigger(map, "resize");
                     // map.setCenter(latlng);
