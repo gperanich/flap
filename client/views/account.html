@@ -7,8 +7,7 @@
 					<div class="building-list col-md-6 col-sm-6 col-xs-12" ng-repeat="building in buildings">
 						<h4 class="buildingz">{{ building.buildingName }} </h4>
 						<div class="detail-view">
-							<p class="detailz" href="#" ng-click="showDetails(building, $index)">Details</p>
-							<p class="routez" href="#" ng-click="showRoutes(building)">Routes</p>
+							<p class="detailz" href="#" ng-click="showDetails(building, $index)">View Building</p>
 						</div>
 						<div class="building-details thumbnail col-md-12" ng-hide="building.hideDetails" ng-init="building.hideDetails = true">
 							<div class="thumb-photo">
@@ -28,11 +27,13 @@
 									<p class="l"> {{ building.length }}</p>
 								</div>
 							</div>
+							<p class="routez" ng-click="showRoutes(building)">View Routes</p>
+
 							<div class="routes-div col-md-12" ng-hide="building.hideRoutes" ng-init="building.hideRoutes = true">
 								<div class="singleroute-div" ng-repeat="route in building.routes track by $index">
 										<h3>Route ID: {{ route.id }}</h3>
 
-										<button class="btn btn-primary flybutton" id="flyroutebtn" ng-click="flyRoute(route)">Fly Route</button>
+										<button class="flybutton" id="flyroutebtn" ng-click="flyRoute(route)">Fly!</button>
 									<div class="commands">
 										<div ng-repeat="height in route.heights track by $index">
 											<p>Height: {{height.height}} ft.</p>

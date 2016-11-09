@@ -239,7 +239,6 @@ video {
   margin-top: 1.3em;
 }
 .creator-container .user-creator .register-form .userinfo .confirm button {
-  border: 1px solid white;
   border-radius: 5px;
   color: white;
   width: 9.5em;
@@ -501,7 +500,7 @@ video {
   height: 37em;
   background-color: #1b1b1c;
   text-align: center;
-  padding-top: 2em;
+  padding-top: 3em;
   border-radius: 2em;
   -webkit-box-shadow: 0 8px 6px -6px #999;
   -moz-box-shadow: 0 8px 6px -6px #999;
@@ -516,7 +515,7 @@ video {
 .contact-container .contact-row .contact-form-row .contact-form input {
   width: 80%;
   margin-bottom: 2em;
-  height: 4em;
+  height: 3em;
   border-radius: 5px;
 }
 .contact-container .contact-row .contact-form-row .contact-form input::-webkit-input-placeholder {
@@ -535,8 +534,8 @@ video {
   padding-top: 5px;
 }
 .contact-container .contact-row .contact-form-row .contact-form button {
+  color: white;
   border-radius: 5px;
-  color: #1b1b1b;
   height: 3em;
   width: 11.5em;
   text-transform: uppercase;
@@ -544,7 +543,8 @@ video {
 }
 .contact-container .contact-row .contact-form-row .contact-form button:hover {
   background: rgba(0, 0, 0, 0.5);
-  transition: .4s background;
+  transition: .2s background;
+  color: white;
 }
 .contact-container .contact-row .map {
   border-radius: 2em;
@@ -586,6 +586,11 @@ video {
     width: 98%;
   }
 }
+.account-body .buildings-container .building-list:hover {
+  -webkit-box-shadow: 0 8px 6px -6px #9C9C9C;
+  -moz-box-shadow: 0 8px 6px -6px #9C9C9C;
+  box-shadow: 10px 12px 6px -6px #9C9C9C;
+}
 .account-body .buildings-container .building-list .buildingz {
   color: white;
   text-align: center;
@@ -595,7 +600,7 @@ video {
 }
 .account-body .buildings-container .building-list .detail-view {
   display: inline-block;
-  margin-bottom: 1.5em;
+  margin-bottom: .5em;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: lightblue;
@@ -606,13 +611,6 @@ video {
   display: inline-block;
 }
 .account-body .buildings-container .building-list .detail-view .detailz:hover {
-  font-weight: bold;
-  text-decoration: none;
-}
-.account-body .buildings-container .building-list .detail-view .routez {
-  display: inline-block;
-}
-.account-body .buildings-container .building-list .detail-view .routez:hover {
   font-weight: bold;
   text-decoration: none;
 }
@@ -647,19 +645,44 @@ video {
   display: inline-block;
   font-size: 24px;
 }
+.account-body .buildings-container .building-list .building-details .routez {
+  display: inline-block;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: lightblue;
+  font-size: 18px;
+}
+.account-body .buildings-container .building-list .building-details .routez:hover {
+  font-weight: bold;
+  text-decoration: none;
+}
+.account-body .buildings-container .building-list .building-details .routes-div {
+  background-color: white;
+}
 .account-body .buildings-container .building-list .building-details .singleroute-div {
   width: 65%;
   margin: 0 auto;
   text-align: center;
 }
 .account-body .buildings-container .building-list .building-details .singleroute-div h3 {
-  color: lightblue;
+  margin-top: .5em;
+  color: #1b1b1b;
   letter-spacing: 2px;
 }
 .account-body .buildings-container .building-list .building-details .singleroute-div .flybutton {
   color: white;
+  margin: 1.5em;
+  border-radius: 5px;
+  width: 9.5em;
   text-transform: uppercase;
-  margin: 2em;
+  letter-spacing: 2px;
+  height: 2.5em;
+}
+.account-body .buildings-container .building-list .building-details .singleroute-div .flybutton:hover {
+  background: rgba(0, 0, 0, 0.5);
+  transition: .4s background;
 }
 .account-body .buildings-container .building-list .building-details .singleroute-div .commands {
   color: black;
@@ -678,11 +701,7 @@ video {
   margin-bottom: 0;
 }
 .create-container {
-  /*background-color: purple;*/
   padding-top: 1em;
-}
-.create-container .building-btn {
-  /*background-color: blue;*/
 }
 @media (max-width: 770px) {
   .create-container .building-btn {
@@ -699,9 +718,6 @@ video {
     float: none;
     text-align: center;
   }
-}
-.create-container .two {
-  /*background-color: green;*/
 }
 @media (max-width: 770px) {
   .create-container .two {

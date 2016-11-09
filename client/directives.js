@@ -152,6 +152,7 @@ angular.module('DroneApp.directives', [])
                     console.log('clicked clear route');
                     $scope.mapVertices = [];
                     $scope.routeHeights = [];
+                    $scope.routeCommands = [];
                     clearMarkers();
                     markers = [];
                 }
@@ -166,6 +167,37 @@ angular.module('DroneApp.directives', [])
                         selectedBuilding = {};
                     }
 
+                }
+                // testing route commands up, down, left, right
+
+                $scope.routeCommands = [];
+                $scope.addRouteParam = function() {
+                    $scope.routeCommands.push({
+                        cmd: $scope.selectedCommand,
+                        amt: $scope.inputAmount
+                    });
+                    console.log($scope.routeCommands);
+                }
+                $scope.submitRouteCmds = function() {
+                    console.log('clicked to submit commands');
+                    var cmdString = JSON.stringify($scope.routeCommands);
+                    var selBuilding;
+                    try {
+                        selBuilding = JSON.parse($scope.selectedBuilding);
+                        console.log(selBuilding);
+                    } catch (err) {
+                        console.log(err);
+                        selBuilding = {};
+                        console.log(selectedBuilding);
+                    };
+                    var rteData = {
+                        userid: user,
+                        buildingid: selBuilding.id,
+                        commands: cmdString,
+                        heights: 0                        
+                    }
+                    var rte = new Routes(rteData);
+                    rte.$save();
                 }
             }]
         }

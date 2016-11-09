@@ -1,10 +1,20 @@
 var mysql = require('mysql');
 var pool = mysql.createPool({
    connectionlimit: 10,
-   host: 'mydatabaseserver.c4dudm0wenm8.us-west-2.rds.amazonaws.com', //process.env.RDS_HOSTNAME
-   user: 'gperanich', //process.env.RDS_USER,
-   password: 'droneapp123', //process.env.RDS_PASSWORD,
-   database: 'DroneApp' //process.env.RDS_DATABASE
+   host: process.env.RDS_HOSTNAME,
+//    host: 'localhost',
+    // user: 'root',
+    // password: '',
+    // database: 'DroneApp',
+   user: process.env.RDS_USER,
+   password: process.env.RDS_PASSWORD,
+   database: process.env.RDS_DATABASE
+// =======
+//    host: 'mydatabaseserver.c4dudm0wenm8.us-west-2.rds.amazonaws.com', //process.env.RDS_HOSTNAME
+//    user: 'gperanich', //process.env.RDS_USER,
+//    password: 'droneapp123', //process.env.RDS_PASSWORD,
+//    database: 'DroneApp' //process.env.RDS_DATABASE
+// >>>>>>> 0b691ce3d2c2aa087f07a12365d4af27b279bad0
 });
 
 exports.pool = pool;
