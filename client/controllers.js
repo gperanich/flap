@@ -34,7 +34,7 @@ angular.module('DroneApp.controllers', [])
         })
 
     }])
-    .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', function ($scope, Buildings, UserService, Routes) {
+    .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', 'FlyRoutes', function ($scope, Buildings, UserService, Routes, FlyRoutes) {
         $scope.showDetails = function (building, index) {
             building.hideDetails = !building.hideDetails;
             $(document).ready(function () {
@@ -105,6 +105,27 @@ angular.module('DroneApp.controllers', [])
                 building.routes = Routes.building({ buildingid: building.id });
                 console.log(building.routes);
             }
+        };
+
+        $scope.flyRoute = function(route) {
+            console.log('clicked fly route');
+            console.log(route.id);
+
+            var flyPrompt = prompt('Type "flyTheRoute" is you want to proceed');
+            switch(flyPrompt) {
+                case 'flyTheRoute':
+                    var flyRouteData = {
+                        id: route.id
+                    };
+                    var flyRoute = new FlyRoutes(flyRouteData);
+                    flyRoute.$save(function(success) {
+                        console.log(success);
+                    });
+                    break;
+                default:
+                    alert('you cant fly this route');
+            };
+
         };
 
 

@@ -31,13 +31,14 @@
 							<div class="routes-div col-md-12" ng-hide="building.hideRoutes" ng-init="building.hideRoutes = true">
 								<div class="singleroute-div" ng-repeat="route in building.routes track by $index">
 										<h3>Route ID: {{ route.id }}</h3>
-										<button class="btn btn-primary flybutton" id="flyroutebtn" ng-click="flyRoute({{route.id}})">Fly!</button>
+
+										<button class="btn btn-primary flybutton" id="flyroutebtn" ng-click="flyRoute(route)">Fly Route</button>
 									<div class="commands">
 										<div ng-repeat="height in route.heights track by $index">
 											<p>Height: {{height.height}} ft.</p>
 										</div>
 										<div ng-repeat="step in route.commands track by $index">
-											<p>Lat: {{step.latitude}}<br>Long: {{step.longitude }}</p>
+											<p>Lat: {{step.latitude}}<br>Lng: {{step.longitude }}</p>
 										</div>
 									</div>
 								</div>

@@ -678,11 +678,11 @@ video {
   margin-bottom: 0;
 }
 .create-container {
-  background-color: purple;
+  /*background-color: purple;*/
   padding-top: 1em;
 }
 .create-container .building-btn {
-  background-color: blue;
+  /*background-color: blue;*/
 }
 @media (max-width: 770px) {
   .create-container .building-btn {
@@ -701,7 +701,7 @@ video {
   }
 }
 .create-container .two {
-  background-color: green;
+  /*background-color: green;*/
 }
 @media (max-width: 770px) {
   .create-container .two {
@@ -916,6 +916,9 @@ video {
 #map {
   height: 300px;
   width: 70%;
+}
+#create-building {
+  margin-top: -20px;
 }
 * {
   box-sizing: border-box;

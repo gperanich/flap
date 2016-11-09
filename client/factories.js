@@ -25,3 +25,6 @@ angular.module('DroneApp.factories', [])
         }
     });
 }])
+.factory('FlyRoutes', ['$resource', function($resource) {
+    return $resource('/api/flyroute/:id', { id:'@id' });
+}])
