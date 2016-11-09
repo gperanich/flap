@@ -119,23 +119,51 @@ angular.module('DroneApp.controllers', [])
     }])
     .controller('InfoController', ['$scope', function ($scope) {
 
-        $(".pic-container").mouseenter(function () {
-            var $text1 = $(this).children('.text1');
-            $text1.stop();
-            $text1.slideDown(500);
-            // $text1.fadeIn(600);
-        });
+        // $(window).resize(function () {
+        //     if ($(window).width() > 990) {
 
-        $(".pic-container").mouseleave(function () {
-            var $text1 = $(this).children('.text1');
-            $text1.stop();
-            $text1.slideUp(500);
-            // $text1.fadeOut(600);
-        });
+        //         $(".pic-container").mouseenter(function () {
+        //             var $text1 = $(this).children('.text1').css({ 'opacity': '1' });
+        //             $text1.stop();
+        //             $text1.slideDown(500);
+        //             // $text1.fadeIn(600);
+        //         });
 
-        $(document).ready(function () {
-            $(".info-page").delay(75).animate({ opacity: 1 }, 200)
-        })
+        //         $(".pic-container").mouseleave(function () {
+        //             var $text1 = $(this).children('.text1');
+        //             $text1.stop();
+        //             $text1.slideUp(500);
+        //             // $text1.fadeOut(600);
+        //         });
+
+        //     } else {
+        //         console.log('i should see the text');
+        //     }
+        // });
+
+        // if ($(window).width() > 990) {
+
+        //     $(".pic-container").mouseenter(function () {
+        //         var $text1 = $(this).children('.text1');
+        //         $text1.stop();
+        //         $text1.slideDown(500);
+        //     });
+
+        //     $(".pic-container").mouseleave(function () {
+        //         var $text1 = $(this).children('.text1');
+        //         $text1.stop();
+        //         $text1.slideUp(500);
+        //     });
+
+
+        // } else {
+        //     console.log('i should see the text on load');
+
+        // }
+
+        // $(document).ready(function () {
+        //     $(".info-page").delay(75).animate({ opacity: 1 }, 200)
+        // })
 
         // $scope.software = function () {
         //     let destination = document.getElementById('software');

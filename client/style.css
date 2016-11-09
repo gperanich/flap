@@ -690,7 +690,6 @@ video {
 }
 .info-page {
   background-color: rgba(255, 255, 255, 0.8);
-  opacity: 0;
   text-align: center;
   color: black;
 }
@@ -710,7 +709,7 @@ video {
 }
 @media (max-width: 990px) {
   .pics {
-    margin-bottom: 3em;
+    margin-bottom: 2em;
   }
 }
 .pics .pic-row {
@@ -721,7 +720,7 @@ video {
     margin-top: 3em;
   }
 }
-@media (max-width: 990px) {
+@media (max-width: 991px) {
   .pics .pic-row .pic-container {
     margin-bottom: 3em;
   }
@@ -737,33 +736,48 @@ video {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
 }
-@media (max-width: 990px) {
+@media (max-width: 991px) {
   .pics .pic-row .pic-container .square1 {
-    height: 15em;
+    height: 25em;
+    width: 50%;
   }
 }
 .pics .pic-row .pic-container .text1 {
-  width: 91%;
+  width: 93%;
   background-color: rgba(19, 15, 15, 0.92);
   position: absolute;
   top: 0;
   left: 13;
   bottom: 0;
-  display: none;
+  opacity: 0;
   border-radius: .5em;
   cursor: pointer;
+  transition: 0.4s all ease-in-out;
 }
 .pics .pic-row .pic-container .text1 h1 {
   text-align: center;
   color: white;
   padding-top: 1.5em;
+  padding-bottom: .5em;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-@media (max-width: 990px) {
+.pics .pic-row .pic-container .text1 p {
+  line-height: 2em;
+  font-size: 1.2em;
+}
+.pics .pic-row .pic-container .text1:hover {
+  opacity: 1;
+  transition: 0.4s all ease-in-out;
+}
+@media (max-width: 991px) {
   .pics .pic-row .pic-container .text1 {
-    height: 15em;
-    margin: 0 auto;
+    height: 25em;
+    display: inline-block;
+    width: 50%;
+    margin-left: 2em;
+    padding-top: 5em;
+    opacity: 1;
   }
   .pics .pic-row .pic-container .text1 h1 {
     padding-top: .8em;
@@ -779,9 +793,10 @@ video {
   cursor: pointer;
   border: 1px solid grey;
 }
-@media (max-width: 990px) {
+@media (max-width: 991px) {
   .pics .pic-row .pic-container .square2 {
-    height: 15em;
+    height: 25em;
+    width: 50%;
   }
 }
 .pics .pic-row .pic-container .square3 {
@@ -794,9 +809,10 @@ video {
   cursor: pointer;
   border: 1px solid grey;
 }
-@media (max-width: 990px) {
+@media (max-width: 991px) {
   .pics .pic-row .pic-container .square3 {
-    height: 15em;
+    height: 25em;
+    width: 50%;
   }
 }
 .explanation {
@@ -824,7 +840,7 @@ video {
 }
 @media (max-width: 990px) {
   .explanation .software-container .software-section {
-    min-height: 24em;
+    min-height: 22em;
     border-radius: 2em;
     margin-bottom: 3em;
   }
