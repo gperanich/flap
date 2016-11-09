@@ -111,13 +111,21 @@ angular.module('DroneApp.controllers', [])
             console.log('clicked fly route');
             console.log(route.id);
 
-            var flyRouteData = {
-                id: route.id
+            var flyPrompt = prompt('Type "flyTheRoute" is you want to proceed');
+            switch(flyPrompt) {
+                case 'flyTheRoute':
+                    var flyRouteData = {
+                        id: route.id
+                    };
+                    var flyRoute = new FlyRoutes(flyRouteData);
+                    flyRoute.$save(function(success) {
+                        console.log(success);
+                    });
+                    break;
+                default:
+                    alert('you cant fly this route');
             };
-            var flyRoute = new FlyRoutes(flyRouteData);
-            flyRoute.$save(function(success) {
-                console.log(success);
-            });
+
         };
 
 
