@@ -15,14 +15,12 @@
             background:rgba(0,0,0,0.75);
             min-height: 5em;
             width: 48%;
-            // width: 30%;
             margin: 0 0em 3em 1em;
             border-radius: 2em;
             padding-top: 1em;
             text-align: center;
 
                 @media (max-width: 1200px) {
-                    // width: 47%;
                 }   
 
                 @media (max-width: 991px) {
@@ -51,7 +49,8 @@
                     display: inline-block;
 
                     &:hover {
-                        color: red;
+                        // transition: 2s;
+                        font-weight: bold;
                         text-decoration: none;
                     }
                 }
@@ -60,7 +59,7 @@
                     display: inline-block;
 
                     &:hover {
-                        color: purple;
+                        font-weight: bold;
                         text-decoration: none;
                     }
                 }
@@ -77,7 +76,6 @@
                     canvas {
                         margin: 0 auto;
                         width: 300px !important;
-                        background-color:red;
 
                         .threed {
                             max-width: 250px;
@@ -106,21 +104,6 @@
                             font-size: 24px;
                         }
                     }
-
-                    // h4 {
-                    //     text-transform: uppercase;
-                    //     display: inline-block;
-                    //     margin-bottom: 0;
-                    // }
-
-                    // p {
-                    //     display: inline-block;
-                    //     font-weight: bold;
-                    //     font-size: 1.7em;
-                    //     padding-left: 15px;
-                    //     letter-spacing: 1px;
-                    //     margin-bottom: 0;
-                    // }
                 }
 
                 .singleroute-div {
@@ -130,12 +113,16 @@
 
                     h3 {
                         color: lightblue;
-                        letter-spacing: 2px;
-                        
+                        letter-spacing: 2px;  
+                    }
+
+                    .flybutton {
+                        color: white;
+                        text-transform: uppercase;
+                        margin: 2em;
                     }
                     
                     .commands {
-                        // background-color: brown;
                         color: black;
 
                         h4 {
@@ -158,11 +145,7 @@
         }
     }
 }
-// .shape-div {
-//     height: 300px;
-//     width: 300px;
-//     background-color: white;
-// }
+
 
 .create-container {
     background-color: purple;

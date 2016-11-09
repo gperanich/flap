@@ -581,8 +581,6 @@ video {
   padding-top: 1em;
   text-align: center;
 }
-@media (max-width: 1200px) {
-}
 @media (max-width: 991px) {
   .account-body .buildings-container .building-list {
     width: 98%;
@@ -608,14 +606,14 @@ video {
   display: inline-block;
 }
 .account-body .buildings-container .building-list .detail-view .detailz:hover {
-  color: red;
+  font-weight: bold;
   text-decoration: none;
 }
 .account-body .buildings-container .building-list .detail-view .routez {
   display: inline-block;
 }
 .account-body .buildings-container .building-list .detail-view .routez:hover {
-  color: purple;
+  font-weight: bold;
   text-decoration: none;
 }
 .account-body .buildings-container .building-list .building-details {
@@ -626,7 +624,6 @@ video {
 .account-body .buildings-container .building-list .building-details .thumb-photo canvas {
   margin: 0 auto;
   width: 300px !important;
-  background-color: red;
 }
 .account-body .buildings-container .building-list .building-details .thumb-photo canvas .threed {
   max-width: 250px;
@@ -658,6 +655,11 @@ video {
 .account-body .buildings-container .building-list .building-details .singleroute-div h3 {
   color: lightblue;
   letter-spacing: 2px;
+}
+.account-body .buildings-container .building-list .building-details .singleroute-div .flybutton {
+  color: white;
+  text-transform: uppercase;
+  margin: 2em;
 }
 .account-body .buildings-container .building-list .building-details .singleroute-div .commands {
   color: black;

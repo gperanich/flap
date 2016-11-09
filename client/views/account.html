@@ -28,10 +28,10 @@
 									<p class="l"> {{ building.length }}</p>
 								</div>
 							</div>
-							<div class="routes-div" ng-hide="building.hideRoutes" ng-init="building.hideRoutes = true">
+							<div class="routes-div col-md-12" ng-hide="building.hideRoutes" ng-init="building.hideRoutes = true">
 								<div class="singleroute-div" ng-repeat="route in building.routes track by $index">
 										<h3>Route ID: {{ route.id }}</h3>
-										<button class="btn btn-primary" id="flyroutebtn" ng-click="flyRoute({{route.id}})">Fly Route</button>
+										<button class="btn btn-primary flybutton" id="flyroutebtn" ng-click="flyRoute({{route.id}})">Fly!</button>
 									<div class="commands">
 										<div ng-repeat="height in route.heights track by $index">
 											<p>Height: {{height.height}} ft.</p>
