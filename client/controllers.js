@@ -34,10 +34,8 @@ angular.module('DroneApp.controllers', [])
         })
 
     }])
-    .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', function ($scope, Buildings, UserService, Routes) {
+    .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', 'FlyRoutes', function ($scope, Buildings, UserService, Routes, FlyRoutes) {
         $scope.showDetails = function (building, index) {
-            console.log('clicked to see building details');
-            console.log(building);
             building.hideDetails = !building.hideDetails;
             $(document).ready(function () {
                 $('#shape-' + index).empty();
@@ -98,6 +96,7 @@ angular.module('DroneApp.controllers', [])
             })
 
         };
+
         $scope.showRoutes = function (building) {
             console.log('clicked to see routes');
             building.hideRoutes = !building.hideRoutes;
@@ -108,6 +107,27 @@ angular.module('DroneApp.controllers', [])
             }
         };
 
+        $scope.flyRoute = function(route) {
+            console.log('clicked fly route');
+            console.log(route.id);
+
+            var flyPrompt = prompt('Type "flyTheRoute" is you want to proceed');
+            switch(flyPrompt) {
+                case 'flyTheRoute':
+                    var flyRouteData = {
+                        id: route.id
+                    };
+                    var flyRoute = new FlyRoutes(flyRouteData);
+                    flyRoute.$save(function(success) {
+                        console.log(success);
+                    });
+                    break;
+                default:
+                    alert('you cant fly this route');
+            };
+
+        };
+
 
         var user = UserService.me().then(function (success) {
             user = success.id;
@@ -115,27 +135,54 @@ angular.module('DroneApp.controllers', [])
             console.log($scope.buildings);
         });
 
-
     }])
     .controller('InfoController', ['$scope', function ($scope) {
 
-        $(".pic-container").mouseenter(function () {
-            var $text1 = $(this).children('.text1');
-            $text1.stop();
-            $text1.slideDown(500);
-            // $text1.fadeIn(600);
-        });
+        // $(window).resize(function () {
+        //     if ($(window).width() > 990) {
 
-        $(".pic-container").mouseleave(function () {
-            var $text1 = $(this).children('.text1');
-            $text1.stop();
-            $text1.slideUp(500);
-            // $text1.fadeOut(600);
-        });
+        //         $(".pic-container").mouseenter(function () {
+        //             var $text1 = $(this).children('.text1').css({ 'opacity': '1' });
+        //             $text1.stop();
+        //             $text1.slideDown(500);
+        //             // $text1.fadeIn(600);
+        //         });
 
-        $(document).ready(function () {
-            $(".info-page").delay(75).animate({ opacity: 1 }, 200)
-        })
+        //         $(".pic-container").mouseleave(function () {
+        //             var $text1 = $(this).children('.text1');
+        //             $text1.stop();
+        //             $text1.slideUp(500);
+        //             // $text1.fadeOut(600);
+        //         });
+
+        //     } else {
+        //         console.log('i should see the text');
+        //     }
+        // });
+
+        // if ($(window).width() > 990) {
+
+        //     $(".pic-container").mouseenter(function () {
+        //         var $text1 = $(this).children('.text1');
+        //         $text1.stop();
+        //         $text1.slideDown(500);
+        //     });
+
+        //     $(".pic-container").mouseleave(function () {
+        //         var $text1 = $(this).children('.text1');
+        //         $text1.stop();
+        //         $text1.slideUp(500);
+        //     });
+
+
+        // } else {
+        //     console.log('i should see the text on load');
+
+        // }
+
+        // $(document).ready(function () {
+        //     $(".info-page").delay(75).animate({ opacity: 1 }, 200)
+        // })
 
         // $scope.software = function () {
         //     let destination = document.getElementById('software');
@@ -177,9 +224,9 @@ angular.module('DroneApp.controllers', [])
 
     .controller('ContactController', ['$scope', function ($scope) {
 
-        $(document).ready(function () {
-            $(".contact-row").delay(75).animate({ opacity: 1 }, 200)
-        })
+        // $(document).ready(function () {
+        //     $(".contact-row").delay(75).animate({ opacity: 1 }, 200)
+        // })
 
     }])
     .controller('RegisterController', ['$scope', 'Users', '$location', function ($scope, Users, $location) {
