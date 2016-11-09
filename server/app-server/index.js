@@ -9,22 +9,46 @@ const thingShadows = thingShadow({
     port: 8883,
     region: 'us-east-1',
     clientId: 'droneApp',
-    caCert: '../aws-certs/root-CA.crt',
-    clientCert: '../aws-certs/afa4bee0c2-certificate.pem.crt',
-    privateKey: '../aws-certs/afa4bee0c2-private.pem.key'
+    caCert: '../../aws-certs/root-CA.crt',
+    clientCert: '../../aws-certs/afa4bee0c2-certificate.pem.crt',
+    privateKey: '../../aws-certs/afa4bee0c2-private.pem.key'
 });
+
+var express = require('express');
+var router = express.Router();
+var testId = 1;
+
+router.route('/:id')
+    .post(function(req, res) {
+        console.log('updating fly id request');
+        var theRouteId = req.params.id;
+        registerShadow(theRouteId);
+    });
 
 var currentState = {
     connect: false,
     takeoff: false,
-    land: false
+    land: false,
+    route: {
+        isSet: false,
+        routeId: null
+    }
 };
 
-function generateState (cState) {
+function generateState (cState, id) {
+    var newRoute = null;
+    if (id !== null) {
+        newRoute = id;
+    }
+    
     var desired = {
         connect: false,
         takeoff: false,
-        land: false
+        land: false,
+        route: {
+            isSet: false,
+            routeId: newRoute
+        }
     };
     
    switch (cState) {
@@ -32,22 +56,25 @@ function generateState (cState) {
             desired.connect = true;
             desired.takeoff = false;
             desired.land = false;
+            desired.route.isSet = false;
             break;
         case 'takeoff':
             desired.connect = true;
             desired.takeoff = true;
             desired.land = false;
+            desired.route.isSet = true;
             break;
         case 'land':
             desired.connect = true;
             desired.takeoff = false;
             desired.land = true;
+            desired.route.isSet = true;
             break;
     }
     return desired;
 }
 
-function registerShadow () {
+function registerShadow (routeId) {
     thingShadows.register(thingName, {
         ignoreDeltas: false,
         operationTimeout: operationTimeout
@@ -60,7 +87,8 @@ function registerShadow () {
         }
         if (typeof err === 'undefined' && typeof failedTopics === 'undefined') {
             console.log('mobile thing registered');
-            var takeoffState = {state: {desired: generateState('takeoff')}};
+            console.log('takeoff route:', routeId);
+            var takeoffState = {state: {desired: generateState('takeoff', routeId)}};
             executeOperation('update', takeoffState);
         }
     });
@@ -84,10 +112,11 @@ function executeOperation(oName, stateObject) {
     }
 }
 
-function handleConnect() {
+function handleConnect(routeId) {
     // after connecting to aws iot register interest in thing shadow
     console.log('connected to aws');
-    registerShadow();
+    console.log('registering route for id:', testId);
+    registerShadow(testId);
 }
 
 function handleStatus (thingName, stat, clientToken, stateObject) {
