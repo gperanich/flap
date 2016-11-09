@@ -205,9 +205,9 @@ angular.module('DroneApp.controllers', [])
 
     .controller('ContactController', ['$scope', function ($scope) {
 
-        $(document).ready(function () {
-            $(".contact-row").delay(75).animate({ opacity: 1 }, 200)
-        })
+        // $(document).ready(function () {
+        //     $(".contact-row").delay(75).animate({ opacity: 1 }, 200)
+        // })
 
     }])
     .controller('RegisterController', ['$scope', 'Users', '$location', function ($scope, Users, $location) {
