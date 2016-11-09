@@ -34,7 +34,7 @@ angular.module('DroneApp.controllers', [])
         })
 
     }])
-    .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', function ($scope, Buildings, UserService, Routes) {
+    .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', 'FlyRoutes', function ($scope, Buildings, UserService, Routes, FlyRoutes) {
         $scope.showDetails = function (building, index) {
             console.log('clicked to see building details');
             console.log(building);
@@ -106,6 +106,19 @@ angular.module('DroneApp.controllers', [])
                 building.routes = Routes.building({ buildingid: building.id });
                 console.log(building.routes);
             }
+        };
+
+        $scope.flyRoute = function(route) {
+            console.log('clicked fly route');
+            console.log(route.id);
+
+            var flyRouteData = {
+                id: route.id
+            };
+            var flyRoute = new FlyRoutes(flyRouteData);
+            flyRoute.$save(function(success) {
+                console.log(success);
+            });
         };
 
 
