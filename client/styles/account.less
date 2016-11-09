@@ -1,8 +1,8 @@
 .account-body {
-    background:rgba(0,0,0,0.5);
+    // background:rgba(0,0,0,0.5);
 
     .buildings-container {
-        color: white;
+        color: #1b1b1b;
 
         h1 {
             text-align: center;
@@ -12,16 +12,17 @@
         }
 
         .building-list {
-            background-color: white;
-            min-height: 40em;
-            width: 30%;
-            margin: 0 1em 2em 1em;
+            background:rgba(0,0,0,0.75);
+            min-height: 5em;
+            width: 48%;
+            // width: 30%;
+            margin: 0 0em 3em 1em;
             border-radius: 2em;
             padding-top: 1em;
             text-align: center;
 
                 @media (max-width: 1200px) {
-                    width: 47%;
+                    // width: 47%;
                 }   
 
                 @media (max-width: 991px) {
@@ -29,51 +30,100 @@
                 }                   
             
             .buildingz {
-                color: #1b1b1b;
-                padding-right: 1em;
-                display: inline-block;
+                color: white;
+                text-align: center;
+                margin-bottom: .5em;
+                letter-spacing: 2px;
+                font-size: 35px;
             }
 
             .detail-view {
                 display: inline-block;
+                margin-bottom: 1.5em;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                color: lightblue;
+                font-size: 18px;
+
 
                 .detailz {
-                    margin-right: 1em;
+                    margin-right: 1.2em;
+                    display: inline-block;
+
+                    &:hover {
+                        color: red;
+                        text-decoration: none;
+                    }
+                }
+
+                .routez {
+                    display: inline-block;
+
+                    &:hover {
+                        color: purple;
+                        text-decoration: none;
+                    }
                 }
             }
 
             .building-details {
+                background-color: transparent;
+                margin-top: 1em;
+                margin-bottom: 2em;
                 
                 .thumb-photo {
-                    background-color: black;
+                    // background-color: black;
 
                     canvas {
-                        margin-left: -6em;
+                        margin: 0 auto;
+                        width: 300px !important;
+                        background-color:red;
+
+                        .threed {
+                            max-width: 250px;
+                        }
                     }
                 }
 
                 .caption {
-                    width: 65%;
                     margin: 0 auto;
+                    background-color: white;
 
-                    h4 {
-                        text-transform: uppercase;
-                        display: inline-block;
-                        margin-bottom: 0;
+                    .letter {
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                        padding-left: 0;
+                        padding-right: 0;
+
+                        h4 {
+                            display: inline-block;
+                            font-size: 27px;
+                            margin-right: 5px;
+                        }
+
+                        .l {
+                            display: inline-block;
+                            font-size: 24px;
+                        }
                     }
 
-                    p {
-                        display: inline-block;
-                        font-weight: bold;
-                        font-size: 1.7em;
-                        padding-left: 15px;
-                        letter-spacing: 1px;
-                        margin-bottom: 0;
-                    }
+                    // h4 {
+                    //     text-transform: uppercase;
+                    //     display: inline-block;
+                    //     margin-bottom: 0;
+                    // }
+
+                    // p {
+                    //     display: inline-block;
+                    //     font-weight: bold;
+                    //     font-size: 1.7em;
+                    //     padding-left: 15px;
+                    //     letter-spacing: 1px;
+                    //     margin-bottom: 0;
+                    // }
                 }
 
                 .singleroute-div {
-                    // background-color: yellow;
                     width: 65%;
                     margin: 0 auto;
                     text-align: center;

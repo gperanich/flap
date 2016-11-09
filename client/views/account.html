@@ -4,23 +4,29 @@
 			<div class="buildings-container col-md-12">
 				<h1> Current Buildings:</h1>
 				<div class="building-names">
-					<div class="building-list col-md-4 col-sm-6 col-xs-12" ng-repeat="building in buildings">
+					<div class="building-list col-md-6 col-sm-6 col-xs-12" ng-repeat="building in buildings">
 						<h4 class="buildingz">{{ building.buildingName }} </h4>
 						<div class="detail-view">
-							<a class="detailz" href="#" ng-click="showDetails(building, $index)">Details</a>
-							<a class="routez" href="#" ng-click="showRoutes(building)">Routes</a>
+							<p class="detailz" href="#" ng-click="showDetails(building, $index)">Details</p>
+							<p class="routez" href="#" ng-click="showRoutes(building)">Routes</p>
 						</div>
-						<div class="building-details thumbnail" ng-hide="building.hideDetails" ng-init="building.hideDetails = true">
+						<div class="building-details thumbnail col-md-12" ng-hide="building.hideDetails" ng-init="building.hideDetails = true">
 							<div class="thumb-photo">
 								<div id="shape-{{$index}}" class="shape-div"></div>
 							</div>
-							<div class="caption">
-								<h4>Height: </h4>
-								<p> {{ building.height }}</p>
-								<h4>Width: </h4>
-								<p>{{ building.width }}</p>
-								<h4>Length: </h4>
-								<p>{{ building.length }}</p>
+							<div class="caption col-md-12">
+								<div class="letter col-md-4">
+									<h4>H: </h4>
+									<p class="l"> {{ building.height }}</p>
+								</div>
+								<div class="letter col-md-4">
+									<h4>W: </h4>
+									<p class="l"> {{ building.width }}</p>
+								</div>
+								<div class="letter col-md-4">
+									<h4>L: </h4>
+									<p class="l"> {{ building.length }}</p>
+								</div>
 							</div>
 							<div class="routes-div" ng-hide="building.hideRoutes" ng-init="building.hideRoutes = true">
 								<div class="singleroute-div" ng-repeat="route in building.routes track by $index">

@@ -32,9 +32,8 @@
   line-height: 80px;
 }
 .navbar-nav > li > a:hover {
-  border-bottom: 4px solid dimgrey;
-  line-height: 76px;
   font-size: 14px;
+  color: lightblue;
 }
 @media (max-width: 767px) {
   .navbar-nav > li > a {
@@ -564,11 +563,8 @@ video {
     margin-bottom: 4em;
   }
 }
-.account-body {
-  background: rgba(0, 0, 0, 0.5);
-}
 .account-body .buildings-container {
-  color: white;
+  color: #1b1b1b;
 }
 .account-body .buildings-container h1 {
   text-align: center;
@@ -577,18 +573,15 @@ video {
   letter-spacing: 2px;
 }
 .account-body .buildings-container .building-list {
-  background-color: white;
-  min-height: 40em;
-  width: 30%;
-  margin: 0 1em 2em 1em;
+  background: rgba(0, 0, 0, 0.75);
+  min-height: 5em;
+  width: 48%;
+  margin: 0 0em 3em 1em;
   border-radius: 2em;
   padding-top: 1em;
   text-align: center;
 }
 @media (max-width: 1200px) {
-  .account-body .buildings-container .building-list {
-    width: 47%;
-  }
 }
 @media (max-width: 991px) {
   .account-body .buildings-container .building-list {
@@ -596,38 +589,66 @@ video {
   }
 }
 .account-body .buildings-container .building-list .buildingz {
-  color: #1b1b1b;
-  padding-right: 1em;
-  display: inline-block;
+  color: white;
+  text-align: center;
+  margin-bottom: .5em;
+  letter-spacing: 2px;
+  font-size: 35px;
 }
 .account-body .buildings-container .building-list .detail-view {
   display: inline-block;
+  margin-bottom: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: lightblue;
+  font-size: 18px;
 }
 .account-body .buildings-container .building-list .detail-view .detailz {
-  margin-right: 1em;
+  margin-right: 1.2em;
+  display: inline-block;
 }
-.account-body .buildings-container .building-list .building-details .thumb-photo {
-  background-color: black;
+.account-body .buildings-container .building-list .detail-view .detailz:hover {
+  color: red;
+  text-decoration: none;
+}
+.account-body .buildings-container .building-list .detail-view .routez {
+  display: inline-block;
+}
+.account-body .buildings-container .building-list .detail-view .routez:hover {
+  color: purple;
+  text-decoration: none;
+}
+.account-body .buildings-container .building-list .building-details {
+  background-color: transparent;
+  margin-top: 1em;
+  margin-bottom: 2em;
 }
 .account-body .buildings-container .building-list .building-details .thumb-photo canvas {
-  margin-left: -6em;
+  margin: 0 auto;
+  width: 300px !important;
+  background-color: red;
+}
+.account-body .buildings-container .building-list .building-details .thumb-photo canvas .threed {
+  max-width: 250px;
 }
 .account-body .buildings-container .building-list .building-details .caption {
-  width: 65%;
   margin: 0 auto;
+  background-color: white;
 }
-.account-body .buildings-container .building-list .building-details .caption h4 {
-  text-transform: uppercase;
-  display: inline-block;
-  margin-bottom: 0;
+.account-body .buildings-container .building-list .building-details .caption .letter {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 0;
+  padding-right: 0;
 }
-.account-body .buildings-container .building-list .building-details .caption p {
+.account-body .buildings-container .building-list .building-details .caption .letter h4 {
   display: inline-block;
-  font-weight: bold;
-  font-size: 1.7em;
-  padding-left: 15px;
-  letter-spacing: 1px;
-  margin-bottom: 0;
+  font-size: 27px;
+  margin-right: 5px;
+}
+.account-body .buildings-container .building-list .building-details .caption .letter .l {
+  display: inline-block;
+  font-size: 24px;
 }
 .account-body .buildings-container .building-list .building-details .singleroute-div {
   width: 65%;
