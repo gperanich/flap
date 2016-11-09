@@ -68,7 +68,7 @@ router.route('/building/:buildingid')
 
 router.route('/:id')
     .get(function(req, res) {
-        procedures.read(req.params.id).then(function(route) {
+        procedures.find(req.params.id).then(function(route) {
             res.send(route);
         }, function(err) {
             console.log(err);
