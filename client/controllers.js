@@ -36,8 +36,6 @@ angular.module('DroneApp.controllers', [])
     }])
     .controller('AccountController', ['$scope', 'Buildings', 'UserService', 'Routes', 'FlyRoutes', function ($scope, Buildings, UserService, Routes, FlyRoutes) {
         $scope.showDetails = function (building, index) {
-            console.log('clicked to see building details');
-            console.log(building);
             building.hideDetails = !building.hideDetails;
             $(document).ready(function () {
                 $('#shape-' + index).empty();
@@ -98,6 +96,7 @@ angular.module('DroneApp.controllers', [])
             })
 
         };
+
         $scope.showRoutes = function (building) {
             console.log('clicked to see routes');
             building.hideRoutes = !building.hideRoutes;
@@ -127,7 +126,6 @@ angular.module('DroneApp.controllers', [])
             $scope.buildings = Buildings.filter({ userid: success.id });
             console.log($scope.buildings);
         });
-
 
     }])
     .controller('InfoController', ['$scope', function ($scope) {
