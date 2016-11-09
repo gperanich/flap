@@ -36,19 +36,6 @@ var droneState = {
 };
 var cmdIndex = 0;
 
-var routeArry = [
-    {
-        cmd: 'up',
-        amt: 10
-    },
-    {
-        cmd: 'stop'
-    },
-    {
-        cmd: 'land'
-    }
-];
-
 var flightPath = [];
 
 function buildFlightPath(aRoute, aDrone) {
@@ -149,16 +136,24 @@ function cmdFactory (aRoute, aDrone) {
 
 drone.connect(function() {
     console.log('connected to host:', drone.ip);
-    landDrone(drone);
     // drone.MediaStreaming.videoEnable(1);
 }.bind(drone));
 
 
-function generateState (cState) {
+function generateState (cState, id) {
+    var newRoute = null;
+    if (id !== undefined) {
+        newRoute = id;
+    }
+    
     var reported = {
         connect: false,
         takeoff: false,
-        land: false
+        land: false,
+        route: {
+            isSet: false,
+            routeId: newRoute
+        }
     };
     
     switch (cState) {
@@ -166,16 +161,19 @@ function generateState (cState) {
             reported.connect = true;
             reported.takeoff = false;
             reported.land = false;
+            reported.route.isSet = false;
             break;
         case 'takeoff':
             reported.connect = true;
             reported.takeoff = true;
             reported.land = false;
+            reported.route.isSet = true;
             break;
         case 'land':
             reported.connect = true;
             reported.takeoff = false;
             reported.land = true;
+            reported.route.isSet = true;
             break;
     }
     
@@ -242,11 +240,11 @@ function handleStatus (thingName, stat, clientToken, stateObject) {
 
 function handleDelta (thingName, stateObject, aDrone) {
     console.log('delta on', thingName, ':', JSON.stringify(stateObject));
-    if (stateObject.state.takeoff && stateObject.state.route.isSet) {
+    if (stateObject.state.takeoff) {
         getRoute(testId).then(function(theRoute) {
             flightPath = buildFlightPath(JSON.parse(theRoute[0].commands), aDrone);
             takeoff(drone);
-            var takeoffState = {state: {reported: generateState('takeoff')}};
+            var takeoffState = {state: {reported: generateState('takeoff', testId)}};
             executeOperation('update', takeoffState);
             droneState.isSet = true;
             droneState.isLanded = false;
