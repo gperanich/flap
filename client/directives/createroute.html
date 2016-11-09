@@ -63,6 +63,20 @@
             </select>
             <input type="number" ng-model="inputAmount" placeholder="height">
             <button ng-click="addRouteHeight()">Add</button>
+                <select name="commands" id="" ng-model="selectedCommand">
+                    <option value="">Select Command</option>
+                    <option value="up">up</option>
+                    <option value="down">down</option>
+                    <option value="left">left</option>
+                    <option value="right">right</option>
+                    <option value="clockwise">clockwise</option>
+                    <option value="counterClockwise">counter-clockwise</option>
+                    <option value="stop">stop</option>
+                    <option value="land">land</option>
+                </select>
+                <input type="number" ng-model="inputAmount" placeholder="amount">
+                <button ng-click="addRouteParam()">Add</button>
+
             <!--<div class="buildingroutediv"></div>-->
             <div id="map"></div>
             <br>
@@ -70,6 +84,8 @@
             <h4>Current Route</h4>
             <p ng-repeat="height in routeHeights">{{ height.height }} ft.</p>
             <p ng-repeat="vertices in mapVertices">Lat: {{vertices.latitude}}, Long: {{vertices.longitude}}</p>
+            <h4>Route Params</h4>
+            <p ng-repeat="command in routeCommands track by $index">{{command.cmd}}: {{command.amt}}</p>
             <!--<p ng-model="coordinate">{{ coordinate }}</p>-->
         </div>
         <!--<div class="current-route">
@@ -91,6 +107,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-default" ng-click="clearRoute()">Clear Route</button>
+        <button type="button" class="btn btn-default" ng-click="submitRouteCmds()">Submit Cmd String</button>
         <button type="button" class="btn btn-primary" ng-click="submitRoute()">Save changes</button>
       </div>
     </div>
