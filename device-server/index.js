@@ -1,3 +1,4 @@
+var db = require('../server/config/db');
 var awsIot = require('aws-iot-device-sdk');
 var thingShadow = awsIot.thingShadow;
 const operationTimeout = 10000;
@@ -21,10 +22,16 @@ var drone = bebop.createClient({ip:droneHost});
 var PilotingSettings = drone.PilotingSettings,
     SpeedSettings = drone.SpeedSettings,
     MediaStreaming = drone.MediaStreaming;
+var testId = 1;
+
+// returns current route
+function getRoute(id) {
+    console.log('getting route for id:', id);
+    return db.rows('GetRoute', [id]);
+}
 
 var droneState = {
     isSet: false,
-    isHovering: false,
     isLanded: true
 };
 var cmdIndex = 0;
@@ -42,7 +49,7 @@ var routeArry = [
     }
 ];
 
-var flightPath = buildFlightPath(routeArry, drone);
+var flightPath = [];
 
 function buildFlightPath(aRoute, aDrone) {
     var flightQueue = [];
@@ -142,7 +149,7 @@ function cmdFactory (aRoute, aDrone) {
 
 drone.connect(function() {
     console.log('connected to host:', drone.ip);
-    // drone.land();
+    landDrone(drone);
     // drone.MediaStreaming.videoEnable(1);
 }.bind(drone));
 
@@ -226,57 +233,37 @@ function handleConnect () {
 function handleStatus (thingName, stat, clientToken, stateObject) {
     // reports status completion of update(), get(), and delete() calls
     var expectedClientToken = stack.pop();
-    console.log('STATE OBJECT:', stateObject);
     if (expectedClientToken === clientToken) {
         console.log('stat', stat, 'status on', thingName, 'state:', JSON.stringify(stateObject));
-        if (stateObject.state.reported.takeoff) {
-            console.log('TAKE OFFFFFFFF SUCCESS');
-            droneState.isLanded = false;
-        }
-        if (stateObject.state.reported.land) {
-            console.log('LAND SUCCESS');
-            droneState.isLanded = true;
-        }
     } else {
         console.log('client token mismatch on', thingName);
     }
 }
 
-function handleDelta (thingName, stateObject) {
+function handleDelta (thingName, stateObject, aDrone) {
     console.log('delta on', thingName, ':', JSON.stringify(stateObject));
-    console.log('DELTA:', stateObject);
-    
-    if (stateObject.state.route) {
-        
-    }
-
-    if (stateObject.state.takeoff) {
-        drone.takeOff();
-        var takeoffState = {state: {reported: generateState('takeoff')}};
-        executeOperation('update', takeoffState);
-        droneState.isLanded = false;
+    if (stateObject.state.takeoff && stateObject.state.route.isSet) {
+        getRoute(testId).then(function(theRoute) {
+            flightPath = buildFlightPath(JSON.parse(theRoute[0].commands), aDrone);
+            takeoff(drone);
+            var takeoffState = {state: {reported: generateState('takeoff')}};
+            executeOperation('update', takeoffState);
+            droneState.isSet = true;
+            droneState.isLanded = false;
+        }, function(err) {
+            console.log('error retrieving route could not take off', err);
+            landDrone(drone);
+        });
     }
     
     if (stateObject.state.land) {
         console.log('LAND BROSEPH');
-
-        var landId = setInterval(function() {
-            if (!droneState.isLanded) {
-                console.log('land attempt');
-                drone.land();
-                droneState.isLanded = true;
-            } else {
-                clearInterval(landId);
-                var landState = {state: {reported: generateState('land')}};
-                executeOperation('update', landState);
-            }
-        }.bind(drone), 1000);
+        landDrone(drone);
     }
 }
 
 function handleTimeout (thingName, clientToken) {
     var expectedClientToken = stack.pop();
-
     if (expectedClientToken === clientToken) {
         console.log('received timeout on', thingName, ':', JSON.stringify(clientToken));
     } else {
@@ -315,7 +302,7 @@ thingShadows
         handleStatus(thingName, stat, clientToken, stateObject);
     })
     .on('delta', function(thingName, stateObject) {
-        handleDelta(thingName, stateObject);
+        handleDelta(thingName, stateObject, drone);
     })
     .on('timeout', function(thingName, clientToken) {
         handleTimeout(thingName, clientToken);
@@ -349,9 +336,6 @@ drone
     .on('flying', function() {
         console.log('flying');
         droneState.isLanded = false;
-        if (droneState.isHovering) {
-            droneState.isHovering = false;
-        }
     })
     .on('hovering', function() {
         console.log('hovering');
@@ -364,6 +348,7 @@ drone
     })
     .on('landed', function() {
         console.log('landed');
+        droneState.isLanded = true;
     })
     .on('landing', function() {
         console.log('landing');
@@ -371,9 +356,11 @@ drone
     })
     .on('takingOff', function() {
         console.log('taking off');
+        droneState.isLanded = false;
     })
     .on('emergency', function() {
         console.log('emergency');
+        landDrone(this);
     })
     .on('VideoEnableChanged', function(status) {
         console.log('video enable changed - status:', status);
@@ -399,4 +386,9 @@ function landDrone(aDrone) {
             clearInterval(landId);
         }
     }, 1000);
+}
+
+function takeoff(aDrone) {
+    aDrone.takeOff();
+    droneState.isLanded = false;
 }

@@ -1,6 +1,7 @@
 var bebop = require('node-bebop'),
     temporal = require('temporal'),
-    fs = require('fs');
+    fs = require('fs'),
+    db = require('../config/db');
 
 var droneHost = '192.168.42.1';
 

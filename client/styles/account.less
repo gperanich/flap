@@ -25,7 +25,13 @@
 
                 @media (max-width: 991px) {
                     width: 98%;
-                }                   
+                }   
+
+                &:hover {
+                    -webkit-box-shadow: 0 8px 6px -6px #9C9C9C;
+                    -moz-box-shadow: 0 8px 6px -6px #9C9C9C;
+                    box-shadow: 10px 12px 6px -6px #9C9C9C;
+                }                
             
             .buildingz {
                 color: white;
@@ -37,7 +43,7 @@
 
             .detail-view {
                 display: inline-block;
-                margin-bottom: 1.5em;
+                margin-bottom: .5em;
                 text-transform: uppercase;
                 letter-spacing: 2px;
                 color: lightblue;
@@ -50,15 +56,6 @@
 
                     &:hover {
                         // transition: 2s;
-                        font-weight: bold;
-                        text-decoration: none;
-                    }
-                }
-
-                .routez {
-                    display: inline-block;
-
-                    &:hover {
                         font-weight: bold;
                         text-decoration: none;
                     }
@@ -106,20 +103,49 @@
                     }
                 }
 
+            .routez {
+                display: inline-block;
+                margin-top: 1.5em;
+                margin-bottom: 1.5em;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                color: lightblue;
+                font-size: 18px;
+
+                &:hover {
+                    font-weight: bold;
+                    text-decoration: none;
+                }
+            }
+
+            .routes-div {
+                background-color: white;
+            }
                 .singleroute-div {
                     width: 65%;
                     margin: 0 auto;
                     text-align: center;
+                    // background-color: white;
 
                     h3 {
-                        color: lightblue;
+                        margin-top: .5em;
+                        color: #1b1b1b;
                         letter-spacing: 2px;  
                     }
 
                     .flybutton {
                         color: white;
                         text-transform: uppercase;
-                        margin: 2em;
+                        margin: 1.5em;
+                        border-radius: 5px;                        width: 9.5em;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        height:2.5em;
+                        
+                        &:hover {
+                            background:rgba(0,0,0,0.5);
+                            transition: .4s background; 
+                        }
                     }
                     
                     .commands {
@@ -148,15 +174,12 @@
 
 
 .create-container {
-    /*background-color: purple;*/
     padding-top: 1em;
 
 
     .building-btn {
-        /*background-color: blue;*/
 
         @media (max-width: 770px) {
-            // float: none;
             text-align: center;
         }         
 
@@ -176,10 +199,8 @@
     }
 
     .two {
-        /*background-color: green;*/
 
             @media (max-width: 770px) {
-                // float: none;
                 text-align: center;
             }  
         .create-route {
