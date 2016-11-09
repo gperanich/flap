@@ -16,39 +16,32 @@ const thingShadows = thingShadow({
 
 var express = require('express');
 var router = express.Router();
-var testId = 1;
+var testId = 9;
 
 router.route('/:id')
     .post(function(req, res) {
         console.log('updating fly id request');
         var theRouteId = req.params.id;
-        registerShadow(theRouteId);
+        console.log('and the route id is...', theRouteid);
+        // registerShadow(theRouteId);
     });
 
 var currentState = {
     connect: false,
     takeoff: false,
     land: false,
-    route: {
-        isSet: false,
-        routeId: null
-    }
+    routeSet: false,
+    routeId: null
 };
 
 function generateState (cState, id) {
-    var newRoute = null;
-    if (id !== undefined) {
-        newRoute = id;
-    }
     
     var desired = {
         connect: false,
         takeoff: false,
         land: false,
-        route: {
-            isSet: false,
-            routeId: newRoute
-        }
+        routeSet: false,
+        routeId: null
     };
     
    switch (cState) {
@@ -56,19 +49,22 @@ function generateState (cState, id) {
             desired.connect = true;
             desired.takeoff = false;
             desired.land = false;
-            desired.route.isSet = false;
+            desired.routeSet = false;
+            desired.routeId = id;
             break;
         case 'takeoff':
             desired.connect = true;
             desired.takeoff = true;
             desired.land = false;
-            desired.route.isSet = true;
+            desired.routeSet = true;
+            desired.routeId = id;
             break;
         case 'land':
             desired.connect = true;
             desired.takeoff = false;
             desired.land = true;
-            desired.route.isSet = true;
+            desired.routeSet = true;
+            desired.routeId = id;
             break;
     }
     return desired;
@@ -89,7 +85,7 @@ function registerShadow (routeId) {
             console.log('mobile thing registered');
             console.log('takeoff route:', routeId);
             var takeoffState = {state: {desired: generateState('takeoff', routeId)}};
-            var connectState = {state: {desired: generateState('connect')}};
+            var connectState = {state: {desired: generateState('connect', null)}};
             executeOperation('update', takeoffState);
         }
     });
