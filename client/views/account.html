@@ -1,10 +1,9 @@
 <div class="account-body">
 	<div class="container-fluid container">
 		<div class="row">
-			<div class="buildings-container col-md-12">
-				<!--<h1> Current Buildings:</h1>-->
+			<div class="buildings-container ">
 				<div class="building-names">
-					<div class="building-list col-md-6 col-sm-6 col-xs-12" ng-repeat="building in buildings">
+					<div class="building-list col-md-6 col-sm-12 col-xs-12" ng-repeat="building in buildings">
 						<h4 class="buildingz">{{ building.buildingName }} </h4>
 						<div class="detail-view">
 							<p class="detailz" href="#" ng-click="showDetails(building, $index)">View Building</p>
@@ -14,15 +13,15 @@
 								<div id="shape-{{$index}}" class="shape-div"></div>
 							</div>
 							<div class="caption col-md-12">
-								<div class="letter col-md-4">
+								<div class="letter">
 									<h4>H: </h4>
 									<p class="l"> {{ building.height }}</p>
 								</div>
-								<div class="letter col-md-4">
+								<div class="letter">
 									<h4>W: </h4>
 									<p class="l"> {{ building.width }}</p>
 								</div>
-								<div class="letter col-md-4">
+								<div class="letter">
 									<h4>L: </h4>
 									<p class="l"> {{ building.length }}</p>
 								</div>
@@ -32,6 +31,7 @@
 							<div class="routes-div col-md-12" ng-hide="building.hideRoutes" ng-init="building.hideRoutes = true">
 								<div class="singleroute-div" ng-repeat="route in building.routes track by $index">
 										<h3>Route ID: {{ route.id }}</h3>
+										<!--<span class="glyphicon glyphicon-remove"></span>-->
 
 										<button class="flybutton" id="flyroutebtn" ng-click="flyRoute(route)">Fly!</button>
 									<div class="commands">
@@ -39,7 +39,7 @@
 											<p>Height: {{height.height}} ft.</p>
 										</div>
 										<div ng-repeat="step in route.commands track by $index">
-											<p>Lat: {{step.latitude}}<br>Lng: {{step.longitude }}</p>
+											<p>Lat: {{step.latitude | limitTo : 6 : 0 }} || Lng: {{step.longitude | limitTo : 6 : 0 }}</p>
 										</div>
 									</div>
 								</div>

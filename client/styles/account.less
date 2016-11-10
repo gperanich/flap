@@ -1,5 +1,4 @@
 .account-body {
-    // background:rgba(0,0,0,0.5);
 
     .buildings-container {
         color: #1b1b1b;
@@ -9,162 +8,196 @@
             text-align: center;
             margin: 1em;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
 
-        .building-list {
-            background:rgba(0,0,0,0.75);
-            min-height: 5em;
-            width: 48%;
-            margin: 0 0em 3em 1em;
-            border-radius: 2em;
-            padding-top: 1em;
-            text-align: center;
+        .building-names {
 
-                @media (max-width: 1200px) {
-                }   
-
-                @media (max-width: 991px) {
-                    width: 98%;
-                }   
-
-                &:hover {
-                    -webkit-box-shadow: 0 8px 6px -6px #9C9C9C;
-                    -moz-box-shadow: 0 8px 6px -6px #9C9C9C;
-                    box-shadow: 10px 12px 6px -6px #9C9C9C;
-                }                
-            
-            .buildingz {
-                color: white;
+            .building-list {
+                background:rgba(0,0,0,0.78);
+                min-height: 15em;
+                width: 48%;
+                margin: 0 0em 3em 1em;
+                border-radius: 2em;
+                padding-top: 3.1em;
                 text-align: center;
-                margin-bottom: .5em;
-                letter-spacing: 2px;
-                font-size: 35px;
-            }
 
-            .detail-view {
-                display: inline-block;
-                margin-bottom: .5em;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                color: lightblue;
-                font-size: 18px;
+                    @media (max-width: 1200px) {
+                    }   
 
-
-                .detailz {
-                    margin-right: 1.2em;
-                    display: inline-block;
+                    @media (max-width: 991px) {
+                        width: 98%;
+                        min-height: 15em;
+                    }   
 
                     &:hover {
-                        // transition: 2s;
+                        -webkit-box-shadow: 0 8px 6px -6px #9C9C9C;
+                        -moz-box-shadow: 0 8px 6px -6px #9C9C9C;
+                        box-shadow: 10px 12px 6px -6px #9C9C9C;
+                        transition: .2s box-shadow;
+                    }                
+                
+                .buildingz {
+                    color: white;
+                    text-align: center;
+                    margin-bottom: .5em;
+                    letter-spacing: 2px;
+                    font-size: 35px;
+                    font-family: 'Share Tech Mono', monospace;
+               
+                }
+
+                .detail-view {
+                    display: inline-block;
+                    margin-bottom: .5em;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    color: lightblue;
+                    font-size: 18px;
+
+
+                    .detailz {
+                        margin-right: 1.2em;
+                        display: inline-block;
+                        font-family: 'Cutive Mono', monospace;
+
+
+                        &:hover {
+                            // transition: 2s;
+                            font-weight: bold;
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                .building-details {
+                    background-color: transparent;
+                    margin-top: 1em;
+                    margin-bottom: 2em;
+                    
+                    .thumb-photo {
+                        // background-color: black;
+
+                        canvas {
+                            margin: 0 auto;
+                            width: 300px !important;
+
+                            .threed {
+                                max-width: 250px;
+                            }
+                        }
+                    }
+
+                    .caption {
+                        margin: 0 auto;
+                        background-color: white;
+
+                        .letter {
+                            padding-top: 20px;
+                            padding-bottom: 20px;
+                            padding-left: 0;
+                            padding-right: 0;
+                            display: inline-block;
+                            margin-left: 1.5em;
+
+                            h4 {
+                                display: inline-block;
+                                font-size: 27px;
+                                margin-right: 5px;
+                                font-family: 'Share Tech Mono', monospace;
+
+                            }
+
+                            .l {
+                                display: inline-block;
+                                font-size: 24px;
+                            } 
+                        }
+
+                        @media (max-width: 991px) {
+                            // height: 7em;
+                        } 
+                    }
+
+                .routez {
+                    display: inline-block;
+                    margin-top: 1.5em;
+                    margin-bottom: 1.5em;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    color: lightblue;
+                    font-size: 18px;
+                    font-family: 'Cutive Mono', monospace;
+
+                    &:hover {
                         font-weight: bold;
                         text-decoration: none;
                     }
                 }
-            }
 
-            .building-details {
-                background-color: transparent;
-                margin-top: 1em;
-                margin-bottom: 2em;
-                
-                .thumb-photo {
-                    // background-color: black;
-
-                    canvas {
-                        margin: 0 auto;
-                        width: 300px !important;
-
-                        .threed {
-                            max-width: 250px;
-                        }
-                    }
-                }
-
-                .caption {
-                    margin: 0 auto;
+                .routes-div {
                     background-color: white;
 
-                    .letter {
-                        padding-top: 20px;
-                        padding-bottom: 20px;
-                        padding-left: 0;
-                        padding-right: 0;
-
-                        h4 {
-                            display: inline-block;
-                            font-size: 27px;
-                            margin-right: 5px;
-                        }
-
-                        .l {
-                            display: inline-block;
-                            font-size: 24px;
-                        }
+                    @media (max-width: 991px) {
+                        // height: 10em;
                     }
+
                 }
+                    .singleroute-div {
+                        margin: 0 auto;
+                        margin-top: 1.5em;
+                        margin-bottom: 1.5em;
+                        text-align: center;
+                        padding-top: 1.5em;
+                        padding-bottom: 1.5em;
+                        // background-color: white;
 
-            .routez {
-                display: inline-block;
-                margin-top: 1.5em;
-                margin-bottom: 1.5em;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                color: lightblue;
-                font-size: 18px;
-
-                &:hover {
-                    font-weight: bold;
-                    text-decoration: none;
-                }
-            }
-
-            .routes-div {
-                background-color: white;
-            }
-                .singleroute-div {
-                    width: 65%;
-                    margin: 0 auto;
-                    text-align: center;
-                    // background-color: white;
-
-                    h3 {
-                        margin-top: .5em;
-                        color: #1b1b1b;
-                        letter-spacing: 2px;  
-                    }
-
-                    .flybutton {
-                        font-weight: bold;
-                        text-transform: uppercase;
-                        margin: 1.5em;
-                        border-radius: 5px;                        width: 9.5em;
-                        text-transform: uppercase;
-                        letter-spacing: 2px;
-                        height:2.5em;
-                        
-                        &:hover {
-                            background:rgba(0,0,0,0.8);
-                            transition: .4s background; 
-                        }
-                    }
-                    
-                    .commands {
-                        color: black;
-
-                        h4 {
-                            text-transform: uppercase;
-                            display: inline-block;
-                            margin-bottom: 0;
+                        h3 {
+                            margin-top: .5em;
+                            color: #1b1b1b;
+                            letter-spacing: 2px; 
+                            font-family: 'Share Tech Mono', monospace;
+ 
                         }
 
-                        p {
-                            display: inline-block;
+                        .flybutton {
                             font-weight: bold;
-                            font-size: 1.7em;
-                            padding-left: 15px;
-                            letter-spacing: 1px;
-                            margin-bottom: 0;
+                            text-transform: uppercase;
+                            margin: 1.5em;
+                            border-radius: 5px;                        width: 9.5em;
+                            text-transform: uppercase;
+                            letter-spacing: 2px;
+                            height:2.5em;
+                            font-family: 'Share Tech Mono', monospace;
+
+                            &:hover {
+                                background:rgba(0,0,0,0.8);
+                                transition: .4s background; 
+                                color: white;
+                            }
+                        }
+                        
+                        .commands {
+                            color: black;
+
+                            h4 {
+                                text-transform: uppercase;
+                                display: inline-block;
+                                margin-bottom: 0;
+                                font-family: 'Cutive Mono', monospace;
+
+                            }
+
+                            p {
+                                display: inline-block;
+                                font-weight: bold;
+                                font-size: 1.7em;
+                                padding-left: 15px;
+                                letter-spacing: 1px;
+                                margin-bottom: 0;
+                                font-family: 'Cutive Mono', monospace;
+
+                            }
                         }
                     }
                 }
@@ -188,14 +221,16 @@
 
         .create-building {
 
-            button {
+            .cbbtn {
                 text-transform: uppercase;
                 float: right;
                 letter-spacing: 2px;
                 border-radius: 5px;
                 color: white;
-                width: 12em;
+                width: 13em;
+                height: 3.11em;
                 text-transform: uppercase;
+                font-family: 'Share Tech Mono', monospace;
 
                 @media (max-width: 770px) {
                     float: none;
@@ -215,12 +250,15 @@
         }  
         .create-route {
 
-            button {
+            .crbtn {
                 border-radius: 5px;
                 color: white;
-                width: 10.5em;
+                width: 11.5em;
+                height: 3em;
                 letter-spacing: 2px;
                 text-transform: uppercase;
+                font-family: 'Share Tech Mono', monospace;
+              
 
                     @media (max-width: 770px) {
                         float: none;

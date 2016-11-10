@@ -98,7 +98,6 @@ angular.module('DroneApp.controllers', [])
         };
 
         $scope.showRoutes = function (building) {
-            console.log('clicked to see routes');
             building.hideRoutes = !building.hideRoutes;
             if (!building.hideRoutes) {
                 console.log(building);
@@ -106,6 +105,11 @@ angular.module('DroneApp.controllers', [])
                 console.log(building.routes);
             }
         };
+
+        // $scope.hide = function() {
+        //     console.log('closing');
+        //     $scope.showRoutes();
+        // }
 
         $scope.flyRoute = function(route) {
             console.log('clicked fly route');
