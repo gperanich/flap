@@ -47,6 +47,15 @@
 .navbar-toggle {
   margin: 2rem;
 }
+#login {
+  font-family: 'Cutive Mono', monospace;
+}
+#vya {
+  font-family: 'Cutive Mono', monospace;
+}
+#logout {
+  font-family: 'Cutive Mono', monospace;
+}
 .welcome-container {
   position: relative;
   text-align: center;
@@ -79,7 +88,7 @@ video {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: 200px 0 0 -145px;
+  margin: 200px 0 0 -120px;
 }
 #vid h1 {
   font-size: 3rem;
@@ -162,6 +171,7 @@ video {
   height: 4em;
   padding: 0;
   margin-bottom: 15px;
+  font-family: 'Share Tech Mono', monospace;
 }
 .creator-container .user-creator .register-form .tabs .tab1-register {
   display: inline-block;
@@ -191,6 +201,7 @@ video {
   margin-top: 20px;
   margin-bottom: 15px;
   text-transform: uppercase;
+  font-family: 'Share Tech Mono', monospace;
 }
 .creator-container .user-creator .register-form .userinfo {
   float: none;
@@ -201,6 +212,7 @@ video {
 .creator-container .user-creator .register-form .userinfo input::-webkit-input-placeholder {
   color: #5b5b5b;
   padding-left: 3px;
+  font-family: 'Cutive Mono', monospace;
 }
 .creator-container .user-creator .register-form .userinfo .username {
   margin-bottom: .5em;
@@ -249,6 +261,7 @@ video {
   width: 9.5em;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-family: 'Share Tech Mono', monospace;
 }
 .creator-container .user-creator .register-form .userinfo .confirm button:hover {
   background: rgba(0, 0, 0, 0.5);
@@ -264,6 +277,7 @@ video {
   width: 9.5em;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-family: 'Share Tech Mono', monospace;
 }
 .creator-container .user-creator .register-form .userinfo a .confirm button:hover {
   background: rgba(0, 0, 0, 0.5);
@@ -274,6 +288,7 @@ video {
   letter-spacing: 1px;
   font-size: 12px;
   color: lightblue;
+  font-family: 'Cutive Mono', monospace;
 }
 .creator-container .user-creator .register-form .userinfo a h6:hover {
   text-decoration: none;
@@ -327,6 +342,7 @@ video {
   height: 4em;
   padding: 0;
   margin-bottom: 15px;
+  font-family: 'Share Tech Mono', monospace;
 }
 .creator-container .user-creator-login .login-form .tabs-login .tab1 {
   display: inline-block;
@@ -355,6 +371,7 @@ video {
   margin-top: 35px;
   margin-bottom: 35px;
   text-transform: uppercase;
+  font-family: 'Share Tech Mono', monospace;
 }
 .creator-container .user-creator-login .login-form .userinfo input {
   border-radius: 5px;
@@ -362,6 +379,7 @@ video {
 .creator-container .user-creator-login .login-form .userinfo input::-webkit-input-placeholder {
   color: #5b5b5b;
   padding-left: 3px;
+  font-family: 'Cutive Mono', monospace;
 }
 .creator-container .user-creator-login .login-form .userinfo .username {
   margin-bottom: .5em;
@@ -392,6 +410,7 @@ video {
   width: 9.5em;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-family: 'Share Tech Mono', monospace;
 }
 .creator-container .user-creator-login .login-form .userinfo .confirm button:hover {
   background: rgba(0, 0, 0, 0.5);
@@ -405,6 +424,7 @@ video {
   letter-spacing: 1px;
   font-size: 12px;
   color: lightblue;
+  font-family: 'Cutive Mono', monospace;
 }
 @media (max-width: 990px) {
   .contact-container {
@@ -450,7 +470,7 @@ video {
 }
 .contact-container .address-box .address-info {
   background-color: rgba(0, 0, 0, 0.85);
-  padding: 3em;
+  padding: 1.4em;
   color: white;
   letter-spacing: 2px;
   border-bottom-left-radius: 1em;
@@ -460,7 +480,7 @@ video {
   .contact-container .address-box .address-info {
     float: none;
     text-align: center;
-    padding: 2em;
+    padding: 1em;
     border-top-right-radius: 1em;
     border-top-left-radius: 1em;
     border-bottom-left-radius: 0;
@@ -469,6 +489,7 @@ video {
 .contact-container .address-box .address-info .address-stuff h3 {
   margin-top: 10px;
   margin-bottom: 19px;
+  font-family: 'Cutive Mono', monospace;
 }
 @media (max-width: 991px) {
   .contact-container .address-box .address-info .address-stuff {
@@ -477,7 +498,7 @@ video {
   }
 }
 .contact-container .address-box .social-stuff {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.85);
   padding: 2em;
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
@@ -514,6 +535,7 @@ video {
   margin-bottom: 30px;
   text-transform: uppercase;
   letter-spacing: 3px;
+  font-family: 'Share Tech Mono', monospace;
 }
 .contact-container .contact-row .contact-form-row .contact-form {
   height: 37em;
@@ -540,6 +562,7 @@ video {
 .contact-container .contact-row .contact-form-row .contact-form input::-webkit-input-placeholder {
   color: #5b5b5b;
   padding-left: 3px;
+  font-family: 'Cutive Mono', monospace;
 }
 .contact-container .contact-row .contact-form-row .contact-form textarea {
   width: 80%;
@@ -551,6 +574,7 @@ video {
   color: #5b5b5b;
   padding-left: 3px;
   padding-top: 5px;
+  font-family: 'Cutive Mono', monospace;
 }
 .contact-container .contact-row .contact-form-row .contact-form button {
   color: white;
@@ -559,6 +583,7 @@ video {
   width: 11.5em;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-family: 'Share Tech Mono', monospace;
 }
 .contact-container .contact-row .contact-form-row .contact-form button:hover {
   background: rgba(0, 0, 0, 0.5);
@@ -619,6 +644,7 @@ video {
   margin-bottom: .5em;
   letter-spacing: 2px;
   font-size: 35px;
+  font-family: 'Share Tech Mono', monospace;
 }
 .account-body .buildings-container .building-names .building-list .detail-view {
   display: inline-block;
@@ -631,6 +657,7 @@ video {
 .account-body .buildings-container .building-names .building-list .detail-view .detailz {
   margin-right: 1.2em;
   display: inline-block;
+  font-family: 'Cutive Mono', monospace;
 }
 .account-body .buildings-container .building-names .building-list .detail-view .detailz:hover {
   font-weight: bold;
@@ -664,6 +691,7 @@ video {
   display: inline-block;
   font-size: 27px;
   margin-right: 5px;
+  font-family: 'Share Tech Mono', monospace;
 }
 .account-body .buildings-container .building-names .building-list .building-details .caption .letter .l {
   display: inline-block;
@@ -679,6 +707,7 @@ video {
   letter-spacing: 2px;
   color: lightblue;
   font-size: 18px;
+  font-family: 'Cutive Mono', monospace;
 }
 .account-body .buildings-container .building-names .building-list .building-details .routez:hover {
   font-weight: bold;
@@ -701,9 +730,7 @@ video {
   margin-top: .5em;
   color: #1b1b1b;
   letter-spacing: 2px;
-}
-.account-body .buildings-container .building-names .building-list .building-details .singleroute-div span {
-  margin-left: 2em;
+  font-family: 'Share Tech Mono', monospace;
 }
 .account-body .buildings-container .building-names .building-list .building-details .singleroute-div .flybutton {
   font-weight: bold;
@@ -713,10 +740,12 @@ video {
   text-transform: uppercase;
   letter-spacing: 2px;
   height: 2.5em;
+  font-family: 'Share Tech Mono', monospace;
 }
 .account-body .buildings-container .building-names .building-list .building-details .singleroute-div .flybutton:hover {
   background: rgba(0, 0, 0, 0.8);
   transition: .4s background;
+  color: white;
 }
 .account-body .buildings-container .building-names .building-list .building-details .singleroute-div .commands {
   color: black;
@@ -725,6 +754,7 @@ video {
   text-transform: uppercase;
   display: inline-block;
   margin-bottom: 0;
+  font-family: 'Cutive Mono', monospace;
 }
 .account-body .buildings-container .building-names .building-list .building-details .singleroute-div .commands p {
   display: inline-block;
@@ -733,6 +763,7 @@ video {
   padding-left: 15px;
   letter-spacing: 1px;
   margin-bottom: 0;
+  font-family: 'Cutive Mono', monospace;
 }
 .create-container {
   padding-top: 1em;
@@ -753,6 +784,7 @@ video {
   width: 13em;
   height: 3.11em;
   text-transform: uppercase;
+  font-family: 'Share Tech Mono', monospace;
 }
 @media (max-width: 770px) {
   .create-container .building-btn .create-building .cbbtn {
@@ -776,6 +808,7 @@ video {
   height: 3em;
   letter-spacing: 2px;
   text-transform: uppercase;
+  font-family: 'Share Tech Mono', monospace;
 }
 @media (max-width: 770px) {
   .create-container .two .create-route .crbtn {
