@@ -565,6 +565,7 @@ video {
 }
 .account-body .buildings-container {
   color: #1b1b1b;
+  margin-top: 8em;
 }
 .account-body .buildings-container h1 {
   text-align: center;
@@ -672,7 +673,7 @@ video {
   letter-spacing: 2px;
 }
 .account-body .buildings-container .building-list .building-details .singleroute-div .flybutton {
-  color: white;
+  font-weight: bold;
   margin: 1.5em;
   border-radius: 5px;
   width: 9.5em;
@@ -681,7 +682,7 @@ video {
   height: 2.5em;
 }
 .account-body .buildings-container .building-list .building-details .singleroute-div .flybutton:hover {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   transition: .4s background;
 }
 .account-body .buildings-container .building-list .building-details .singleroute-div .commands {
@@ -703,15 +704,21 @@ video {
 .create-container {
   padding-top: 1em;
 }
+.create-container .create-row {
+  margin-bottom: 3em;
+}
 @media (max-width: 770px) {
   .create-container .building-btn {
     text-align: center;
   }
 }
 .create-container .building-btn .create-building button {
-  text-transform: uppercase;
   float: right;
   letter-spacing: 2px;
+  border-radius: 5px;
+  color: white;
+  width: 12em;
+  text-transform: uppercase;
 }
 @media (max-width: 770px) {
   .create-container .building-btn .create-building button {
@@ -719,12 +726,19 @@ video {
     text-align: center;
   }
 }
+.create-container .building-btn .create-building button:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transition: .4s background;
+}
 @media (max-width: 770px) {
   .create-container .two {
     text-align: center;
   }
 }
 .create-container .two .create-route button {
+  border-radius: 5px;
+  color: white;
+  width: 10.5em;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -734,6 +748,10 @@ video {
     text-align: center;
     margin-top: 10px;
   }
+}
+.create-container .two .create-route button:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transition: .4s background;
 }
 .info-page {
   background-color: rgba(255, 255, 255, 0.8);
