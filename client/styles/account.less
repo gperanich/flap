@@ -3,6 +3,7 @@
 
     .buildings-container {
         color: #1b1b1b;
+        margin-top: 8em;
 
         h1 {
             text-align: center;
@@ -134,7 +135,7 @@
                     }
 
                     .flybutton {
-                        color: white;
+                        font-weight: bold;
                         text-transform: uppercase;
                         margin: 1.5em;
                         border-radius: 5px;                        width: 9.5em;
@@ -143,7 +144,7 @@
                         height:2.5em;
                         
                         &:hover {
-                            background:rgba(0,0,0,0.5);
+                            background:rgba(0,0,0,0.8);
                             transition: .4s background; 
                         }
                     }
@@ -172,10 +173,12 @@
     }
 }
 
-
 .create-container {
     padding-top: 1em;
 
+    .create-row {
+        margin-bottom: 3em;
+    }
 
     .building-btn {
 
@@ -189,31 +192,48 @@
                 text-transform: uppercase;
                 float: right;
                 letter-spacing: 2px;
+                border-radius: 5px;
+                color: white;
+                width: 12em;
+                text-transform: uppercase;
 
                 @media (max-width: 770px) {
                     float: none;
                     text-align: center;
+                } 
+                &:hover {
+                    background:rgba(0,0,0,0.7);
+                    transition: .4s background; 
                 } 
             }
         }
     }
 
     .two {
-
-            @media (max-width: 770px) {
-                text-align: center;
-            }  
+        @media (max-width: 770px) {
+            text-align: center;
+        }  
         .create-route {
 
             button {
+                border-radius: 5px;
+                color: white;
+                width: 10.5em;
                 letter-spacing: 2px;
                 text-transform: uppercase;
+
                     @media (max-width: 770px) {
                         float: none;
                         text-align: center;
                         margin-top: 10px;
                     } 
+                                        
+                &:hover {
+                    background:rgba(0,0,0,0.7);
+                    transition: .4s background; 
+                }    
             }
         }
     }
 }
+
