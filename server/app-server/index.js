@@ -14,9 +14,9 @@ const thingShadows = thingShadow({
     port: 8883,
     region: 'us-east-1',
     clientId: 'droneApp',
-    caCert: 'current/aws-certs/root-CA.crt',
-    clientCert: 'current/aws-certs/afa4bee0c2-certificate.pem.crt',
-    privateKey: 'current/aws-certs/afa4bee0c2-private.pem.key'
+    caCert: 'aws-certs/root-CA.crt',
+    clientCert: 'aws-certs/afa4bee0c2-certificate.pem.crt',
+    privateKey: 'aws-certs/afa4bee0c2-private.pem.key'
 });
 var isConnected = false;
 
