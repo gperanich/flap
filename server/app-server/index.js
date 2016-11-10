@@ -4,26 +4,31 @@ const operationTimeout = 10000;
 var currentTimeout = null;
 const thingName = 'bebop';
 var stack = [];
+
+var express = require('express');
+var router = express.Router();
+var testId = 9;
+var currentRouteId = null;
 const thingShadows = thingShadow({
     host: "ams6ieb4v4dry.iot.us-east-1.amazonaws.com",
     port: 8883,
     region: 'us-east-1',
     clientId: 'droneApp',
-    caCert: '../../aws-certs/root-CA.crt',
-    clientCert: '../../aws-certs/afa4bee0c2-certificate.pem.crt',
-    privateKey: '../../aws-certs/afa4bee0c2-private.pem.key'
+    caCert: 'aws-certs/root-CA.crt',
+    clientCert: 'aws-certs/afa4bee0c2-certificate.pem.crt',
+    privateKey: 'aws-certs/afa4bee0c2-private.pem.key'
 });
-
-var express = require('express');
-var router = express.Router();
-var testId = 9;
+var isConnected = false;
 
 router.route('/:id')
     .post(function(req, res) {
         console.log('updating fly id request');
-        var theRouteId = req.params.id;
-        console.log('and the route id is...', theRouteid);
-        // registerShadow(theRouteId);
+        console.log('and the route id is...', req.params.id);
+        currentRouteId = req.params.id;
+        if (isConnected) {
+            console.log('connected to aws and registering shadow');
+            registerShadow(req.params.id);
+        }
     });
 
 var currentState = {
@@ -109,11 +114,10 @@ function executeOperation(oName, stateObject) {
     }
 }
 
-function handleConnect(routeId) {
+function handleConnect() {
     // after connecting to aws iot register interest in thing shadow
     console.log('connected to aws');
-    console.log('registering route for id:', testId);
-    registerShadow(testId);
+    isConnected = true;
 }
 
 function handleStatus (thingName, stat, clientToken, stateObject) {
@@ -123,14 +127,12 @@ function handleStatus (thingName, stat, clientToken, stateObject) {
 
 function handleDelta(thingName, stateObject) {
     console.log('delta on', thingName, ':', JSON.stringify(stateObject));
-    // var isTakeoff = stateObject.state.takeoff;
-    // if (isTakeoff) {
-    //     console.log('sending land request');
-    //     setTimeout(function() {
-    //         var landState = {state: {desired: generateState('land')}};
-    //         executeOperation('update', landState);
-    //     }, 5000);
-    // }
+    var isLanded = stateObject.state.land;
+    if (isLanded) {
+        console.log('updating shadow for land delta');
+        var landState = {state: {desired: generateState('land', null)}};
+        executeOperation('update', landState);
+    }
 }
 
 function handleTimeout(thingName, clientToken) {
@@ -177,3 +179,5 @@ thingShadows
     .on('message', function(topic, payload) {
         handleMessage(topic, payload);
     });
+
+    module.exports = router;

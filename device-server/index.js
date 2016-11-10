@@ -22,12 +22,11 @@ var drone = bebop.createClient({ip:droneHost});
 var PilotingSettings = drone.PilotingSettings,
     SpeedSettings = drone.SpeedSettings,
     MediaStreaming = drone.MediaStreaming;
-var testId = 1;
 
 // returns current route
 function getRoute(id) {
     console.log('getting route for id:', id);
-    return db.rows('GetRoute', [id]);
+    return db.rows('GetRouteById', [id]);
 }
 
 var droneState = {
@@ -141,19 +140,13 @@ drone.connect(function() {
 
 
 function generateState (cState, id) {
-    var newRoute = null;
-    if (id !== undefined) {
-        newRoute = id;
-    }
     
     var reported = {
         connect: false,
         takeoff: false,
         land: false,
-        route: {
-            isSet: false,
-            routeId: newRoute
-        }
+        routeSet: false,
+        routeId: id
     };
     
     switch (cState) {
@@ -161,19 +154,22 @@ function generateState (cState, id) {
             reported.connect = true;
             reported.takeoff = false;
             reported.land = false;
-            reported.route.isSet = false;
+            reported.routeSet = false;
+            reported.routeId = id;
             break;
         case 'takeoff':
             reported.connect = true;
             reported.takeoff = true;
             reported.land = false;
-            reported.route.isSet = true;
+            reported.routeSet = true;
+            reported.routeId = id;
             break;
         case 'land':
             reported.connect = true;
             reported.takeoff = false;
             reported.land = true;
-            reported.route.isSet = true;
+            reported.routeSet = true;
+            reported.routeId = id;
             break;
     }
     
@@ -207,14 +203,14 @@ function executeOperation(oName, stateObject) {
     if (clientToken === null) {
         console.log('execute operation failed, operation in progress');
         currentTimeout = setTimeout(function() {
-            if (stateObject.state.reported.land) {
+            if (stateObject.state.land) {
                 console.log('PLEASE LAND');
                 executeOperation(oName, stateObject);
             }
         }, operationTimeout * 2);
     } else {
         console.log('execute operation succeeded', clientToken);
-        if (stateObject.state.reported.land) {
+        if (stateObject.state.land) {
             console.log('THANK YOU VERY MUCH FOR LANDING');
         }
         stack.push(clientToken);
@@ -224,7 +220,7 @@ function executeOperation(oName, stateObject) {
 function handleConnect () {
     // after connecting to aws iot register interest in thing shadow
     console.log('connected to aws');
-    var droneState = {state: {reported: generateState('connect')}};
+    var droneState = {state: {reported: generateState('connect', null)}};
     registerShadow(thingName, droneState);
 }
 
@@ -241,10 +237,10 @@ function handleStatus (thingName, stat, clientToken, stateObject) {
 function handleDelta (thingName, stateObject, aDrone) {
     console.log('delta on', thingName, ':', JSON.stringify(stateObject));
     if (stateObject.state.takeoff) {
-        getRoute(testId).then(function(theRoute) {
+        getRoute(stateObject.state.routeId).then(function(theRoute) {
             flightPath = buildFlightPath(JSON.parse(theRoute[0].commands), aDrone);
             takeoff(drone);
-            var takeoffState = {state: {reported: generateState('takeoff', testId)}};
+            var takeoffState = {state: {reported: generateState('takeoff', stateObject.state.routeId)}};
             executeOperation('update', takeoffState);
             droneState.isSet = true;
             droneState.isLanded = false;
@@ -252,11 +248,6 @@ function handleDelta (thingName, stateObject, aDrone) {
             console.log('error retrieving route could not take off', err);
             landDrone(drone);
         });
-    }
-    
-    if (stateObject.state.land) {
-        console.log('LAND BROSEPH');
-        landDrone(drone);
     }
 }
 
@@ -347,6 +338,8 @@ drone
     .on('landed', function() {
         console.log('landed');
         droneState.isLanded = true;
+        var landState = {state: {desired: generateState('land', null)}};
+        executeOperation('update', landState);
     })
     .on('landing', function() {
         console.log('landing');
