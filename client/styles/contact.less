@@ -1,26 +1,36 @@
 .contact-container {
-    // position: relative;
-    // min-height: 95vh;
-    // background-color: rgba(255, 255, 255, 0.8); 
 
-       @media (max-width: 990px) {
-            max-width: 50em;
-        }
+    @media (max-width: 990px) {
+        max-width: 50em;
+    }
 
     .address-container {
         text-align: center;
 
         h1 {
-            text-align: center;
-            margin-top: 1.2em;
+            margin-top: .8em;
             margin-bottom: 1em;
             letter-spacing: 12px;
             text-transform: uppercase;
-            font-size: 4em
+            font-size: 4em;
+            font-family: 'Share Tech Mono', monospace;
+            background-color: rgba(0,0,0,0.75);
+            width: 25%;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 2em;
+            padding-left: 10px;
+            color: white;
+            padding-top:10px;
+            padding-bottom: 10px;
+
+
+            @media (max-width: 990px) {
+                width: 98%;
+            } 
         }
 
         @media (max-width: 990px) {
-            // margin-bottom: 4em;
             width: 70%;
             margin: 0 auto;
             margin-bottom: -3em;
@@ -29,12 +39,12 @@
 
     .address-box {
 
-            @media (max-width: 770px) {
-                text-align: center;
-            }  
+        @media (max-width: 770px) {
+            text-align: center;
+        }  
 
         .address-info {
-            background-color: rgba(0, 0, 0, 0.65);
+            background-color: rgba(0, 0, 0, 0.85);
             padding: 3em;
             color: white;
             letter-spacing: 2px;
@@ -65,7 +75,7 @@
         }
 
         .social-stuff {
-            background-color: rgba(0, 0, 0, 0.65);
+            background-color: rgba(0, 0, 0, 0.75);
             padding: 2em;
             border-top-right-radius: 1em;
             border-bottom-right-radius: 1em; 
