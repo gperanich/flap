@@ -1,14 +1,14 @@
 var mysql = require('mysql');
 var pool = mysql.createPool({
    connectionlimit: 10,
-   host: process.env.RDS_HOSTNAME,
-//    host: 'localhost',
-    // user: 'root',
-    // password: '',
-    // database: 'DroneApp',
-   user: process.env.RDS_USER,
-   password: process.env.RDS_PASSWORD,
-   database: process.env.RDS_DATABASE
+//    host: process.env.RDS_HOSTNAME,
+   host: 'localhost',
+    user: 'root',
+    password: 'Quito12!',
+    database: 'DroneApp'
+//    user: process.env.RDS_USER,
+//    password: process.env.RDS_PASSWORD,
+//    database: process.env.RDS_DATABASE
 // =======
 //    host: 'mydatabaseserver.c4dudm0wenm8.us-west-2.rds.amazonaws.com', //process.env.RDS_HOSTNAME
 //    user: 'gperanich', //process.env.RDS_USER,
