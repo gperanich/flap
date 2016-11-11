@@ -104,7 +104,7 @@
         margin-bottom: 3em;
 
         @media (max-width: 990px) {
-                margin-top: 7em;
+                margin-top: 3em;
             }
 
         .contact-form-row {
@@ -215,6 +215,10 @@
             padding-left: 1em;
             font-size: 30px;
 
+            @media (max-width: 991px) {
+                padding-left: 0;
+            }
+
             strong {
                 font-size: 30px;
                 text-transform: uppercase;
@@ -224,6 +228,7 @@
 
         @media (max-width: 991px) {
             text-align: center;
+            padding-left: 0;
         }
     }
 }
@@ -234,6 +239,10 @@
 
     p {
         font-family: 'Share Tech Mono', monospace;
+    }
+
+    @media (max-width: 991px) {
+        padding-bottom: 0;
     }
 }
 h6.description{
@@ -247,6 +256,7 @@ h6.description{
 }
 .profile{
 	margin-top: 25px;
+    text-align: center;
 }
 .profile h1{
 	font-weight: normal;
@@ -274,6 +284,7 @@ h6.description{
 	left: 0;
 	top: 0;
 	bottom: 0;
+    border-radius: 50%;
 }
 .img-box ul{
 	position: absolute;
@@ -299,7 +310,7 @@ h6.description{
 	width: 30px;
     height: 30px;
     text-align: center;
-    border: 1px solid #88C425;
+    border: 1px solid lightblue;
     margin: 2px;
     padding: 5px;
 	display: inline-block;
@@ -320,17 +331,17 @@ h6.description{
 }
 .img-box a:hover li{
 	border-color: #fff;
-	color: #88C425;
+	color: lightblue;
 }
 a{
-    color:#88C425;
+    color: lightblue;
 }
 a:hover{
     text-decoration:none;
-    color:#519548;
+    color: white;
 }
 i.red{
-    color:#BC0213;
+    color: lightblue;
 }
 
 iframe {
@@ -339,3 +350,9 @@ iframe {
     border: 2px solid black;
 }
 
+.img-box {
+
+    img {
+        border-radius: 50%;
+    }
+}
