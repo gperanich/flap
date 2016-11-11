@@ -650,6 +650,8 @@ iframe {
 }
 .img-box img {
   border-radius: 50%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 .account-body .buildings-container {
   color: #1b1b1b;
