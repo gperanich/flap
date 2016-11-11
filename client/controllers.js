@@ -115,7 +115,7 @@ angular.module('DroneApp.controllers', [])
             console.log('clicked fly route');
             console.log(route.id);
 
-            var flyPrompt = prompt('Type "flyTheRoute" is you want to proceed');
+            var flyPrompt = prompt('Type "flyTheRoute" if you want to proceed');
             switch (flyPrompt) {
                 case 'flyTheRoute':
                     var flyRouteData = {
