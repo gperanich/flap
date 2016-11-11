@@ -432,7 +432,7 @@ video {
 }
 @media (max-width: 990px) {
   .contact-row {
-    margin-top: 7em;
+    margin-top: 3em;
   }
 }
 .contact-row .contact-form-row .cu {
@@ -515,6 +515,11 @@ video {
   padding-left: 1em;
   font-size: 30px;
 }
+@media (max-width: 991px) {
+  .contact-row .address address {
+    padding-left: 0;
+  }
+}
 .contact-row .address address strong {
   font-size: 30px;
   text-transform: uppercase;
@@ -523,6 +528,7 @@ video {
 @media (max-width: 991px) {
   .contact-row .address {
     text-align: center;
+    padding-left: 0;
   }
 }
 .team {
@@ -531,6 +537,11 @@ video {
 }
 .team p {
   font-family: 'Share Tech Mono', monospace;
+}
+@media (max-width: 991px) {
+  .team {
+    padding-bottom: 0;
+  }
 }
 h6.description {
   font-weight: bold;
@@ -543,6 +554,7 @@ h6.description {
 }
 .profile {
   margin-top: 25px;
+  text-align: center;
 }
 .profile h1 {
   font-weight: normal;
@@ -570,6 +582,7 @@ h6.description {
   left: 0;
   top: 0;
   bottom: 0;
+  border-radius: 50%;
 }
 .img-box ul {
   position: absolute;
@@ -597,7 +610,7 @@ h6.description {
   width: 30px;
   height: 30px;
   text-align: center;
-  border: 1px solid #88C425;
+  border: 1px solid lightblue;
   margin: 2px;
   padding: 5px;
   display: inline-block;
@@ -618,22 +631,25 @@ h6.description {
 }
 .img-box a:hover li {
   border-color: #fff;
-  color: #88C425;
+  color: lightblue;
 }
 a {
-  color: #88C425;
+  color: lightblue;
 }
 a:hover {
   text-decoration: none;
-  color: #519548;
+  color: white;
 }
 i.red {
-  color: #BC0213;
+  color: lightblue;
 }
 iframe {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   border: 2px solid black;
+}
+.img-box img {
+  border-radius: 50%;
 }
 .account-body .buildings-container {
   color: #1b1b1b;
