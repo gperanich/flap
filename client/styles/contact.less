@@ -221,22 +221,29 @@
                 letter-spacing: 1px;
             }
         }
+
+        @media (max-width: 991px) {
+            text-align: center;
+        }
     }
 }
-@import url(https://fonts.googleapis.com/css?family=Quicksand:400,300);
-body{
-    font-family: 'Quicksand', sans-serif;
-}
+
 .team{
     padding:75px 0;
     padding-bottom: 40px;
+
+    p {
+        font-family: 'Share Tech Mono', monospace;
+    }
 }
 h6.description{
 	font-weight: bold;
 	letter-spacing: 2px;
-	color: #999;
-	border-bottom: 1px solid rgba(0, 0, 0,0.1);
+	color: #1b1b1b;
+	border-bottom: 1px solid #1b1b1b;
 	padding-bottom: 5px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 27px;
 }
 .profile{
 	margin-top: 25px;
@@ -245,11 +252,13 @@ h6.description{
 	font-weight: normal;
 	font-size: 20px;
 	margin:10px 0 0 0;
+    font-family: 'Share Tech Mono', monospace;
 }
 .profile h2{
 	font-size: 14px;
 	font-weight: lighter;
 	margin-top: 5px;
+    font-family: 'Share Tech Mono', monospace;
 }
 .profile .img-box{
 	opacity: 1;
@@ -327,5 +336,6 @@ i.red{
 iframe {
     -webkit-filter: grayscale(100%); 
     filter: grayscale(100%);
+    border: 2px solid black;
 }
 
